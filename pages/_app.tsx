@@ -1,4 +1,8 @@
-import Head from 'next/head'
+import Head from 'next/head';
+
+import './global.css';
+
+import { wrapper } from '../src/store/store';
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -14,7 +18,7 @@ const App = ({ Component, pageProps }) => {
       </Head>
       <Component {...pageProps} />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default wrapper.withRedux(App);
