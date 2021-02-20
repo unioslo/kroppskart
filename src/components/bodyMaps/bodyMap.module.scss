@@ -8,16 +8,25 @@
 
   svg a.selected polygon {
     fill: url(#test);
+    opacity: 0.5;
   }
 
   svg a {
-    &:hover {
-      box-shadow: 0 0 0 1px solid blue;
+    &:focus {
+      outline: 0;
+      polygon {
+        stroke: #5e9ed6;
+        stroke-width: 2.5;
+      }
     }
     polygon {
-      &:hover {
+      &:hover,
+      &:focus {
         opacity: 1;
         fill: url(#test);
+        stroke-width: 2.5;
+        stroke: #5e9ed6;
+        stroke-opacity: 1;
       }
     }
   }
