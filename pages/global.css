@@ -20,3 +20,14 @@ input[type='reset'] {
 button::-moz-focus-inner {
   border: 0;
 }
+
+.container {
+  height: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,33 @@
+.bodyMapContainer {
+  position: relative;
+
+  svg a polygon {
+    fill: transparent;
+    cursor: pointer;
+  }
+
+  svg a.selected polygon {
+    fill: url(#test);
+  }
+
+  svg a {
+    &:hover {
+      box-shadow: 0 0 0 1px solid blue;
+    }
+    polygon {
+      &:hover {
+        opacity: 1;
+        fill: url(#test);
+      }
+    }
+  }
+}
+
+.SVGContainer {
+  position: absolute;
+  z-index: 1;
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}

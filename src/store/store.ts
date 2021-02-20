@@ -3,8 +3,12 @@ import { combineReducers, createStore } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
 
 import appStateReducer from './appStateReducer';
+import bodyMapReducer from './bodyMapReducer';
 
-const rootReducer = combineReducers({ app: appStateReducer });
+const rootReducer = combineReducers({
+  app: appStateReducer,
+  body: bodyMapReducer,
+});
 
 export type rootState = ReturnType<typeof rootReducer>;
 

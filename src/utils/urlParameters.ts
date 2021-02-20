@@ -13,7 +13,7 @@ export const useUrlParameters = () => {
   const query = router.query;
 
   React.useEffect(() => {
-    if (parameters && Object.values(parameters).length === 0) {
+    if (!parameters || (parameters && Object.values(parameters).length === 0)) {
       dispatch(addParameters(query));
     }
   }, [parameters]);
