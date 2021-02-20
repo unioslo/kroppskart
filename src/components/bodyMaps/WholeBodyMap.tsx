@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from './bodyMap.module.scss';
 
 import { rootState } from '../../store/store';
-import { wholeBodyMapKeys, wholeBodyMapParts } from './bodyMapPoints';
+import { bodyMaps, wholeBodyMapKeys, wholeBodyMapParts } from './bodyMapPoints';
 import SVGContainer, { ClickablePolygon } from './SVGContainer';
 import {
   initBodyMapValues,
@@ -13,15 +13,19 @@ import {
   unselectAllAreas,
 } from '../../store/bodyMapReducer';
 
+const bodyMap = 'wholeBody';
+const wholeBodyMap = bodyMaps[bodyMap];
+
 const WholeBodyMap = () => {
   const sex = useSelector((state: rootState) => state.app.sex);
+  const { width, height, image } = wholeBodyMap;
   const dispatch = useDispatch();
   React.useEffect(() => {
-    dispatch(initBodyMapValues('wholeBody', wholeBodyMapKeys));
+    dispatch(initBodyMapValues(bodyMap, wholeBodyMapKeys));
   }, []);
   return (
     <div className={style.bodyMapContainer}>
-      <SVGContainer width={576} height={526}>
+      <SVGContainer width={width} height={height}>
         {Object.entries(wholeBodyMapParts).map(([key, value]) => {
           return (
             <ClickablePolygon
@@ -35,10 +39,9 @@ const WholeBodyMap = () => {
         })}
       </SVGContainer>
       <Image
-        src={sex === 'male' ? '/wholeBodyMale.png' : '/wholeBodyFemale.png'}
-        width={576}
-        height={526}
-        useMap="#map"
+        src={image[sex ?? 'male']}
+        width={width}
+        height={height}
         id="bodies"
       />
       <button onClick={() => dispatch(selectAllAreas('wholeBody'))}>

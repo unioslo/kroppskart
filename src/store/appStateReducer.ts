@@ -7,10 +7,13 @@ export type AppState = {
   sex: 'male' | 'female';
 };
 
-const appStateReducer = (state = {} as AppState, action: UrlParamActions) => {
+const appStateReducer = (
+  state = { sex: 'male', urlParameters: {} } as AppState,
+  action: AppStateActions
+): AppState => {
   switch (action.type) {
     case HYDRATE:
-      return action.payload;
+      return { ...action.payload.app };
     case ActionTypes.ADD_PARAMETERS:
       return { ...state, urlParameters: action.payload };
     case ActionTypes.SET_SEX:
@@ -26,7 +29,7 @@ enum ActionTypes {
   HYDRATE = '',
 }
 
-export type UrlParamActions = AddParameters | SetSex | HydrateAction;
+export type AppStateActions = AddParameters | SetSex | HydrateAction<AppState>;
 
 export const setSex = (sex: 'male' | 'female') =>
   ({ type: ActionTypes.SET_SEX, payload: sex } as const);

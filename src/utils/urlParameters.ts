@@ -7,7 +7,7 @@ import { rootState } from '../store/store';
 
 export const useUrlParameters = () => {
   const router = useRouter();
-  const parameters = useSelector((state: rootState) => state.app.parameters);
+  const parameters = useSelector((state: rootState) => state.app.urlParameters);
   const dispatch = useDispatch();
 
   const query = router.query;

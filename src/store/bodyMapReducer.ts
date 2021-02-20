@@ -1,11 +1,11 @@
 import { HYDRATE } from 'next-redux-wrapper';
 import { HydrateAction } from './hydrate';
 
-export type AppState = {
+export type BodyMapState = {
   [key: string]: Record<string, Record<string, boolean>>;
 };
 
-const bodyMapReducer = (state = {} as AppState, action: BodyMapActions) => {
+const bodyMapReducer = (state = {} as BodyMapState, action: BodyMapActions) => {
   switch (action.type) {
     case HYDRATE:
       return action.payload;
@@ -59,7 +59,7 @@ type BodyMapActions =
   | InitBodyMapValues
   | SelectAllAreas
   | UnselectAllAreas
-  | HydrateAction;
+  | HydrateAction<BodyMapState>;
 
 export const initBodyMapValues = (bodyMap: string, keys: string[]) =>
   ({
