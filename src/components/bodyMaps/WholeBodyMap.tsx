@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from './bodyMap.module.scss';
 
 import { rootState } from '../../store/store';
-import { bodyMaps, wholeBodyMapKeys, wholeBodyMapParts } from './bodyMapPoints';
+import { bodyMaps, wholeBody } from './mapData';
 import SVGContainer, { ClickablePolygon } from './SVGContainer';
 import {
   initBodyMapValues,
@@ -14,6 +14,7 @@ import {
 } from '../../store/bodyMapReducer';
 
 const bodyMap = 'wholeBody';
+const { wholeBodyMapParts, wholeBodyMapKeys } = wholeBody;
 const wholeBodyMap = bodyMaps[bodyMap];
 
 const WholeBodyMap = () => {

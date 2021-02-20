@@ -1,5 +1,5 @@
-import WholeBodyMap from '../src/components/bodyMaps/WholeBodyMap';
-import { Alert } from '../src/components/ui';
+import WholeBodyMap from '../../src/components/bodyMaps/WholeBodyMap';
+import { Alert } from '../../src/components/ui';
 
 const Survey = () => {
   return (

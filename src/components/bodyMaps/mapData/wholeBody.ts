@@ -155,11 +155,12 @@ export const wholeBodyMapParts = {
 
 export const wholeBodyMapKeys = Object.keys(wholeBodyMapParts);
 
-export const bodyMaps = {
-  wholeBody: {
-    parts: wholeBodyMapParts,
-    width: 576,
-    height: 526,
-    image: { male: '/wholeBodyMale.png', female: '/wholeBodyFemale.png' },
+export default {
+  parts: wholeBodyMapParts,
+  width: 576,
+  height: 526,
+  image: {
+    male: '/images/wholeBodyMale.png',
+    female: '/images/wholeBodyFemale.png',
   },
 };
