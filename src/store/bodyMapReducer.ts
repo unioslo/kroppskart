@@ -1,19 +1,45 @@
 import { HYDRATE } from 'next-redux-wrapper';
-import { ParsedUrlQuery } from 'querystring';
 import { HydrateAction } from './hydrate';
 
 export type AppState = {
-  urlParameters: ParsedUrlQuery;
-  sex: 'male' | 'female';
+  [key: string]: Record<string, Record<string, boolean>>;
 };
 
 const bodyMapReducer = (state = {} as AppState, action: BodyMapActions) => {
   switch (action.type) {
     case HYDRATE:
       return action.payload;
-    case ActionTypes.ADD_BODY_MAP_VALUES: {
+    case ActionTypes.INIT_BODY_MAP_VALUES: {
+      const initializedBodyMap = action.payload.keys.reduce((acc, val) => {
+        acc[val] = false;
+        return acc;
+      }, {});
+      return {
+        ...state,
+        [action.payload.bodyMap]: {
+          ...initializedBodyMap,
+          ...state[action.payload.bodyMap],
+        },
+      };
+    }
+    case ActionTypes.CHANGE_BODY_MAP_VALUE: {
       const { bodyMap, id, value } = action.payload;
       return { ...state, [bodyMap]: { ...state[bodyMap], [id]: value } };
+    }
+    case ActionTypes.SELECT_ALL_AREAS: {
+      const map = state[action.payload];
+      const allEntriesToTrue = Object.entries(map).map(([key]) => [key, true]);
+      const allSelected = Object.fromEntries(allEntriesToTrue);
+      return { ...state, [action.payload]: allSelected };
+    }
+    case ActionTypes.UNSELECT_ALL_AREAS: {
+      const map = state[action.payload];
+      const allEntriesToFalse = Object.entries(map).map(([key]) => [
+        key,
+        false,
+      ]);
+      const allUnselected = Object.fromEntries(allEntriesToFalse);
+      return { ...state, [action.payload]: allUnselected };
     }
     default:
       return state;
@@ -21,17 +47,44 @@ const bodyMapReducer = (state = {} as AppState, action: BodyMapActions) => {
 };
 
 enum ActionTypes {
-  ADD_BODY_MAP_VALUES = 'ADD_BODY_MAP_VALUES',
+  INIT_BODY_MAP_VALUES = 'INIT_BODY_MAP_VALUES',
+  CHANGE_BODY_MAP_VALUE = 'CHANGE_BODY_MAP_VALUES',
+  SELECT_ALL_AREAS = 'SELECT_ALL_AREAS',
+  UNSELECT_ALL_AREAS = 'UNSELECT_ALL_AREAS',
   HYDRATE = '',
 }
 
-type BodyMapActions = AddBodyMapValues | HydrateAction;
+type BodyMapActions =
+  | ChangeBodyMapValues
+  | InitBodyMapValues
+  | SelectAllAreas
+  | UnselectAllAreas
+  | HydrateAction;
 
-export const addBodyMapValues = (bodyMap: string, id: string, value: boolean) =>
+export const initBodyMapValues = (bodyMap: string, keys: string[]) =>
   ({
-    type: ActionTypes.ADD_BODY_MAP_VALUES,
+    type: ActionTypes.INIT_BODY_MAP_VALUES,
+    payload: { bodyMap, keys },
+  } as const);
+type InitBodyMapValues = ReturnType<typeof initBodyMapValues>;
+
+export const changeBodyMapValue = (
+  bodyMap: string,
+  id: string,
+  value: boolean
+) =>
+  ({
+    type: ActionTypes.CHANGE_BODY_MAP_VALUE,
     payload: { bodyMap, id, value },
   } as const);
-type AddBodyMapValues = ReturnType<typeof addBodyMapValues>;
+type ChangeBodyMapValues = ReturnType<typeof changeBodyMapValue>;
+
+export const selectAllAreas = (bodyMap: string) =>
+  ({ type: ActionTypes.SELECT_ALL_AREAS, payload: bodyMap } as const);
+type SelectAllAreas = ReturnType<typeof selectAllAreas>;
+
+export const unselectAllAreas = (bodyMap: string) =>
+  ({ type: ActionTypes.UNSELECT_ALL_AREAS, payload: bodyMap } as const);
+type UnselectAllAreas = ReturnType<typeof unselectAllAreas>;
 
 export default bodyMapReducer;

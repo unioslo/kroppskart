@@ -1,46 +1,35 @@
 import React from 'react';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
-import cn from 'classnames';
 
 import style from './bodyMap.module.scss';
 
 import { rootState } from '../../store/store';
-import { addBodyMapValues } from '../../store/bodyMapReducer';
-import { wholeBodyMapParts } from './bodyMapPoints';
-import SVGContainer from './SVGContainer';
-
-const ClickablePolygon = ({ id, bodyMap, points }) => {
-  const selected = useSelector((state: rootState) => state.body[bodyMap]?.[id]);
-  const dispatch = useDispatch();
-  const onClick = () => {
-    dispatch(addBodyMapValues(bodyMap, id, !selected));
-  };
-  return (
-    <a onClick={onClick} className={cn(selected && style.selected)}>
-      <polygon id={id} points={points} />
-    </a>
-  );
-};
+import { wholeBodyMapKeys, wholeBodyMapParts } from './bodyMapPoints';
+import SVGContainer, { ClickablePolygon } from './SVGContainer';
+import {
+  initBodyMapValues,
+  selectAllAreas,
+  unselectAllAreas,
+} from '../../store/bodyMapReducer';
 
 const WholeBodyMap = () => {
   const sex = useSelector((state: rootState) => state.app.sex);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(initBodyMapValues('wholeBody', wholeBodyMapKeys));
+  }, []);
   return (
     <div className={style.bodyMapContainer}>
       <SVGContainer width={576} height={526}>
         {Object.entries(wholeBodyMapParts).map(([key, value]) => {
-          if (
-            (key === 'crotch-female' && sex !== 'female') ||
-            (key === 'crotch-male' && sex !== 'male')
-          ) {
-            return null;
-          }
           return (
             <ClickablePolygon
               key={key}
               id={key}
               bodyMap="wholeBody"
-              points={value}
+              points={value.points}
+              alt={value.alt}
             />
           );
         })}
@@ -52,6 +41,12 @@ const WholeBodyMap = () => {
         useMap="#map"
         id="bodies"
       />
+      <button onClick={() => dispatch(selectAllAreas('wholeBody'))}>
+        Velg alle
+      </button>
+      <button onClick={() => dispatch(unselectAllAreas('wholeBody'))}>
+        Fjern alle
+      </button>
     </div>
   );
 };

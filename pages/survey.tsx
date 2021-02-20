@@ -3,7 +3,7 @@ import { Alert } from '../src/components/ui';
 
 const Survey = () => {
   return (
-    <div className="container">
+    <div className="container flex">
       <Alert>
         <p>
           Klikk på alle områder hvor du har hatt smerte i løpet av de siste 4
