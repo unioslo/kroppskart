@@ -13,7 +13,7 @@ For å bygge: npm run build og npm run start
 4. Kjør kodeblokken under i nettleser og kopier objektet for bruk i dette repoet.
 
 ```
-let areas = document.getElementByTagName('area');
+let areas = document.getElementsByTagName('area');
 Object.values(areas).reduce((acc, area) => {
   acc[area.id] = {
       shape: area.shape,
