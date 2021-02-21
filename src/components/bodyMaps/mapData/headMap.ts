@@ -1,4 +1,6 @@
-export const headMapParts = {
+import { MapType } from './mapType';
+
+export const headMapParts: MapType = {
   'right-back-head': {
     shape: 'poly',
     points:
@@ -379,6 +381,7 @@ export const headMapParts = {
     373,598,376,598,379,596,380',
     name: 'lips',
     alt: 'Lepper-1',
+    linkedWith: 'lips2',
   },
   lips2: {
     shape: 'poly',
@@ -403,6 +406,7 @@ export const headMapParts = {
     370,572,366,572,366,572,366,575,366,579,366,582,367,585,367,585,367',
     name: 'lips',
     alt: 'Lepper-2',
+    linkedWith: 'lips1',
   },
   'mouth-cavity': {
     shape: 'poly',

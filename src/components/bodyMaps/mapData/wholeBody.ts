@@ -1,10 +1,4 @@
-type MapType = {
-  [key: string]: {
-    points: string;
-    alt: string;
-    linkedWith?: string;
-  };
-};
+import { MapType } from './mapType';
 
 export const wholeBodyMapParts: MapType = {
   head: {

@@ -26,16 +26,11 @@ const HeadMap = () => {
     <div className={style.bodyMapContainer}>
       <SVGContainer width={width} height={height}>
         {Object.entries(headMapParts).map(([key, value]) => {
-          let linkedWith;
-          if (key === 'lips1' || key === 'lips2') {
-            linkedWith = key === 'lips1' ? 'lips2' : 'lips1';
-          }
-
           return (
             <ClickablePolygon
               key={key}
               id={key}
-              linkedWith={linkedWith}
+              linkedWith={value?.linkedWith}
               bodyMap={headJawMouthMap}
               points={value.points}
               alt={value.alt}
