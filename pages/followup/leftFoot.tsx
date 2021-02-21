@@ -1,11 +1,9 @@
 import MapContainer from '../../src/components/bodyMaps/MapContainer';
 import { leftFoot } from '../../src/components/bodyMaps/mapData';
-import { MessageBoxBodyMap } from '../../src/components/messageBoxes';
 
 export default function LeftFoot() {
   return (
     <div className="container">
-      <MessageBoxBodyMap />
       <MapContainer map={leftFoot} />
     </div>
   );
