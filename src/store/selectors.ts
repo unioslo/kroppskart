@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { redundantBodyMapKeys } from '../utils/constants';
 import { rootState } from './store';
 
 export const useParamSelector = (paramName: string) => {
@@ -32,4 +33,20 @@ export const usePossiblyGenderedParamSelector = ({
   } else {
     return params[generalParam];
   }
+};
+
+export const useFilteredBodyMapValues = (mapName: string) => {
+  const map = useSelector((state: rootState) => state.body[mapName]);
+  const redundantKeys = redundantBodyMapKeys[mapName];
+
+  let filteredMap = map;
+
+  if (map && redundantKeys) {
+    const filteredEntries = Object.entries(map).filter(
+      ([key, value]) => !redundantKeys.includes(key) && value
+    );
+    filteredMap = Object.fromEntries(filteredEntries);
+  }
+
+  return filteredMap;
 };

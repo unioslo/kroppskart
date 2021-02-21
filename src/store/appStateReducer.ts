@@ -8,7 +8,7 @@ export type AppState = {
 };
 
 const appStateReducer = (
-  state = { sex: 'male', urlParameters: {} } as AppState,
+  state = { sex: 'female', urlParameters: {} } as AppState,
   action: AppStateActions
 ): AppState => {
   switch (action.type) {

@@ -356,7 +356,7 @@ export const headMapParts: MapParts = {
   //   alt: 'Lepper',
   // },
   // In the meantime, define two overlapping regions, not pretty but functional
-  lips1: {
+  lips: {
     shape: 'poly',
     points:
       '596,380,595,381,591,381,587,381,582,381,578,380,576,\
@@ -406,7 +406,7 @@ export const headMapParts: MapParts = {
     370,572,366,572,366,572,366,575,366,579,366,582,367,585,367,585,367',
     name: 'lips',
     alt: 'Lepper-2',
-    linkedWith: 'lips1',
+    linkedWith: 'lips',
   },
   'mouth-cavity': {
     shape: 'poly',

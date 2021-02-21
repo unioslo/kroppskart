@@ -13,7 +13,7 @@ import { default as upperBodyFemale } from './upperBodyFemaleMap';
 import { default as upperBodyMale } from './upperBodyMaleMap';
 
 const upperBody = { male: upperBodyMale, female: upperBodyFemale };
-const genitals = { male: genitalsMale, female: genitalsMale };
+const genitals = { male: genitalsMale, female: genitalsFemale };
 
 export {
   wholeBody,

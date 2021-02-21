@@ -35,7 +35,7 @@ export const leftFootMapParts = {
     alt: 'left-knee-front',
     name: 'left-knee-front',
   },
-  'left-shin-right-front': {
+  'left-shin-right': {
     points:
       '134,295,137,295,140,293,143,292,146,290,149,289,152,\
     287,152,287,152,288,151,289,151,291,150,293,150,295,149,296,149,298,149,300,148,\
@@ -51,10 +51,10 @@ export const leftFootMapParts = {
     305,112,304,112,304,112,304,112,300,113,296,113,291,113,287,113,287,116,289,119,\
     291,123,292,127,294,130,295,134,295',
     alt: 'left-shin-right-front',
-    name: 'left-shin-right-front',
+    name: 'left-shin-right',
     linkedWith: 'left-shin-right-back',
   },
-  'left-shin-left-front': {
+  'left-shin-left': {
     points:
       '159,304,159,304,159,307,160,310,160,312,160,315,160,\
     315,160,315,160,317,159,320,159,323,159,327,158,331,158,335,157,339,157,342,156,\
@@ -71,7 +71,7 @@ export const leftFootMapParts = {
     280,157,280,157,280,157,282,157,284,158,286,158,289,158,292,158,295,159,298,159,\
     300,159,303,159,304,159,304',
     alt: 'left-shin-left-front',
-    name: 'left-shin-left-front',
+    name: 'left-shin-left',
     linkedWith: 'left-shin-left-back',
   },
   'left-foot-wrist': {
