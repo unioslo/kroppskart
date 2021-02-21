@@ -7,7 +7,7 @@ export default function UpperBody() {
   const sex = useSelector((state: rootState) => state.app.sex);
   return (
     <div className="container">
-      <MapContainer map={upperBody[sex]} />
+      <MapContainer followUp={true} map={upperBody[sex]} />
     </div>
   );
 }

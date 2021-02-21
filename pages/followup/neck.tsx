@@ -4,7 +4,7 @@ import { neck } from '../../src/components/bodyMaps/mapData';
 export default function Neck() {
   return (
     <div className="container">
-      <MapContainer map={neck} />
+      <MapContainer followUp={true} map={neck} />
     </div>
   );
 }

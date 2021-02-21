@@ -4,7 +4,7 @@ import { rightArm } from '../../src/components/bodyMaps/mapData';
 export default function RightArm() {
   return (
     <div className="container">
-      <MapContainer map={rightArm} />
+      <MapContainer followUp={true} map={rightArm} />
     </div>
   );
 }

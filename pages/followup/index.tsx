@@ -4,7 +4,7 @@ import { wholeBody } from '../../src/components/bodyMaps/mapData';
 const Survey = () => {
   return (
     <div className="container flex">
-      <MapContainer map={wholeBody} />
+      <MapContainer followUp={true} map={wholeBody} />
     </div>
   );
 };

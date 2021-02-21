@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import cn from 'classnames';
 
 import style from './bodyMap.module.scss';
 import { MapType } from './mapData/mapType';
@@ -12,7 +13,13 @@ import {
   unselectAllAreas,
 } from '../../store/bodyMapReducer';
 
-const MapContainer = ({ map }: { map: MapType }) => {
+const MapContainer = ({
+  map,
+  followUp,
+}: {
+  map: MapType;
+  followUp?: boolean;
+}) => {
   const sex = useSelector((state: rootState) => state.app.sex);
   const dispatch = useDispatch();
   const { width, height, image, parts } = map;
@@ -20,7 +27,12 @@ const MapContainer = ({ map }: { map: MapType }) => {
     dispatch(initBodyMapValues(map.name, map.keys));
   }, []);
   return (
-    <div className={style.bodyMapContainer}>
+    <div
+      className={cn(
+        style.bodyMapContainer,
+        followUp && style.disableInteraction
+      )}
+    >
       <SVGContainer width={width} height={height}>
         {Object.entries(parts).map(([key, value]) => (
           <ClickablePolygon
@@ -30,6 +42,7 @@ const MapContainer = ({ map }: { map: MapType }) => {
             bodyMap={map.name}
             points={value.points}
             alt={value.alt}
+            followUp={followUp}
           />
         ))}
       </SVGContainer>
@@ -40,12 +53,16 @@ const MapContainer = ({ map }: { map: MapType }) => {
         id={map.name}
         objectFit="cover"
       />
-      <button onClick={() => dispatch(selectAllAreas(map.name))}>
-        Velg alle
-      </button>
-      <button onClick={() => dispatch(unselectAllAreas(map.name))}>
-        Fjern alle
-      </button>
+      {!followUp && (
+        <>
+          <button onClick={() => dispatch(selectAllAreas(map.name))}>
+            Velg alle
+          </button>
+          <button onClick={() => dispatch(unselectAllAreas(map.name))}>
+            Fjern alle
+          </button>
+        </>
+      )}
     </div>
   );
 };

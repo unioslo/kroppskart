@@ -52,3 +52,7 @@
     height: auto;
   }
 }
+
+.disableInteraction {
+  pointer-events: none;
+}

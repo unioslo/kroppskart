@@ -7,7 +7,7 @@ export default function Genitals() {
   const sex = useSelector((state: rootState) => state.app.sex);
   return (
     <div className="container">
-      <MapContainer map={genitals[sex]} />
+      <MapContainer followUp={true} map={genitals[sex]} />
     </div>
   );
 }

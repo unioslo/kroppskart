@@ -56,7 +56,14 @@ const createMouseLeaveHandler = (linkedWith: string | string[]) => () => {
   }
 };
 
-export const ClickablePolygon = ({ id, bodyMap, points, alt, linkedWith }) => {
+export const ClickablePolygon = ({
+  id,
+  bodyMap,
+  points,
+  alt,
+  linkedWith,
+  followUp,
+}) => {
   const selected = useSelector((state: rootState) => state.body[bodyMap]?.[id]);
   const dispatch = useDispatch();
   const ref = React.useRef();
@@ -80,7 +87,7 @@ export const ClickablePolygon = ({ id, bodyMap, points, alt, linkedWith }) => {
           onClick();
         }
       }}
-      tabIndex={0}
+      tabIndex={followUp ? null : 0}
       ref={ref}
       onMouseEnter={createMouseEnterHandler(linkedWith)}
       onMouseLeave={createMouseLeaveHandler(linkedWith)}
