@@ -1,6 +1,6 @@
-import { MapType } from './mapType';
+import { MapParts } from './mapType';
 
-export const headMapParts: MapType = {
+export const headMapParts: MapParts = {
   'right-back-head': {
     shape: 'poly',
     points:
@@ -485,4 +485,5 @@ export default {
   width: 702,
   height: 605,
   image: '/images/headJawMouth.png',
+  name: 'headJawMouth',
 };
