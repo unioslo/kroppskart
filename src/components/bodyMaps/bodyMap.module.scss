@@ -1,3 +1,14 @@
+.bodyMapContainer svg .hover {
+  outline: 0;
+  polygon {
+    opacity: 1;
+    fill: url(#test);
+    stroke-width: 2.5;
+    stroke: #5e9ed6;
+    stroke-opacity: 1;
+  }
+}
+
 .bodyMapContainer {
   position: relative;
 

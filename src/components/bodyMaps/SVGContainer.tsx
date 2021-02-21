@@ -17,15 +17,15 @@ const SVGContainer = ({ width, height, children }) => (
         <pattern
           id="test"
           patternUnits="userSpaceOnUse"
-          width="600"
-          height="600"
+          width="700"
+          height="700"
         >
           <image
             href="/images/selectionPattern.png"
             x="0"
             y="0"
-            width="600"
-            height="600"
+            width="700"
+            height="700"
           />
         </pattern>
       </defs>
@@ -34,10 +34,14 @@ const SVGContainer = ({ width, height, children }) => (
   </div>
 );
 
-export const ClickablePolygon = ({ id, bodyMap, points, alt }) => {
+export const ClickablePolygon = ({ id, bodyMap, points, alt, linkedWith }) => {
   const selected = useSelector((state: rootState) => state.body[bodyMap]?.[id]);
   const dispatch = useDispatch();
+  const ref = React.useRef();
   const onClick = () => {
+    if (linkedWith) {
+      dispatch(changeBodyMapValue(bodyMap, linkedWith, !selected));
+    }
     dispatch(changeBodyMapValue(bodyMap, id, !selected));
   };
   return (
@@ -49,6 +53,21 @@ export const ClickablePolygon = ({ id, bodyMap, points, alt }) => {
         }
       }}
       tabIndex={0}
+      ref={ref}
+      onMouseEnter={() => {
+        if (linkedWith) {
+          document
+            .getElementById(linkedWith)
+            .parentElement.classList.add(style.hover);
+        }
+      }}
+      onMouseLeave={() => {
+        if (linkedWith) {
+          document
+            .getElementById(linkedWith)
+            .parentElement.classList.remove(style.hover);
+        }
+      }}
       className={cn(selected && style.selected)}
     >
       <figcaption>{alt}</figcaption>

@@ -33,6 +33,7 @@ const WholeBodyMap = () => {
               key={key}
               id={key}
               bodyMap="wholeBody"
+              linkedWith={value?.linkedWith}
               points={value.points}
               alt={value.alt}
             />
