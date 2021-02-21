@@ -9,6 +9,8 @@ import * as leftFoot from './leftFootMap';
 import * as rightFoot from './rightFootMap';
 import * as genitalsMale from './genitalsMaleMap';
 import * as genitalsFemale from './genitalsFemaleMap';
+import * as upperBodyFemale from './upperBodyFemaleMap';
+import * as upperBodyMale from './upperBodyMaleMap';
 
 const bodyMaps = {
   wholeBody: wholeBody.default,
@@ -21,6 +23,7 @@ const bodyMaps = {
   rightFoot: rightFoot.default,
   leftFoot: leftFoot.default,
   genitals: { male: genitalsMale.default, female: genitalsFemale.default },
+  upperBody: { male: upperBodyMale.default, female: upperBodyFemale.default },
 };
 
 export {
@@ -35,6 +38,8 @@ export {
   leftFoot,
   genitalsFemale,
   genitalsMale,
+  upperBodyMale,
+  upperBodyFemale,
 };
 
 export default bodyMaps;

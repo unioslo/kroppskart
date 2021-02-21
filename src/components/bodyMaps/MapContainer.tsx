@@ -38,6 +38,7 @@ const MapContainer = ({ map }: { map: MapType }) => {
         width={width}
         height={height}
         id={map.name}
+        objectFit="cover"
       />
       <button onClick={() => dispatch(selectAllAreas(map.name))}>
         Velg alle
