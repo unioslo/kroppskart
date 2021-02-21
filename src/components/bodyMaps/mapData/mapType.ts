@@ -2,7 +2,7 @@ export type MapParts = {
   [key: string]: {
     points: string;
     alt: string;
-    linkedWith?: string;
+    linkedWith?: string | string[];
     shape?: string;
     name?: string;
   };
