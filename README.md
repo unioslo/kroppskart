@@ -1,27 +1,26 @@
-# NextJS Typescript Boilerplate
+# Kroppskart2
 
-Bootstrap a developer-friendly NextJS app configured with:
+Påbegynt overflytting fra gammel kodebase.
 
-- [Typescript](https://www.typescriptlang.org/)
-- Linting with [ESLint](https://eslint.org/)
-- Formatting with [Prettier](https://prettier.io/)
-- Linting, typechecking and formatting on by default using [`husky`](https://github.com/typicode/husky) for commit hooks
-- Testing with [Jest](https://jestjs.io/) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro)
+For å kjøre lokalt: npm run dev
+For å bygge: npm run build og npm run start
 
-## Deploy your own
+## Overføring av kroppskart fra gammel kode:
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+1. Kopier innhold i gammel map-fil til en tom fil
+2. Fjern komma mellom area-tagger, bytt "name=" til "id="
+3. Kopier inn i HTML-dokument
+4. Kjør kodeblokken under i nettleser og kopier objektet for bruk i dette repoet.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-eslint-jest&project-name=with-typescript-eslint-jest&repository-name=with-typescript-eslint-jest)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-typescript-eslint-jest with-typescript-eslint-jest-app
-# or
-yarn create next-app --example with-typescript-eslint-jest with-typescript-eslint-jest-app
 ```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+let areas = document.getElementByTagName('area');
+Object.values(areas).reduce((acc, area) => {
+  acc[area.id] = {
+      shape: area.shape,
+      points: area.coords,
+      alt: area.alt,
+      name: area.id,
+  };
+  return acc;
+}, {});
+```
