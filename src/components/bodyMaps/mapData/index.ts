@@ -4,6 +4,9 @@ import * as back from './backMap';
 import * as leftArm from './leftArmMap';
 import * as rightArm from './rightArmMap';
 import * as neck from './neckMap';
+import * as abdomen from './abdomenMap';
+import * as leftFoot from './leftFootMap';
+import * as rightFoot from './rightFootMap';
 
 const bodyMaps = {
   wholeBody: wholeBody.default,
@@ -12,8 +15,21 @@ const bodyMaps = {
   leftArm: leftArm.default,
   rightArm: rightArm.default,
   neck: neck.default,
+  abdomen: abdomen.default,
+  rightFoot: rightFoot.default,
+  leftFoot: leftFoot.default,
 };
 
-export { wholeBody, head, bodyMaps, back, leftArm, rightArm, neck };
+export {
+  wholeBody,
+  head,
+  back,
+  leftArm,
+  rightArm,
+  neck,
+  abdomen,
+  rightFoot,
+  leftFoot,
+};
 
 export default bodyMaps;

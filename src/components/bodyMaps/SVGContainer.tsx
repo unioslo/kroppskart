@@ -34,13 +34,41 @@ const SVGContainer = ({ width, height, children }) => (
   </div>
 );
 
+const createMouseEnterHandler = (linkedWith: string | string[]) => () => {
+  const addHover = (id: string) =>
+    document.getElementById(id).parentElement.classList.add(style.hover);
+
+  if (typeof linkedWith === 'string') {
+    addHover(linkedWith);
+  } else if (linkedWith) {
+    linkedWith.map((id) => addHover(id));
+  }
+};
+
+const createMouseLeaveHandler = (linkedWith: string | string[]) => () => {
+  const removeHover = (id: string) =>
+    document.getElementById(id).parentElement.classList.remove(style.hover);
+
+  if (typeof linkedWith === 'string') {
+    removeHover(linkedWith);
+  } else if (linkedWith) {
+    linkedWith.map((id) => removeHover(id));
+  }
+};
+
 export const ClickablePolygon = ({ id, bodyMap, points, alt, linkedWith }) => {
   const selected = useSelector((state: rootState) => state.body[bodyMap]?.[id]);
   const dispatch = useDispatch();
   const ref = React.useRef();
   const onClick = () => {
     if (linkedWith) {
-      dispatch(changeBodyMapValue(bodyMap, linkedWith, !selected));
+      if (typeof linkedWith === 'string') {
+        dispatch(changeBodyMapValue(bodyMap, linkedWith, !selected));
+      } else if (linkedWith) {
+        linkedWith.map((id) =>
+          dispatch(changeBodyMapValue(bodyMap, id, !selected))
+        );
+      }
     }
     dispatch(changeBodyMapValue(bodyMap, id, !selected));
   };
@@ -54,20 +82,8 @@ export const ClickablePolygon = ({ id, bodyMap, points, alt, linkedWith }) => {
       }}
       tabIndex={0}
       ref={ref}
-      onMouseEnter={() => {
-        if (linkedWith) {
-          document
-            .getElementById(linkedWith)
-            .parentElement.classList.add(style.hover);
-        }
-      }}
-      onMouseLeave={() => {
-        if (linkedWith) {
-          document
-            .getElementById(linkedWith)
-            .parentElement.classList.remove(style.hover);
-        }
-      }}
+      onMouseEnter={createMouseEnterHandler(linkedWith)}
+      onMouseLeave={createMouseLeaveHandler(linkedWith)}
       className={cn(selected && style.selected)}
     >
       <figcaption>{alt}</figcaption>
