@@ -15,16 +15,18 @@ export default function Introduction() {
   return (
     <div className="container">
       <MessageBoxIntro />
-      <Link href={'/bodymap'}>
-        <Button onClick={setFemale} type="female">
-          Kvinnekropp
-        </Button>
-      </Link>
-      <Link href={'/bodymap'}>
-        <Button onClick={setMale} type="male">
-          Mannekropp
-        </Button>
-      </Link>
+      <div>
+        <Link href={'/bodymap'}>
+          <Button onClick={setFemale} type="female">
+            Kvinnekropp
+          </Button>
+        </Link>
+        <Link href={'/bodymap'}>
+          <Button onClick={setMale} type="male">
+            Mannekropp
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -17,6 +17,7 @@ const App = ({ Component, pageProps }) => {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <base href={config.basePath + '/'} />
+        <link rel="icon" href={'/kroppskart/favicon.ico'} />
       </Head>
       <Component {...pageProps} />
     </>

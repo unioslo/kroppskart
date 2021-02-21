@@ -15,4 +15,4 @@ export type rootState = ReturnType<typeof rootReducer>;
 const makeStore = (initialState = {}) =>
   createStore(rootReducer, initialState, devToolsEnhancer({}));
 
-export const wrapper = createWrapper(makeStore, { debug: true });
+export const wrapper = createWrapper(makeStore, { debug: false });
