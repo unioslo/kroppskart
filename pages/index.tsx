@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 
 import { setSex } from '../src/store/appStateReducer';
-import { Alert, Button } from '../src/components/ui';
+import { Button } from '../src/components/ui';
 import useUrlParameters from '../src/utils/urlParameters';
+import { MessageBoxIntro } from '../src/components/messageBoxes';
 
 export default function Introduction() {
   useUrlParameters();
@@ -13,19 +14,7 @@ export default function Introduction() {
   const setMale = () => dispatch(setSex('male'));
   return (
     <div className="container">
-      <Alert>
-        <p>
-          På de neste sidene spør vi om smerter du har hatt de siste 4 ukene.
-        </p>
-        <p>
-          Ta med alle typer smerter, både overfladiske og dype (i brystet,
-          munnen, magen, huden, muskler og ledd, kjønnsorganer, urinveier, med
-          flere).
-        </p>
-        <p>Ikke ta med forbigående, kortvarige smerter.</p>
-        <p>Kvinner skal ikke ta med menstruasjonssmerter.</p>
-      </Alert>
-      <Alert>Har du kvinnekropp eller mannekropp? (Trykk for å velge)</Alert>
+      <MessageBoxIntro />
       <Link href={'/bodymap'}>
         <Button onClick={setFemale} type="female">
           Kvinnekropp

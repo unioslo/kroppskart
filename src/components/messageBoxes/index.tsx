@@ -37,3 +37,18 @@ export const MessageBoxBodyMap = () => (
     <p></p>
   </Alert>
 );
+
+export const MessageBoxIntro = () => (
+  <>
+    <Alert>
+      <p>På de neste sidene spør vi om smerter du har hatt de siste 4 ukene.</p>
+      <p>
+        Ta med alle typer smerter, både overfladiske og dype (i brystet, munnen,
+        magen, huden, muskler og ledd, kjønnsorganer, urinveier, med flere).
+      </p>
+      <p>Ikke ta med forbigående, kortvarige smerter.</p>
+      <p>Kvinner skal ikke ta med menstruasjonssmerter.</p>
+    </Alert>
+    <Alert>Har du kvinnekropp eller mannekropp? (Trykk for å velge)</Alert>
+  </>
+);
