@@ -6,4 +6,5 @@ module.exports = {
       { source: '/.well-known/ready', destination: '/api/ready' },
     ];
   },
+  basePath: '/kroppskart',
 };

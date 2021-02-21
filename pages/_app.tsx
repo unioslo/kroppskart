@@ -4,6 +4,8 @@ import './global.css';
 
 import { wrapper } from '../src/store/store';
 
+const config = require('../next.config');
+
 const App = ({ Component, pageProps }) => {
   return (
     <>
@@ -14,6 +16,7 @@ const App = ({ Component, pageProps }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <base href={config.basePath + '/'} />
       </Head>
       <Component {...pageProps} />
     </>

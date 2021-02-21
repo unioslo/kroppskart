@@ -484,6 +484,7 @@ export default {
   parts: headMapParts,
   width: 702,
   height: 605,
-  image: '/images/headJawMouth.png',
+  image: '/kroppskart/images/headJawMouth.png',
   name: 'headJawMouth',
+  keys: headMapKeys,
 };

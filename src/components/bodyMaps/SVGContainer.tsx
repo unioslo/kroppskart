@@ -21,7 +21,7 @@ const SVGContainer = ({ width, height, children }) => (
           height="700"
         >
           <image
-            href="/images/selectionPattern.png"
+            href="/kroppskart/images/selectionPattern.png"
             x="0"
             y="0"
             width="700"

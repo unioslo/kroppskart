@@ -172,8 +172,9 @@ export default {
   width: 576,
   height: 526,
   image: {
-    male: '/images/wholeBodyMale.png',
-    female: '/images/wholeBodyFemale.png',
+    male: '/kroppskart/images/wholeBodyMale.png',
+    female: '/kroppskart/images/wholeBodyFemale.png',
   },
   name: 'wholeBody',
+  keys: wholeBodyMapKeys,
 };

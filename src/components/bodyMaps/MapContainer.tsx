@@ -6,12 +6,19 @@ import { MapType } from './mapData/mapType';
 import SVGContainer, { ClickablePolygon } from './SVGContainer';
 import { useSelector, useDispatch } from 'react-redux';
 import { rootState } from '../../store/store';
-import { selectAllAreas, unselectAllAreas } from '../../store/bodyMapReducer';
+import {
+  initBodyMapValues,
+  selectAllAreas,
+  unselectAllAreas,
+} from '../../store/bodyMapReducer';
 
 const MapContainer = ({ map }: { map: MapType }) => {
   const sex = useSelector((state: rootState) => state.app.sex);
   const dispatch = useDispatch();
   const { width, height, image, parts } = map;
+  React.useEffect(() => {
+    dispatch(initBodyMapValues(map.name, map.keys));
+  }, []);
   return (
     <div className={style.bodyMapContainer}>
       <SVGContainer width={width} height={height}>

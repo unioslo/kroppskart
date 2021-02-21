@@ -14,4 +14,5 @@ export type MapType = {
   width: number;
   height: number;
   name: string;
+  keys: string[];
 };
