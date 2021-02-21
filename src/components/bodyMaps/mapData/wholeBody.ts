@@ -95,7 +95,7 @@ export const wholeBodyMapParts: MapParts = {
     alt: 'Venstre bein sett forfra',
     linkedWith: 'left-leg-back',
   },
-  gentials: {
+  genitals: {
     points: '248,359,248,445,326,445,326,359',
     alt: 'Kjønnsorganer',
   },

@@ -2,11 +2,22 @@ import Head from 'next/head';
 
 import './global.css';
 
-import { wrapper } from '../src/store/store';
+import React from 'react';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+
+import { rootState, wrapper } from '../src/store/store';
 
 const config = require('../next.config');
 
 const App = ({ Component, pageProps }) => {
+  const router = useRouter();
+  const initialized = useSelector((state: rootState) => state.app.initialized);
+  React.useEffect(() => {
+    if (router.pathname.includes('bodymap') && !initialized) {
+      router.replace('/');
+    }
+  });
   return (
     <>
       <Head>

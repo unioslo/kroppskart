@@ -4,18 +4,18 @@ import React from 'react';
 import { useFilteredBodyMapValues } from '../../store/selectors';
 import { Button } from '../ui';
 
-// const bodymapOrder = [
-//   'headJawMouth',
-//   'upperBody',
-//   'back',
-//   'abdomen',
-//   'leftArm',
-//   'rightArm',
-//   'neck',
-//   'rightFoot',
-//   'leftFoot',
-//   'genitals',
-// ];
+const bodymapOrder = [
+  'headJawMouth',
+  'upperBody',
+  'back',
+  'abdomen',
+  'leftArm',
+  'rightArm',
+  'neck',
+  'rightFoot',
+  'leftFoot',
+  'genitals',
+];
 
 const routingMap = {
   'left-arm': 'leftArm',
@@ -36,7 +36,8 @@ const mainPaths = { bodymap: '/bodymap', followup: '/followup' };
 
 const useFindRelevantRoutes = () => {
   const bodyAnswers = useFilteredBodyMapValues('wholeBody') ?? {};
-  const relevantRoutes = Object.keys(bodyAnswers).map((key) => routingMap[key]);
+  const keys = Object.keys(bodyAnswers).map((key) => routingMap[key]);
+  const relevantRoutes = bodymapOrder.filter((v) => keys.includes(v));
   return relevantRoutes;
 };
 
@@ -57,18 +58,14 @@ const Navigator = () => {
   const { pathname } = router;
   let nextPage;
   const relevantRoutes = useFindRelevantRoutes();
-  console.log('relevantRoutes', relevantRoutes);
   const bodymapRoutingOrder = getBodymapRoutingOrder(relevantRoutes);
-  console.log('bodymapRoutingOrder', bodymapRoutingOrder);
   const currentPage = getCurrentPage(pathname);
-  console.log('currentPage', currentPage);
   if (pathname === mainPaths.bodymap) {
     nextPage = bodymapRoutingOrder[1];
   } else if (pathname.startsWith(mainPaths.bodymap)) {
     const index = bodymapRoutingOrder.findIndex((v) => v.includes(currentPage));
     nextPage = bodymapRoutingOrder[index + 1];
   }
-  console.log(nextPage, 'nextPage');
   return (
     <div>
       <Link href={nextPage ?? ''}>

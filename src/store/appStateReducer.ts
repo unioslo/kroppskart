@@ -5,10 +5,11 @@ import { HydrateAction } from './hydrate';
 export type AppState = {
   urlParameters: ParsedUrlQuery;
   sex: 'male' | 'female';
+  initialized: boolean;
 };
 
 const appStateReducer = (
-  state = { sex: 'female', urlParameters: {} } as AppState,
+  state = { sex: 'female', urlParameters: {}, initialized: false } as AppState,
   action: AppStateActions
 ): AppState => {
   switch (action.type) {
@@ -17,7 +18,7 @@ const appStateReducer = (
     case ActionTypes.ADD_PARAMETERS:
       return { ...state, urlParameters: action.payload };
     case ActionTypes.SET_SEX:
-      return { ...state, sex: action.payload };
+      return { ...state, sex: action.payload, initialized: true };
     default:
       return state;
   }

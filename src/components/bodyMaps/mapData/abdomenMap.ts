@@ -50,7 +50,7 @@ export default {
   parts: abdomenMapParts,
   image: {
     male: '/kroppskart/images/abdomenMale.png',
-    female: '/kroppskart/images/abodmenFemale.png',
+    female: '/kroppskart/images/abdomenFemale.png',
   },
   name: 'abdomen',
   width: 404,
