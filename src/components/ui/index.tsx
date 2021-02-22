@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import Link from 'next/link';
 
 import style from './style.module.scss';
 
@@ -27,3 +28,41 @@ export const Button = React.forwardRef(
     </button>
   )
 );
+
+export const SelectionButtons = ({ onSelectAll, onUnselectAll }) => {
+  return (
+    <div className={style.selectionContainer}>
+      <div className={style.selectionButtons}>
+        <Button type="selectAll" onClick={onSelectAll}>
+          Velg alle
+        </Button>
+        <Button type="selectNone" onClick={onUnselectAll}>
+          Fjern alle
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export const NavigationButtons = ({
+  onNext,
+  onBack,
+  nextPage,
+}: {
+  onNext?: () => void;
+  onBack?: () => void;
+  nextPage?: string;
+}) => {
+  return (
+    <div className={style.navigationButtons}>
+      <Button type="prevButton" onClick={onBack}>
+        Tilbake
+      </Button>
+      <Link href={nextPage}>
+        <Button onClick={onNext ?? ''} type="nextButton">
+          Fortsett
+        </Button>
+      </Link>
+    </div>
+  );
+};

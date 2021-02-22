@@ -8,10 +8,7 @@ import { rootState } from '../../store/store';
 import style from './bodyMap.module.scss';
 
 const SVGContainer = ({ width, height, children }) => (
-  <div
-    className={style.SVGContainer}
-    style={{ maxWidth: width, height: height }}
-  >
+  <div className={style.SVGContainer}>
     <svg viewBox={`0 0 ${width} ${height}`}>
       <defs>
         <pattern

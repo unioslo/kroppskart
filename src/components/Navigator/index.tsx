@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React from 'react';
+import { useRouter } from 'next/router';
+
 import { useFilteredBodyMapValues } from '../../store/selectors';
-import { Button } from '../ui';
+import { NavigationButtons } from '../ui';
 
 const bodymapOrder = [
   'headJawMouth',
@@ -66,16 +66,7 @@ const Navigator = () => {
     const index = bodymapRoutingOrder.findIndex((v) => v.includes(currentPage));
     nextPage = bodymapRoutingOrder[index + 1];
   }
-  return (
-    <div>
-      <Link href={nextPage ?? ''}>
-        <Button type="nextPage">Neste</Button>
-      </Link>
-      <Button type="previousPage" onClick={() => router.back()}>
-        Forrige
-      </Button>
-    </div>
-  );
+  return <NavigationButtons nextPage={nextPage} onBack={() => router.back()} />;
 };
 /* eslint-enable no-console */
 

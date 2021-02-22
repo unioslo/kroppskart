@@ -8,8 +8,6 @@ import { useSelector } from 'react-redux';
 
 import { rootState, wrapper } from '../src/store/store';
 
-const config = require('../next.config');
-
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
   const initialized = useSelector((state: rootState) => state.app.initialized);
@@ -27,7 +25,6 @@ const App = ({ Component, pageProps }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <base href={config.basePath + '/'} />
         <link rel="icon" href={'/kroppskart/favicon.ico'} />
       </Head>
       <Component {...pageProps} />
