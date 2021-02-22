@@ -36,8 +36,9 @@ const MapContainer = ({
           style.bodyMapContainer,
           followUp && style.disableInteraction
         )}
-        style={{ width: width, height: height }}
+        style={{ width: width }}
       >
+        {/* The width ABOVE can be changed increase max image size */}
         <SVGContainer width={width} height={height}>
           {Object.entries(parts).map(([key, value]) => (
             <ClickablePolygon
@@ -56,7 +57,8 @@ const MapContainer = ({
           width={width}
           height={height}
           id={map.name}
-          objectFit="cover"
+          layout="responsive"
+          className={style.image}
         />
       </div>
       {!followUp && (
