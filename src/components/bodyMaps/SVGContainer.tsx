@@ -14,15 +14,15 @@ const SVGContainer = ({ width, height, children }) => (
         <pattern
           id="test"
           patternUnits="userSpaceOnUse"
-          width="700"
-          height="700"
+          width="900"
+          height="900"
         >
           <image
             href="/kroppskart/images/selectionPattern.png"
             x="0"
             y="0"
-            width="700"
-            height="700"
+            width="900"
+            height="900"
           />
         </pattern>
       </defs>

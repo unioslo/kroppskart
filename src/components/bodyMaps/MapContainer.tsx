@@ -14,6 +14,13 @@ import {
 } from '../../store/bodyMapReducer';
 import { SelectionButtons } from '../ui';
 
+const getMap = (map: MapType, responsive: boolean) => {
+  if (!responsive) {
+    return map;
+  }
+  return map.responsive ?? map;
+};
+
 const MapContainer = ({
   map,
   followUp,
@@ -23,7 +30,8 @@ const MapContainer = ({
 }) => {
   const sex = useSelector((state: rootState) => state.app.sex);
   const dispatch = useDispatch();
-  const { width, height, image, parts } = map;
+  const responsive = true;
+  const { width, height, image, parts } = getMap(map, responsive);
   React.useEffect(() => {
     if (!followUp) {
       dispatch(initBodyMapValues(map.name, map.keys));
