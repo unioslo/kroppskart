@@ -1,4 +1,4 @@
-export const upperBodyFemaleMapParts = {
+const upperBodyFemaleMapParts = {
   'right-throat': {
     shape: 'poly',
     points:
@@ -75,7 +75,7 @@ export const upperBodyFemaleMapParts = {
   },
 };
 
-export const upperBodyFemaleMapKeys = Object.keys(upperBodyFemaleMapParts);
+const upperBodyFemaleMapKeys = Object.keys(upperBodyFemaleMapParts);
 
 export default {
   image: '/kroppskart/images/upperBodyFemale.png',

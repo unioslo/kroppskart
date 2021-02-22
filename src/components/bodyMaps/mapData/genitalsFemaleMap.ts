@@ -1,4 +1,4 @@
-export const genitalsFemaleMapParts = {
+const genitalsFemaleMapParts = {
   'right-perineum': {
     shape: 'poly',
     points:
@@ -78,7 +78,7 @@ export const genitalsFemaleMapParts = {
   },
 };
 
-export const genitalsFemaleMapKeys = Object.keys(genitalsFemaleMapParts);
+const genitalsFemaleMapKeys = Object.keys(genitalsFemaleMapParts);
 
 export default {
   width: 493,

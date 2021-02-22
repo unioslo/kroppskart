@@ -1,4 +1,6 @@
-export const rightArmMapParts = {
+import { rightArmRes } from './responsive';
+
+const rightArmMapParts = {
   'upper-right-arm-front': {
     shape: 'poly',
     points:
@@ -210,7 +212,7 @@ export const rightArmMapParts = {
     name: 'right-hand-2-distal',
   },
 };
-export const rightArmMapKeys = Object.keys(rightArmMapParts);
+const rightArmMapKeys = Object.keys(rightArmMapParts);
 
 export default {
   width: 972,
@@ -222,4 +224,5 @@ export default {
   name: 'rightArm',
   parts: rightArmMapParts,
   keys: rightArmMapKeys,
+  responsive: rightArmRes,
 };

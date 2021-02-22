@@ -1,4 +1,4 @@
-export const genitalsMaleMapParts = {
+const genitalsMaleMapParts = {
   'urinary-tract': {
     shape: 'poly',
     points:
@@ -50,7 +50,7 @@ export const genitalsMaleMapParts = {
   },
 };
 
-export const genitalsMaleMapKeys = Object.keys(genitalsMaleMapParts);
+const genitalsMaleMapKeys = Object.keys(genitalsMaleMapParts);
 
 export default {
   width: 412,

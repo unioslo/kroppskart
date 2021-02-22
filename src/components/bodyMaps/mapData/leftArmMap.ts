@@ -1,4 +1,6 @@
-export const leftArmMapParts = {
+import { leftArmRes } from './responsive';
+
+const leftArmMapParts = {
   'upper-left-arm-front': {
     name: 'upper-left-arm-front',
     shape: 'poly',
@@ -211,7 +213,7 @@ export const leftArmMapParts = {
   },
 };
 
-export const leftArmMapKeys = Object.keys(leftArmMapParts);
+const leftArmMapKeys = Object.keys(leftArmMapParts);
 
 export default {
   width: 952,
@@ -223,4 +225,5 @@ export default {
   name: 'leftArm',
   parts: leftArmMapParts,
   keys: leftArmMapKeys,
+  responsive: leftArmRes,
 };

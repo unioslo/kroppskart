@@ -1,6 +1,7 @@
 import { MapParts } from './mapType';
+import { headJawMouthRes } from './responsive';
 
-export const headMapParts: MapParts = {
+const headMapParts: MapParts = {
   'right-back-head': {
     shape: 'poly',
     points:
@@ -478,7 +479,7 @@ export const headMapParts: MapParts = {
   },
 };
 
-export const headMapKeys = Object.keys(headMapParts);
+const headMapKeys = Object.keys(headMapParts);
 
 export default {
   parts: headMapParts,
@@ -487,4 +488,5 @@ export default {
   image: '/kroppskart/images/headJawMouth.png',
   name: 'headJawMouth',
   keys: headMapKeys,
+  responsive: headJawMouthRes,
 };

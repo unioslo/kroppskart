@@ -1,4 +1,4 @@
-export const backMapParts = {
+const backMapParts = {
   'left-upper-back': {
     shape: 'poly',
     points:
@@ -102,7 +102,7 @@ export const backMapParts = {
   },
 };
 
-export const backMapKeys = Object.keys(backMapParts);
+const backMapKeys = Object.keys(backMapParts);
 
 export default {
   parts: backMapParts,

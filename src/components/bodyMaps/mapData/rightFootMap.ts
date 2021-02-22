@@ -1,4 +1,6 @@
-export const rightFootMapParts = {
+import { rightFootRes } from './responsive';
+
+const rightFootMapParts = {
   'right-groin': {
     shape: 'poly',
     points:
@@ -211,7 +213,7 @@ export const rightFootMapParts = {
   },
 };
 
-export const rightFootMapKeys = Object.keys(rightFootMapParts);
+const rightFootMapKeys = Object.keys(rightFootMapParts);
 
 export default {
   name: 'rightFoot',
@@ -220,4 +222,5 @@ export default {
   height: 502,
   keys: rightFootMapKeys,
   parts: rightFootMapParts,
+  responsive: rightFootRes,
 };

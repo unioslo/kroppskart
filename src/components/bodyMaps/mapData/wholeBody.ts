@@ -1,6 +1,6 @@
 import { MapParts } from './mapType';
 
-export const wholeBodyMapParts: MapParts = {
+const wholeBodyMapParts: MapParts = {
   head: {
     points:
       '122,9,127,4,135,2,143,2,152,2,160,6,164,12,167,16,168,20,168,25,168,29,168,33,167,38,167,38,168,38,169,39,170,39,171,39,171,39,171,44,170,49,168,52,166,56,164,58,163,57,161,63,160,66,159,69,157,71,156,73,153,75,148,79,143,79,138,77,133,75,128,71,125,66,123,63,122,62,121,61,120,60,119,59,119,56,119,56,119,55,118,54,118,53,117,52,117,52,117,52,117,51,116,50,116,49,115,47,115,47,115,45,115,44,116,43,116,41,117,40,119,39,117,34,116,29,116,24,117,18,119,13',
@@ -165,7 +165,7 @@ export const wholeBodyMapParts: MapParts = {
   },
 };
 
-export const wholeBodyMapKeys = Object.keys(wholeBodyMapParts);
+const wholeBodyMapKeys = Object.keys(wholeBodyMapParts);
 
 export default {
   parts: wholeBodyMapParts,

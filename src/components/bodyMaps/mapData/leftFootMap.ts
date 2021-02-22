@@ -1,4 +1,6 @@
-export const leftFootMapParts = {
+import { leftFootRes } from './responsive';
+
+const leftFootMapParts = {
   'left-groin': {
     shape: 'poly',
     points:
@@ -273,7 +275,7 @@ export const leftFootMapParts = {
   },
 };
 
-export const leftFootMapKeys = Object.keys(leftFootMapParts);
+const leftFootMapKeys = Object.keys(leftFootMapParts);
 
 export default {
   name: 'leftFoot',
@@ -282,4 +284,5 @@ export default {
   height: 502,
   keys: leftFootMapKeys,
   parts: leftFootMapParts,
+  responsive: leftFootRes,
 };

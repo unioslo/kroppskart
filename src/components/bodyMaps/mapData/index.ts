@@ -25,8 +25,6 @@ export {
   abdomen,
   rightFoot,
   leftFoot,
-  genitalsFemale,
-  genitalsMale,
   upperBody,
   genitals,
 };

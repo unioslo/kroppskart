@@ -15,5 +15,5 @@ export type MapType = {
   height: number;
   name: string;
   keys: string[];
-  redundantKeys?: string[];
+  responsive?: MapType;
 };

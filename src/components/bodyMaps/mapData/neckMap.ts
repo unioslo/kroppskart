@@ -1,4 +1,4 @@
-export const neckMapParts = {
+const neckMapParts = {
   'left-neck': {
     shape: 'poly',
     points:
@@ -54,7 +54,7 @@ export const neckMapParts = {
   },
 };
 
-export const neckMapKeys = Object.keys(neckMapParts);
+const neckMapKeys = Object.keys(neckMapParts);
 
 export default {
   parts: neckMapParts,

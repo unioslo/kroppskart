@@ -1,4 +1,4 @@
-export const abdomenMapParts = {
+const abdomenMapParts = {
   'upper-abdomen': {
     shape: 'poly',
     points:
@@ -43,7 +43,7 @@ export const abdomenMapParts = {
   },
 };
 
-export const abdomenMapKeys = Object.keys(abdomenMapParts);
+const abdomenMapKeys = Object.keys(abdomenMapParts);
 
 export default {
   keys: abdomenMapKeys,
