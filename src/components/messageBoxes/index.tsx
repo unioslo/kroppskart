@@ -52,3 +52,20 @@ export const MessageBoxIntro = () => (
     <Alert>Har du kvinnekropp eller mannekropp? (Trykk for å velge)</Alert>
   </>
 );
+
+export const FollowUpIntro = () => (
+  <Alert>
+    <p>
+      Du vil nå få noen oppfølgingsspørsmål om de kroppsområdene du har markert.
+    </p>
+  </Alert>
+);
+
+export const MessageBoxDelivering = () => (
+  <Alert>
+    <p>
+      Leverer data. Dette skal normalt bare ta noen få sekunder. Vennligst ikke
+      lukk nettleseren mens leveringen pågår.
+    </p>
+  </Alert>
+);

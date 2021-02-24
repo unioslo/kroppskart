@@ -66,6 +66,7 @@ const MapContainer = ({
           height={height}
           id={map.name}
           layout="responsive"
+          loading="eager"
           className={style.image}
         />
       </div>

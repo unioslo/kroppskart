@@ -1,15 +1,23 @@
+.alert {
+  padding: 15px;
+  margin: 20px 0;
+  max-width: 100%;
+  width: 800px;
+  border-radius: 4px;
+  font-size: 16px;
+  border: 1px solid transparent;
+}
+
 .alertInfo {
   color: #31708f;
   background-color: #d9edf7;
-  border: 1px solid #bce8f1;
-  border-radius: 4px;
-  font-size: 16px;
+  border-color: #bce8f1;
+}
 
-  padding: 15px;
-  margin: 20px 0;
-
-  max-width: 100%;
-  width: 800px;
+.alertWarning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
 }
 
 .button {

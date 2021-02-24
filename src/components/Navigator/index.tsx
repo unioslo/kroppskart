@@ -1,8 +1,11 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import { useFilteredBodyMapValues } from '../../store/selectors';
+import { useGetBodyMap } from '../../store/selectors';
 import { NavigationButtons } from '../ui';
+import { redundantBodyMapKeys } from '../../utils/constants';
+import { useSelector } from 'react-redux';
+import { rootState } from '../../store/store';
 
 const bodymapOrder = [
   'headJawMouth',
@@ -32,11 +35,31 @@ const routingMap = {
 
 //const followUpOrder = ['intro', ...bodymapOrder];
 
-const mainPaths = { bodymap: '/bodymap', followup: '/followup' };
+const mainPaths = { bodymap: '/bodymap', followup: '/followup', done: '/done' };
 
-const useFindRelevantRoutes = () => {
-  const bodyAnswers = useFilteredBodyMapValues('wholeBody') ?? {};
-  const keys = Object.keys(bodyAnswers).map((key) => routingMap[key]);
+const useFilteredBodyMapValues = (mapName: string) => {
+  const map = useGetBodyMap(mapName) ?? {};
+  const redundantKeys = redundantBodyMapKeys[mapName];
+  const [filteredMap, setFilteredMap] = React.useState({});
+  React.useEffect(() => {
+    let filteredMap = map;
+
+    if (map && redundantKeys) {
+      const filteredEntries = Object.entries(map).filter(
+        ([key, value]) => !redundantKeys.includes(key) && value
+      );
+      filteredMap = Object.fromEntries(filteredEntries);
+    }
+    setFilteredMap(filteredMap);
+
+    return filteredMap;
+  }, [setFilteredMap, map, redundantKeys]);
+
+  return filteredMap;
+};
+
+const getRelevantRoutes = (answers: Record<string, boolean>) => {
+  const keys = Object.keys(answers).map((key) => routingMap[key]);
   const relevantRoutes = bodymapOrder.filter((v) => keys.includes(v));
   return relevantRoutes;
 };
@@ -47,27 +70,76 @@ const getBodymapRoutingOrder = (relevantRoutes: string[]) => [
   mainPaths.followup,
 ];
 
+const getFollowupRoutingOrder = (relevantRoutes: string[]) => [
+  mainPaths.followup,
+  ...relevantRoutes.map((route) => `${mainPaths.followup}/${route}`),
+  mainPaths.done,
+];
+
 const getCurrentPage = (path: string) => {
   const splitPath = path.split('/');
   return splitPath[splitPath.length - 1];
 };
 
-/* eslint-disable no-console */
-const Navigator = () => {
-  const router = useRouter();
-  const { pathname } = router;
-  let nextPage;
-  const relevantRoutes = useFindRelevantRoutes();
-  const bodymapRoutingOrder = getBodymapRoutingOrder(relevantRoutes);
-  const currentPage = getCurrentPage(pathname);
-  if (pathname === mainPaths.bodymap) {
-    nextPage = bodymapRoutingOrder[1];
-  } else if (pathname.startsWith(mainPaths.bodymap)) {
-    const index = bodymapRoutingOrder.findIndex((v) => v.includes(currentPage));
-    nextPage = bodymapRoutingOrder[index + 1];
+const getNextPageFromRouting = (pathname, currentPage, routingOrder) => {
+  if (pathname === routingOrder[0]) {
+    return routingOrder[1];
+  } else {
+    const index = routingOrder.findIndex((v) => v.includes(currentPage));
+    return routingOrder[index + 1];
   }
-  return <NavigationButtons nextPage={nextPage} onBack={() => router.back()} />;
 };
+
+const getNextPage = (relevantRoutes, pathname) => {
+  let routingOrder;
+  if (pathname === '/') {
+    return '/bodymap';
+  }
+  if (pathname.includes(mainPaths.bodymap)) {
+    routingOrder = getBodymapRoutingOrder(relevantRoutes);
+  } else {
+    routingOrder = getFollowupRoutingOrder(relevantRoutes);
+  }
+  const currentPage = getCurrentPage(pathname);
+  return getNextPageFromRouting(pathname, currentPage, routingOrder);
+};
+
+const allAnswersFalse = (map: Record<string, boolean>) => {
+  for (const val of Object.values(map)) {
+    if (val === true) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const filterFollowUpPages = (
+  allAnswers: Record<string, Record<string, boolean>>,
+  relevantRoutes: string[]
+) =>
+  relevantRoutes.filter((route: string) => !allAnswersFalse(allAnswers[route]));
+
+/* eslint-disable no-console */
+const Navigator = React.memo(
+  ({
+    section = 'bodymap',
+  }: {
+    section?: 'start' | 'bodymap' | 'followup' | 'end';
+  }) => {
+    const router = useRouter();
+    const wholeBodyAnswers = useFilteredBodyMapValues('wholeBody');
+    const allAnswers = useSelector((state: rootState) => state.body);
+    let relevantRoutes = getRelevantRoutes(wholeBodyAnswers);
+    console.log(relevantRoutes);
+    if (section === 'followup') {
+      relevantRoutes = filterFollowUpPages(allAnswers, relevantRoutes);
+    }
+    const nextPage = getNextPage(relevantRoutes, router.pathname);
+    return (
+      <NavigationButtons nextPage={nextPage} onBack={() => router.back()} />
+    );
+  }
+);
 /* eslint-enable no-console */
 
 export default Navigator;

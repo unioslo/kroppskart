@@ -4,8 +4,15 @@ import Link from 'next/link';
 
 import style from './style.module.scss';
 
-export const Alert = ({ children }) => (
-  <div className={style.alertInfo}>{children}</div>
+export const Alert = ({ children, type = 'info' }) => (
+  <div
+    className={cn(
+      type === 'info' ? style.alertInfo : style.alertWarning,
+      style.alert
+    )}
+  >
+    {children}
+  </div>
 );
 
 type ButtonProps = {
