@@ -21,3 +21,26 @@ export const redundantBodyMapKeys = {
   ],
   headJawMouth: ['lips2'],
 };
+
+export const surveyParams = {
+  abdomen: 'abdom',
+  back: 'back',
+  genitals: 'genit',
+  headJawMouth: 'head',
+  leftArm: {
+    female: 'leftArmFemale',
+    male: 'leftArmMale',
+    general: 'leftArm',
+  },
+  rightArm: {
+    female: 'rightArmFemale',
+    male: 'rightArmMale',
+    general: 'rightArm',
+  },
+  leftFoot: 'leftFoot',
+  rightFoot: 'leftFoot',
+  neck: 'neck',
+  upperBody: 'chest',
+  followup: 'FollowUpSurvey',
+  dataTarget: 'dataTarget',
+};

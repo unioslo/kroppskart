@@ -40,20 +40,15 @@ const mainPaths = { bodymap: '/bodymap', followup: '/followup', done: '/done' };
 const useFilteredBodyMapValues = (mapName: string) => {
   const map = useGetBodyMap(mapName) ?? {};
   const redundantKeys = redundantBodyMapKeys[mapName];
-  const [filteredMap, setFilteredMap] = React.useState({});
-  React.useEffect(() => {
-    let filteredMap = map;
 
-    if (map && redundantKeys) {
-      const filteredEntries = Object.entries(map).filter(
-        ([key, value]) => !redundantKeys.includes(key) && value
-      );
-      filteredMap = Object.fromEntries(filteredEntries);
-    }
-    setFilteredMap(filteredMap);
+  let filteredMap = map;
 
-    return filteredMap;
-  }, [setFilteredMap, map, redundantKeys]);
+  if (map && redundantKeys && process?.browser) {
+    const filteredEntries = Object.entries(map).filter(
+      ([key, value]) => !redundantKeys.includes(key) && value
+    );
+    filteredMap = Object.fromEntries(filteredEntries);
+  }
 
   return filteredMap;
 };
@@ -130,8 +125,8 @@ const Navigator = React.memo(
     const wholeBodyAnswers = useFilteredBodyMapValues('wholeBody');
     const allAnswers = useSelector((state: rootState) => state.body);
     let relevantRoutes = getRelevantRoutes(wholeBodyAnswers);
-    console.log(relevantRoutes);
     if (section === 'followup') {
+      // TODO Filter missing URL param followup
       relevantRoutes = filterFollowUpPages(allAnswers, relevantRoutes);
     }
     const nextPage = getNextPage(relevantRoutes, router.pathname);

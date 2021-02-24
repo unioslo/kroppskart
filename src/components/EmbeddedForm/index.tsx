@@ -2,15 +2,17 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { rootState } from '../../store/store';
+import Navigator from '../Navigator';
 import { Button } from '../ui';
 
 import style from './style.module.scss';
 
 const getUrl = (formId: string, submissionId?: string) =>
-  `https://nettskjema/a/${formId}?embed=1${'&referenceId' + submissionId}`;
+  formId &&
+  `https://nettskjema.no/a/${formId}?embed=1${'&referenceId=' + submissionId}`;
 
 const useHeightListener = (deliverForm?: () => void) => {
-  const [height, setHeight] = React.useState(0);
+  const [height, setHeight] = React.useState(1000);
   React.useEffect(() => {
     const handler = (event) => {
       if (event.data === 'scrollToStart') {
@@ -61,7 +63,7 @@ const EmbeddedForm = ({ formId }: { formId: string }) => {
       ) : (
         <div>
           <h2>Ingen spørsmål for disse valgene</h2>
-          {/* <NavigationButtons /> */}
+          <Navigator section="followup" />
         </div>
       )}
     </div>

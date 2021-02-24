@@ -11,12 +11,11 @@ export const useUrlParameters = () => {
   const dispatch = useDispatch();
 
   const query = router.query;
-
   React.useEffect(() => {
     if (!parameters || (parameters && Object.values(parameters).length === 0)) {
       dispatch(addParameters(query));
     }
-  }, [parameters]);
+  }, [query, parameters, dispatch, addParameters]);
 };
 
 export default useUrlParameters;

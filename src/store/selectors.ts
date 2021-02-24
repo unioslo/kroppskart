@@ -12,25 +12,25 @@ export const useParamSelector = (paramName: string) => {
 };
 
 type props = {
-  maleParam?: string;
-  femaleParam?: string;
-  generalParam?: string;
+  male?: string;
+  female?: string;
+  general?: string;
 };
 
 export const usePossiblyGenderedParamSelector = ({
-  maleParam,
-  femaleParam,
-  generalParam,
+  male,
+  female,
+  general,
 }: props) => {
   const params = useSelector((state: rootState) => state.app.urlParameters);
   const sex = useSelector((state: rootState) => state.app.sex);
 
-  if (sex === 'female' && femaleParam && params[femaleParam]) {
-    return params[femaleParam];
-  } else if (sex === 'male' && maleParam && params[maleParam]) {
-    return params[maleParam];
+  if (sex === 'female' && female && params[female]) {
+    return params[female];
+  } else if (sex === 'male' && male && params[male]) {
+    return params[male];
   } else {
-    return params[generalParam];
+    return params[general];
   }
 };
 
