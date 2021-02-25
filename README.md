@@ -13,7 +13,7 @@ Foreløpig struktur:
   - Followup
   - Done
 - bodyMaps
-  - MapContainer (rendrer bilde og SVG-lag basert på mapDatA)
+  - MapContainer (rendrer bilde og SVG-lag basert på mapData)
   - SVGContainer (lager SVG-lag basert på innsendt mapData)
   - mapData (mapping for kroppskart, transformert fra gammel app)
 - Navigator (inneholder logikk for ruting og navigasjonsknapper)
