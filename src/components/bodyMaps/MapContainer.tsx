@@ -21,6 +21,23 @@ const getMap = (map: MapType, responsive: boolean) => {
   return map.responsive ?? map;
 };
 
+const useDetectResponsive = () => {
+  const [responsive, setResponsive] = React.useState(
+    typeof document !== 'undefined' ? document.body.offsetWidth <= 700 : false
+  );
+  // TODO: Add this as debounced resize handler to get fully dynamic map
+  React.useEffect(() => {
+    if (typeof document !== 'undefined') {
+      if (document.body.offsetWidth > 700 && responsive) {
+        setResponsive(false);
+      } else if (document.body.offsetWidth <= 700 && !responsive) {
+        setResponsive(true);
+      }
+    }
+  }, [responsive, setResponsive]);
+  return responsive;
+};
+
 const MapContainer = ({
   map,
   followUp,
@@ -30,7 +47,7 @@ const MapContainer = ({
 }) => {
   const sex = useSelector((state: rootState) => state.app.sex);
   const dispatch = useDispatch();
-  const responsive = true;
+  const responsive = useDetectResponsive();
   const { width, height, image, parts } = getMap(map, responsive);
   React.useEffect(() => {
     if (!followUp) {
