@@ -16,6 +16,9 @@ const App = ({ Component, pageProps }) => {
       router.replace('/');
     }
   });
+  if (typeof document !== 'undefined' && !document?.documentElement?.lang) {
+    document.documentElement.lang = 'nb';
+  }
   return (
     <>
       <Head>

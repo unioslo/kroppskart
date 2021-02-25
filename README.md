@@ -6,7 +6,9 @@ For å kjøre lokalt: `npm run dev`
 For å bygge: `npm run build` og `npm run start`
 
 ## Struktur
+
 Foreløpig struktur:
+
 - Pages
   - Intro
   - Bodymaps
@@ -30,10 +32,10 @@ Foreløpig struktur:
 let areas = document.getElementsByTagName('area');
 Object.values(areas).reduce((acc, area) => {
   acc[area.id] = {
-      shape: area.shape,
-      points: area.coords,
-      alt: area.alt,
-      name: area.id,
+    shape: area.shape,
+    points: area.coords,
+    alt: area.alt,
+    name: area.id,
   };
   return acc;
 }, {});

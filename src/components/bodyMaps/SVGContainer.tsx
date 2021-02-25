@@ -90,7 +90,7 @@ export const ClickablePolygon = ({
       onMouseLeave={createMouseLeaveHandler(linkedWith)}
       className={cn(selected && style.selected)}
     >
-      <title>{alt}</title>
+      <title>{alt + `. ${!selected ? 'Ikke valgt' : 'Valgt'}`}</title>
       <polygon id={id} points={points} />
     </a>
   );
