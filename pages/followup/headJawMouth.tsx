@@ -7,9 +7,9 @@ import { surveyParams } from '../../src/utils/constants';
 export default function HeadJawMouth() {
   const formId = useParamSelector(surveyParams.headJawMouth);
   return (
-    <div className="container">
+    <main className="container">
       <MapContainer followUp={true} map={head} />
       <EmbeddedForm formId={formId} />
-    </div>
+    </main>
   );
 }

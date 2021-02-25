@@ -7,9 +7,9 @@ import { surveyParams } from '../../src/utils/constants';
 export default function RightFoot() {
   const formId = useParamSelector(surveyParams.rightFoot);
   return (
-    <div className="container">
+    <main className="container">
       <MapContainer followUp={true} map={rightFoot} />
       <EmbeddedForm formId={formId} />
-    </div>
+    </main>
   );
 }

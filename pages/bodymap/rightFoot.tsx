@@ -5,10 +5,10 @@ import Navigator from '../../src/components/Navigator';
 
 export default function RightFoot() {
   return (
-    <div className="container">
+    <main className="container">
       <MessageBoxBodyMap />
       <MapContainer map={rightFoot} />
       <Navigator />
-    </div>
+    </main>
   );
 }

@@ -5,11 +5,11 @@ import Navigator from '../../src/components/Navigator';
 
 const Survey = () => {
   return (
-    <div className="container flex">
+    <main className="container flex">
       <MessageBoxWholeBody />
       <MapContainer map={wholeBody} />
       <Navigator />
-    </div>
+    </main>
   );
 };
 

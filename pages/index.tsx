@@ -13,7 +13,7 @@ export default function Introduction() {
   const setFemale = () => dispatch(setSex('female'));
   const setMale = () => dispatch(setSex('male'));
   return (
-    <div className="container">
+    <main className="container">
       <MessageBoxIntro />
       <div>
         <Link href={'/bodymap'}>
@@ -27,6 +27,6 @@ export default function Introduction() {
           </Button>
         </Link>
       </div>
-    </div>
+    </main>
   );
 }

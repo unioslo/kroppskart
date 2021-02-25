@@ -28,8 +28,10 @@ const bodyMapReducer = (state = {} as BodyMapState, action: BodyMapActions) => {
     }
     case ActionTypes.SELECT_ALL_AREAS: {
       const map = state[action.payload];
-      const allEntriesToTrue = Object.entries(map).map(([key]) => [key, true]);
-      const allSelected = Object.fromEntries(allEntriesToTrue);
+      const allSelected = Object.keys(map).reduce((acc, key) => {
+        acc[key] = true;
+        return acc;
+      }, {});
       return { ...state, [action.payload]: allSelected };
     }
     case ActionTypes.UNSELECT_ALL_AREAS: {

@@ -2,9 +2,9 @@ import { MessageBoxDelivering } from '../src/components/messageBoxes';
 
 const Done = () => {
   return (
-    <div className="container">
+    <main className="container">
       <MessageBoxDelivering />
-    </div>
+    </main>
   );
 };
 

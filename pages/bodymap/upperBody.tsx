@@ -8,10 +8,10 @@ import { rootState } from '../../src/store/store';
 export default function UpperBody() {
   const sex = useSelector((state: rootState) => state.app.sex);
   return (
-    <div className="container">
+    <main className="container">
       <MessageBoxBodyMap />
       <MapContainer map={upperBody[sex]} />
       <Navigator />
-    </div>
+    </main>
   );
 }

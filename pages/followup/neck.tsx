@@ -7,9 +7,9 @@ import { surveyParams } from '../../src/utils/constants';
 export default function Neck() {
   const formId = useParamSelector(surveyParams.neck);
   return (
-    <div className="container">
+    <main className="container">
       <MapContainer followUp={true} map={neck} />
       <EmbeddedForm formId={formId} />
-    </div>
+    </main>
   );
 }

@@ -7,9 +7,9 @@ import { surveyParams } from '../../src/utils/constants';
 export default function Back() {
   const formId = useParamSelector(surveyParams.back);
   return (
-    <div className="container">
+    <main className="container">
       <MapContainer followUp={true} map={back} />
       <EmbeddedForm formId={formId} />
-    </div>
+    </main>
   );
 }

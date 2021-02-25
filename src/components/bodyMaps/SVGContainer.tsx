@@ -90,7 +90,7 @@ export const ClickablePolygon = ({
       onMouseLeave={createMouseLeaveHandler(linkedWith)}
       className={cn(selected && style.selected)}
     >
-      <figcaption>{alt}</figcaption>
+      <title>{alt}</title>
       <polygon id={id} points={points} />
     </a>
   );

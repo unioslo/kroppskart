@@ -9,9 +9,9 @@ export default function LeftArm() {
     surveyParams.leftArm
   ) as string;
   return (
-    <div className="container">
+    <main className="container">
       <MapContainer followUp={true} map={leftArm} />
       <EmbeddedForm formId={formId} />
-    </div>
+    </main>
   );
 }

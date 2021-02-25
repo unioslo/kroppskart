@@ -10,9 +10,9 @@ export default function UpperBody() {
   const sex = useSelector((state: rootState) => state.app.sex);
   const formId = useParamSelector(surveyParams.upperBody);
   return (
-    <div className="container">
+    <main className="container">
       <MapContainer followUp={true} map={upperBody[sex]} />
       <EmbeddedForm formId={formId} />
-    </div>
+    </main>
   );
 }
