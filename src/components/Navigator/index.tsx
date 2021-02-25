@@ -108,6 +108,19 @@ const allAnswersFalse = (map: Record<string, boolean>) => {
   return true;
 };
 
+export const useGetNextPage = (section: string) => {
+  const router = useRouter();
+  const wholeBodyAnswers = useFilteredBodyMapValues('wholeBody');
+  const allAnswers = useSelector((state: rootState) => state.body);
+  let relevantRoutes = getRelevantRoutes(wholeBodyAnswers);
+  if (section === 'followup') {
+    // TODO Filter missing URL param followup
+    relevantRoutes = filterFollowUpPages(allAnswers, relevantRoutes);
+  }
+  const nextPage = getNextPage(relevantRoutes, router.pathname);
+  return nextPage;
+};
+
 const filterFollowUpPages = (
   allAnswers: Record<string, Record<string, boolean>>,
   relevantRoutes: string[]
@@ -122,14 +135,7 @@ const Navigator = React.memo(
     section?: 'start' | 'bodymap' | 'followup' | 'end';
   }) => {
     const router = useRouter();
-    const wholeBodyAnswers = useFilteredBodyMapValues('wholeBody');
-    const allAnswers = useSelector((state: rootState) => state.body);
-    let relevantRoutes = getRelevantRoutes(wholeBodyAnswers);
-    if (section === 'followup') {
-      // TODO Filter missing URL param followup
-      relevantRoutes = filterFollowUpPages(allAnswers, relevantRoutes);
-    }
-    const nextPage = getNextPage(relevantRoutes, router.pathname);
+    const nextPage = useGetNextPage(section);
     return (
       <NavigationButtons nextPage={nextPage} onBack={() => router.back()} />
     );

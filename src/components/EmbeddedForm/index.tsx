@@ -1,8 +1,9 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { rootState } from '../../store/store';
-import Navigator from '../Navigator';
+import Navigator, { useGetNextPage } from '../Navigator';
 import { Button } from '../ui';
 
 import style from './style.module.scss';
@@ -11,7 +12,7 @@ const getUrl = (formId: string, submissionId?: string) =>
   formId &&
   `https://nettskjema.no/a/${formId}?embed=1${'&referenceId=' + submissionId}`;
 
-const useHeightListener = (deliverForm?: () => void) => {
+const useMessageListener = (deliverForm?: () => void) => {
   const [height, setHeight] = React.useState(1000);
   React.useEffect(() => {
     const handler = (event) => {
@@ -30,6 +31,11 @@ const useHeightListener = (deliverForm?: () => void) => {
 
 const EmbeddedForm = ({ formId }: { formId: string }) => {
   const [toggle, setToggle] = React.useState(true);
+  const nextPage = useGetNextPage('followup');
+  const router = useRouter();
+  const onSubmit = React.useCallback(() => {
+    router.push(nextPage);
+  }, [nextPage, router]);
   const sumbissionId = useSelector(
     (state: rootState) => state.app.urlParameters?.submissionId
   ) as string;
@@ -38,7 +44,7 @@ const EmbeddedForm = ({ formId }: { formId: string }) => {
       setToggle(true);
     }
   }, [toggle, setToggle]);
-  const height = useHeightListener();
+  const height = useMessageListener(onSubmit);
   const url = getUrl(formId, sumbissionId);
   return (
     <div className={style.embedContainer}>

@@ -62,7 +62,7 @@ export const FollowUpIntro = () => (
 );
 
 export const MessageBoxDelivering = () => (
-  <Alert>
+  <Alert type="warning">
     <p>
       Leverer data. Dette skal normalt bare ta noen få sekunder. Vennligst ikke
       lukk nettleseren mens leveringen pågår.
