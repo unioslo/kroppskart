@@ -109,6 +109,6 @@ export default {
   width: 275,
   height: 418,
   image: '/kroppskart/images/back.png',
-  name: 'backMap',
+  name: 'back',
   keys: backMapKeys,
 };
