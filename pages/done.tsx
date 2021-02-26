@@ -1,11 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { MessageBoxDelivering } from '../src/components/messageBoxes';
 import { rootState } from '../src/store/store';
 import {
   postSubmission,
   submissionFromAnswerState,
 } from '../src/utils/submissionUtils';
+import { resetAppState } from '../src/store/appStateReducer';
+import { resetBodyMaps } from '../src/store/bodyMapReducer';
 
 const getUrlParam = (param?: string | string[]) => {
   if (Array.isArray(param)) {
@@ -15,6 +17,7 @@ const getUrlParam = (param?: string | string[]) => {
 };
 
 const Done = () => {
+  const dispatch = useDispatch();
   const { urlParameters, sex, initialized } = useSelector(
     (state: rootState) => state.app
   );
@@ -65,6 +68,13 @@ const Done = () => {
       }
     }
   }, [delivering, failed, delivered, setDelivering, setFailed, setDelivered]);
+
+  React.useEffect(() => {
+    if (delivered) {
+      dispatch(resetBodyMaps());
+      dispatch(resetAppState());
+    }
+  }, [delivered]);
 
   return (
     <main className="container">
