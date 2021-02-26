@@ -6,23 +6,25 @@ import { setSex } from '../src/store/appStateReducer';
 import { Button } from '../src/components/ui';
 import useUrlParameters from '../src/utils/urlParameters';
 import { MessageBoxIntro } from '../src/components/messageBoxes';
+import { resetBodyMaps } from '../src/store/bodyMapReducer';
 
 export default function Introduction() {
   useUrlParameters();
   const dispatch = useDispatch();
-  const setFemale = () => dispatch(setSex('female'));
-  const setMale = () => dispatch(setSex('male'));
+  React.useEffect(() => {
+    dispatch(resetBodyMaps());
+  }, []);
   return (
     <main className="container">
       <MessageBoxIntro />
       <div>
         <Link href={'/bodymap'}>
-          <Button onClick={setFemale} type="female">
+          <Button onClick={() => dispatch(setSex('female'))} type="female">
             Kvinnekropp
           </Button>
         </Link>
         <Link href={'/bodymap'}>
-          <Button onClick={setMale} type="male">
+          <Button onClick={() => dispatch(setSex('male'))} type="male">
             Mannekropp
           </Button>
         </Link>

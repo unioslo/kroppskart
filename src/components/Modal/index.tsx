@@ -5,7 +5,6 @@ import cn from 'classnames';
 import { rootState } from '../../store/store';
 import { Alert, Button } from '../ui';
 import { closeModal } from '../../store/appStateReducer';
-import { resetBodyMaps } from '../../store/bodyMapReducer';
 
 import style from './modal.module.scss';
 import { useRouter } from 'next/router';
@@ -118,7 +117,6 @@ export const ResetStateModal = () => {
         <Button
           type="whiteButton"
           onClick={() => {
-            dispatch(resetBodyMaps());
             close();
             onAccept();
           }}
