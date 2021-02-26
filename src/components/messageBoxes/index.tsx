@@ -49,7 +49,9 @@ export const MessageBoxIntro = () => (
       <p>Ikke ta med forbigående, kortvarige smerter.</p>
       <p>Kvinner skal ikke ta med menstruasjonssmerter.</p>
     </Alert>
-    <Alert>Har du kvinnekropp eller mannekropp? (Trykk for å velge)</Alert>
+    <Alert>
+      <p>Har du kvinnekropp eller mannekropp? (Trykk for å velge)</p>
+    </Alert>
   </>
 );
 

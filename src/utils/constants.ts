@@ -44,3 +44,29 @@ export const surveyParams = {
   followup: 'FollowUpSurvey',
   dataTarget: 'dataTarget',
 };
+
+export const bodymapOrder = [
+  'headJawMouth',
+  'upperBody',
+  'back',
+  'abdomen',
+  'leftArm',
+  'rightArm',
+  'neck',
+  'rightFoot',
+  'leftFoot',
+  'genitals',
+];
+
+export const routingMap = {
+  'left-arm': 'leftArm',
+  'right-arm': 'rightArm',
+  abdomen: 'abdomen',
+  neck: 'neck',
+  head: 'headJawMouth',
+  back: 'back',
+  'right-leg': 'rightFoot',
+  'left-leg': 'leftFoot',
+  chest: 'upperBody',
+  genitals: 'genitals',
+};

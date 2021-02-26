@@ -3,8 +3,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { rootState } from '../../store/store';
-import Navigator, { useGetNextPage } from '../Navigator';
-import { Button } from '../ui';
+import { useGetNextPage } from '../Navigator';
+import { Button, NavigationButtons } from '../ui';
 
 import style from './style.module.scss';
 
@@ -69,7 +69,7 @@ const EmbeddedForm = ({ formId }: { formId: string }) => {
       ) : (
         <div>
           <h2>Ingen spørsmål for disse valgene</h2>
-          <Navigator section="followup" />
+          <NavigationButtons nextPage={nextPage} />
         </div>
       )}
     </div>

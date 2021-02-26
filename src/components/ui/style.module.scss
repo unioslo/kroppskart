@@ -1,5 +1,5 @@
 .alert {
-  padding: 15px;
+  padding: 0 15px;
   margin: 20px 0;
   max-width: 100%;
   width: 800px;
@@ -46,6 +46,29 @@
     height: 50px;
     padding: 10px 16px;
     border-radius: 6px;
+  }
+
+  &.whiteButton {
+    width: 100px;
+    height: 40px;
+  }
+
+  &.modalAnswer {
+    font-size: 18px;
+    flex: 1;
+    margin: 5px 0;
+  }
+
+  &.whiteButton,
+  &.modalAnswer {
+    color: black;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    &:hover,
+    &:focus {
+      background: #bbb;
+    }
   }
 }
 

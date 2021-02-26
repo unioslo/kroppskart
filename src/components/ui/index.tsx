@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import style from './style.module.scss';
 
@@ -56,20 +56,37 @@ export const NavigationButtons = ({
   onBack,
   nextPage,
 }: {
-  onNext?: () => void;
+  onNext?: (nextPage: string) => void;
   onBack?: () => void;
   nextPage?: string;
 }) => {
+  const router = useRouter();
   return (
     <div className={style.navigationButtons}>
-      <Button type="prevButton" onClick={onBack}>
+      <Button
+        type="prevButton"
+        onClick={() => {
+          if (onBack) {
+            onBack();
+          } else {
+            router.back();
+          }
+        }}
+      >
         Tilbake
       </Button>
-      <Link href={nextPage}>
-        <Button onClick={onNext ?? ''} type="nextButton">
-          Fortsett
-        </Button>
-      </Link>
+      <Button
+        onClick={() => {
+          if (onNext) {
+            onNext(nextPage);
+          } else {
+            router.push(nextPage);
+          }
+        }}
+        type="nextButton"
+      >
+        Fortsett
+      </Button>
     </div>
   );
 };

@@ -1,39 +1,18 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useGetBodyMap } from '../../store/selectors';
 import { NavigationButtons } from '../ui';
-import { redundantBodyMapKeys } from '../../utils/constants';
-import { useSelector } from 'react-redux';
+import {
+  redundantBodyMapKeys,
+  bodymapOrder,
+  routingMap,
+} from '../../utils/constants';
 import { rootState } from '../../store/store';
-
-const bodymapOrder = [
-  'headJawMouth',
-  'upperBody',
-  'back',
-  'abdomen',
-  'leftArm',
-  'rightArm',
-  'neck',
-  'rightFoot',
-  'leftFoot',
-  'genitals',
-];
-
-const routingMap = {
-  'left-arm': 'leftArm',
-  'right-arm': 'rightArm',
-  abdomen: 'abdomen',
-  neck: 'neck',
-  head: 'headJawMouth',
-  back: 'back',
-  'right-leg': 'rightFoot',
-  'left-leg': 'leftFoot',
-  chest: 'upperBody',
-  genitals: 'genitals',
-};
-
-//const followUpOrder = ['intro', ...bodymapOrder];
+import { allAnswersFalse } from '../../utils/mapUtils';
+import { EmptyBodyMapModal, EmptySubmapModal, ResetStateModal } from '../Modal';
+import { openModal } from '../../store/appStateReducer';
 
 const mainPaths = { bodymap: '/bodymap', followup: '/followup', done: '/done' };
 
@@ -62,7 +41,7 @@ const getRelevantRoutes = (answers: Record<string, boolean>) => {
 const getBodymapRoutingOrder = (relevantRoutes: string[]) => [
   mainPaths.bodymap,
   ...relevantRoutes.map((route) => `${mainPaths.bodymap}/${route}`),
-  mainPaths.followup,
+  relevantRoutes.length > 0 ? mainPaths.followup : mainPaths.done,
 ];
 
 const getFollowupRoutingOrder = (relevantRoutes: string[]) => [
@@ -103,15 +82,6 @@ const getNextPage = (relevantRoutes: string[], pathname: string) => {
   return getNextPageFromRouting(pathname, currentPage, routingOrder);
 };
 
-const allAnswersFalse = (map: Record<string, boolean>) => {
-  for (const val of Object.values(map)) {
-    if (val === true) {
-      return false;
-    }
-  }
-  return true;
-};
-
 export const useGetNextPage = (section: string) => {
   const router = useRouter();
   const wholeBodyAnswers = useFilteredBodyMapValues('wholeBody');
@@ -135,21 +105,45 @@ const filterFollowUpPages = (
 const Navigator = React.memo(
   ({
     section = 'bodymap',
-    onBack,
   }: {
     section?: 'start' | 'bodymap' | 'followup' | 'end';
-    onBack?: () => void;
   }) => {
     const router = useRouter();
+    const dispatch = useDispatch();
+    const currentPage = getCurrentPage(router.pathname);
+    const bodyMapForPage = useSelector(
+      (state: rootState) =>
+        state.body[currentPage !== 'bodymap' ? currentPage : 'wholeBody']
+    );
     const nextPage = useGetNextPage(section);
+    if (currentPage === 'bodymap') {
+      const onNext = () =>
+        allAnswersFalse(bodyMapForPage)
+          ? dispatch(openModal('emptyBodyModal'))
+          : router.push(nextPage);
+      const onBack = () => dispatch(openModal('resetState'));
+      return (
+        <>
+          <NavigationButtons
+            nextPage={nextPage}
+            onNext={onNext}
+            onBack={onBack}
+          />
+          <EmptyBodyMapModal />
+          <ResetStateModal />
+        </>
+      );
+    }
+    const onNext = () =>
+      allAnswersFalse(bodyMapForPage)
+        ? dispatch(openModal('emptySubmap'))
+        : router.push(nextPage);
+
     return (
-      <NavigationButtons
-        nextPage={nextPage}
-        onBack={() => {
-          onBack?.();
-          router.back();
-        }}
-      />
+      <>
+        <NavigationButtons onNext={onNext} />
+        <EmptySubmapModal nextPage={nextPage} />
+      </>
     );
   }
 );
