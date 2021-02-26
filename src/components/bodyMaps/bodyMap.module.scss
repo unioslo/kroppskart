@@ -7,6 +7,9 @@
     stroke: #5e9ed6;
     stroke-opacity: 1;
   }
+  &.blank polygon {
+    opacity: 0;
+  }
 }
 
 .bodyMapContainer {
@@ -21,6 +24,10 @@
   svg a.selected polygon {
     fill: url(#test);
     opacity: 0.5;
+  }
+
+  svg a.blank polygon {
+    opacity: 0;
   }
 
   svg a {
@@ -40,6 +47,9 @@
         stroke: #5e9ed6;
         stroke-opacity: 1;
       }
+    }
+    &.blank {
+      opacity: 0;
     }
   }
 }

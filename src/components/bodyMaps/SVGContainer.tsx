@@ -50,6 +50,19 @@ const createMouseLeaveHandler = (linkedWith: string | string[]) => () => {
   }
 };
 
+const createMouseDownHandler = (linkedWith: string | string[], ref) => () => {
+  const hideEffect = (id: string) =>
+    document.getElementById(id)?.parentElement?.classList.add(style.blank);
+  if (ref?.current) {
+    ref.current.classList.add(style.blank);
+  }
+  if (typeof linkedWith === 'string') {
+    hideEffect(linkedWith);
+  } else if (linkedWith) {
+    linkedWith.map((id) => hideEffect(id));
+  }
+};
+
 export const ClickablePolygon = ({
   id,
   bodyMap,
@@ -76,7 +89,8 @@ export const ClickablePolygon = ({
   return (
     <a
       onClick={onClick}
-      onKeyUp={(event) => {
+      onKeyPress={(event) => {
+        event.preventDefault();
         if (event.key === 'Enter' || event.key === ' ') {
           onClick();
         }
@@ -85,6 +99,7 @@ export const ClickablePolygon = ({
       ref={ref}
       onMouseEnter={createMouseEnterHandler(linkedWith)}
       onMouseLeave={createMouseLeaveHandler(linkedWith)}
+      onMouseDown={createMouseDownHandler(linkedWith, ref)}
       className={cn(selected && style.selected)}
     >
       <title>{alt + `. ${!selected ? 'Ikke valgt' : 'Valgt'}`}</title>

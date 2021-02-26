@@ -76,7 +76,11 @@ const getCurrentPage = (path: string) => {
   return splitPath[splitPath.length - 1];
 };
 
-const getNextPageFromRouting = (pathname, currentPage, routingOrder) => {
+const getNextPageFromRouting = (
+  pathname: string,
+  currentPage: string,
+  routingOrder: string[]
+) => {
   if (pathname === routingOrder[0]) {
     return routingOrder[1];
   } else {
@@ -85,8 +89,8 @@ const getNextPageFromRouting = (pathname, currentPage, routingOrder) => {
   }
 };
 
-const getNextPage = (relevantRoutes, pathname) => {
-  let routingOrder;
+const getNextPage = (relevantRoutes: string[], pathname: string) => {
+  let routingOrder: string[];
   if (pathname === '/') {
     return '/bodymap';
   }
