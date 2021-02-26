@@ -1,51 +1,43 @@
-.bodyMapContainer svg .hover {
-  outline: 0;
-  polygon {
-    opacity: 1;
-    fill: url(#test);
-    stroke-width: 2.5;
-    stroke: #5e9ed6;
-    stroke-opacity: 1;
-  }
-  &.blank polygon {
-    opacity: 0;
-  }
-}
-
 .bodyMapContainer {
   position: relative;
   max-width: 100%;
 
-  svg a polygon {
-    fill: transparent;
-    cursor: pointer;
-  }
+  svg > a {
+    & > polygon {
+      fill: url(#test);
+      opacity: 0;
+      cursor: pointer;
+    }
 
-  svg a.selected polygon {
-    fill: url(#test);
-    opacity: 0.5;
-  }
+    &.selected > polygon {
+      opacity: 0.5;
+    }
 
-  svg a.blank polygon {
-    opacity: 0;
-  }
+    &.hover > polygon {
+      opacity: 1;
+      stroke-width: 2.5;
+      stroke: #5e9ed6;
+      stroke-opacity: 1;
+    }
 
-  svg a {
-    &:focus {
+    &:focus,
+    &:hover {
       outline: 0;
-      polygon {
+
+      & > polygon,
+      &.selected > polygon {
+        opacity: 1;
         stroke: #5e9ed6;
         stroke-width: 2.5;
       }
-    }
-    polygon {
-      &:hover,
-      &:focus {
-        opacity: 1;
-        fill: url(#test);
-        stroke-width: 2.5;
-        stroke: #5e9ed6;
-        stroke-opacity: 1;
+
+      &:focus:not(.selected):not(:hover) {
+        fill-opacity: 0;
+      }
+
+      &.hoverBlank:hover,
+      &.hoverBlank:focus {
+        opacity: 0;
       }
     }
     &.blank {

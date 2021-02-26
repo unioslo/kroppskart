@@ -39,9 +39,13 @@ const createMouseEnterHandler = (linkedWith: string | string[]) => () => {
   }
 };
 
-const createMouseLeaveHandler = (linkedWith: string | string[]) => () => {
+const createMouseLeaveHandler = (
+  linkedWith: string | string[],
+  setBlank: (b: boolean) => void
+) => () => {
   const removeHover = (id: string) =>
     document.getElementById(id).parentElement.classList.remove(style.hover);
+  setBlank(false);
 
   if (typeof linkedWith === 'string') {
     removeHover(linkedWith);
@@ -50,11 +54,15 @@ const createMouseLeaveHandler = (linkedWith: string | string[]) => () => {
   }
 };
 
-const createMouseDownHandler = (linkedWith: string | string[], ref) => () => {
+const createMouseDownHandler = (
+  linkedWith: string | string[],
+  ref,
+  setBlank
+) => () => {
   const hideEffect = (id: string) =>
     document.getElementById(id)?.parentElement?.classList.add(style.blank);
   if (ref?.current) {
-    ref.current.classList.add(style.blank);
+    setBlank(true);
   }
   if (typeof linkedWith === 'string') {
     hideEffect(linkedWith);
@@ -72,6 +80,7 @@ export const ClickablePolygon = ({
   followUp,
 }) => {
   const selected = useSelector((state: rootState) => state.body[bodyMap]?.[id]);
+  const [hoverBlank, setBlank] = React.useState(false);
   const dispatch = useDispatch();
   const ref = React.useRef();
   const onClick = () => {
@@ -98,9 +107,12 @@ export const ClickablePolygon = ({
       tabIndex={followUp ? null : 0}
       ref={ref}
       onMouseEnter={createMouseEnterHandler(linkedWith)}
-      onMouseLeave={createMouseLeaveHandler(linkedWith)}
-      onMouseDown={createMouseDownHandler(linkedWith, ref)}
-      className={cn(selected && style.selected)}
+      onMouseLeave={createMouseLeaveHandler(linkedWith, setBlank)}
+      onMouseDown={createMouseDownHandler(linkedWith, ref, setBlank)}
+      className={cn(
+        selected && style.selected,
+        hoverBlank && !selected && style.hoverBlank
+      )}
     >
       <title>{alt + `. ${!selected ? 'Ikke valgt' : 'Valgt'}`}</title>
       <polygon id={id} points={points} />
