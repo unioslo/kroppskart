@@ -131,13 +131,21 @@ const filterFollowUpPages = (
 const Navigator = React.memo(
   ({
     section = 'bodymap',
+    onBack,
   }: {
     section?: 'start' | 'bodymap' | 'followup' | 'end';
+    onBack?: () => void;
   }) => {
     const router = useRouter();
     const nextPage = useGetNextPage(section);
     return (
-      <NavigationButtons nextPage={nextPage} onBack={() => router.back()} />
+      <NavigationButtons
+        nextPage={nextPage}
+        onBack={() => {
+          onBack?.();
+          router.back();
+        }}
+      />
     );
   }
 );

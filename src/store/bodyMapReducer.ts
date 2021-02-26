@@ -9,6 +9,9 @@ const bodyMapReducer = (state = {} as BodyMapState, action: BodyMapActions) => {
   switch (action.type) {
     case HYDRATE:
       return action.payload;
+    case ActionTypes.RESET_BODY_MAPS: {
+      return {};
+    }
     case ActionTypes.INIT_BODY_MAP_VALUES: {
       const initializedBodyMap = action.payload.keys.reduce((acc, val) => {
         acc[val] = false;
@@ -53,6 +56,7 @@ enum ActionTypes {
   CHANGE_BODY_MAP_VALUE = 'CHANGE_BODY_MAP_VALUES',
   SELECT_ALL_AREAS = 'SELECT_ALL_AREAS',
   UNSELECT_ALL_AREAS = 'UNSELECT_ALL_AREAS',
+  RESET_BODY_MAPS = 'RESET_BODY_MAPS',
   HYDRATE = '',
 }
 
@@ -61,7 +65,14 @@ type BodyMapActions =
   | InitBodyMapValues
   | SelectAllAreas
   | UnselectAllAreas
+  | ResetBodyMaps
   | HydrateAction<BodyMapState>;
+
+export const resetBodyMaps = () =>
+  ({
+    type: ActionTypes.RESET_BODY_MAPS,
+  } as const);
+type ResetBodyMaps = ReturnType<typeof resetBodyMaps>;
 
 export const initBodyMapValues = (bodyMap: string, keys: string[]) =>
   ({
