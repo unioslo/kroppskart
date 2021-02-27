@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import genitalsFemaleMap from '../../src/components/bodyMaps/mapData/genitalsFemaleMap';
-import genitalsMaleMap from '../../src/components/bodyMaps/mapData/genitalsMaleMap';
+import MapContainer from '../../src/components/MapContainer';
+import genitalsFemaleMap from '../../src/components/MapContainer/mapData/genitalsFemaleMap';
+import genitalsMaleMap from '../../src/components/MapContainer/mapData/genitalsMaleMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { useParamSelector } from '../../src/store/selectors';
 import { rootState } from '../../src/store/store';

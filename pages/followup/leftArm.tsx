@@ -1,5 +1,5 @@
-import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import leftArmMap from '../../src/components/bodyMaps/mapData/leftArmMap';
+import MapContainer from '../../src/components/MapContainer';
+import leftArmMap from '../../src/components/MapContainer/mapData/leftArmMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { usePossiblyGenderedParamSelector } from '../../src/store/selectors';
 import { surveyParams } from '../../src/utils/constants';

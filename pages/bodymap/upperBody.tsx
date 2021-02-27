@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import upperBodyFemaleMap from '../../src/components/bodyMaps/mapData/upperBodyFemaleMap';
-import upperBodyMaleMap from '../../src/components/bodyMaps/mapData/upperBodyMaleMap';
+import MapContainer from '../../src/components/MapContainer';
+import upperBodyFemaleMap from '../../src/components/MapContainer/mapData/upperBodyFemaleMap';
+import upperBodyMaleMap from '../../src/components/MapContainer/mapData/upperBodyMaleMap';
 import { MessageBoxBodyMap } from '../../src/components/messageBoxes';
 import Navigator from '../../src/components/Navigator';
 import { rootState } from '../../src/store/store';

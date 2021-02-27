@@ -1,5 +1,5 @@
-import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import rightFootMap from '../../src/components/bodyMaps/mapData/rightFootMap';
+import MapContainer from '../../src/components/MapContainer';
+import rightFootMap from '../../src/components/MapContainer/mapData/rightFootMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { useParamSelector } from '../../src/store/selectors';
 import { surveyParams } from '../../src/utils/constants';

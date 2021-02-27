@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import upperBodyFemaleMap from '../../src/components/bodyMaps/mapData/upperBodyFemaleMap';
-import upperBodyMaleMap from '../../src/components/bodyMaps/mapData/upperBodyMaleMap';
+import MapContainer from '../../src/components/MapContainer';
+import upperBodyFemaleMap from '../../src/components/MapContainer/mapData/upperBodyFemaleMap';
+import upperBodyMaleMap from '../../src/components/MapContainer/mapData/upperBodyMaleMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { useParamSelector } from '../../src/store/selectors';
 import { rootState } from '../../src/store/store';

@@ -1,5 +1,5 @@
-import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import abdomenMap from '../../src/components/bodyMaps/mapData/abdomenMap';
+import MapContainer from '../../src/components/MapContainer';
+import abdomenMap from '../../src/components/MapContainer/mapData/abdomenMap';
 import { MessageBoxBodyMap } from '../../src/components/messageBoxes';
 import Navigator from '../../src/components/Navigator';
 

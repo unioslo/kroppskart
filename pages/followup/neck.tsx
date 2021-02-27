@@ -1,5 +1,5 @@
-import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import neckMap from '../../src/components/bodyMaps/mapData/neckMap';
+import MapContainer from '../../src/components/MapContainer';
+import neckMap from '../../src/components/MapContainer/mapData/neckMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { useParamSelector } from '../../src/store/selectors';
 import { surveyParams } from '../../src/utils/constants';

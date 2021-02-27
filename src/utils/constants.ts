@@ -22,6 +22,12 @@ export const redundantBodyMapKeys = {
   headJawMouth: ['lips2'],
 };
 
+export const mainPaths = {
+  bodymap: '/bodymap',
+  followup: '/followup',
+  done: '/done',
+};
+
 export const surveyParams = {
   abdomen: 'abdom',
   back: 'back',

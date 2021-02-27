@@ -1,5 +1,5 @@
-import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import leftFoot from '../../src/components/bodyMaps/mapData/leftFootMap';
+import MapContainer from '../../src/components/MapContainer';
+import leftFoot from '../../src/components/MapContainer/mapData/leftFootMap';
 import { MessageBoxBodyMap } from '../../src/components/messageBoxes';
 import Navigator from '../../src/components/Navigator';
 
