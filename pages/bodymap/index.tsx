@@ -1,6 +1,6 @@
 import MapContainer from '../../src/components/bodyMaps/MapContainer';
+import wholeBody from '../../src/components/bodyMaps/mapData/wholeBody';
 import { MessageBoxWholeBody } from '../../src/components/messageBoxes';
-import { wholeBody } from '../../src/components/bodyMaps/mapData';
 import Navigator from '../../src/components/Navigator';
 
 const Survey = () => {

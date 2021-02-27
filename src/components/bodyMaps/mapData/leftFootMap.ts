@@ -1,4 +1,4 @@
-import { leftFootRes } from './responsive';
+import leftFootRes from './responsive/leftFootResMap';
 
 const leftFootMapParts = {
   'left-groin': {

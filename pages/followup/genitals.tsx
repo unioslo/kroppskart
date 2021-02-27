@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import { genitals } from '../../src/components/bodyMaps/mapData';
+import genitalsFemaleMap from '../../src/components/bodyMaps/mapData/genitalsFemaleMap';
+import genitalsMaleMap from '../../src/components/bodyMaps/mapData/genitalsMaleMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { useParamSelector } from '../../src/store/selectors';
 import { rootState } from '../../src/store/store';
@@ -11,7 +12,10 @@ export default function Genitals() {
   const formId = useParamSelector(surveyParams.genitals);
   return (
     <main className="container">
-      <MapContainer followUp={true} map={genitals[sex]} />
+      <MapContainer
+        followUp={true}
+        map={sex === 'female' ? genitalsFemaleMap : genitalsMaleMap}
+      />
       <EmbeddedForm formId={formId} />
     </main>
   );

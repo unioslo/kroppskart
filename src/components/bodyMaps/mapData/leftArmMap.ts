@@ -1,4 +1,4 @@
-import { leftArmRes } from './responsive';
+import leftArmRes from './responsive/leftArmResMap';
 
 const leftArmMapParts = {
   'upper-left-arm-front': {

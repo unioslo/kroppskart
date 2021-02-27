@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import { upperBody } from '../../src/components/bodyMaps/mapData';
+import upperBodyFemaleMap from '../../src/components/bodyMaps/mapData/upperBodyFemaleMap';
+import upperBodyMaleMap from '../../src/components/bodyMaps/mapData/upperBodyMaleMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { useParamSelector } from '../../src/store/selectors';
 import { rootState } from '../../src/store/store';
@@ -11,7 +12,10 @@ export default function UpperBody() {
   const formId = useParamSelector(surveyParams.upperBody);
   return (
     <main className="container">
-      <MapContainer followUp={true} map={upperBody[sex]} />
+      <MapContainer
+        followUp={true}
+        map={sex === 'female' ? upperBodyFemaleMap : upperBodyMaleMap}
+      />
       <EmbeddedForm formId={formId} />
     </main>
   );

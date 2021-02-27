@@ -1,5 +1,5 @@
 import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import { wholeBody } from '../../src/components/bodyMaps/mapData';
+import wholeBody from '../../src/components/bodyMaps/mapData/wholeBody';
 import { FollowUpIntro } from '../../src/components/messageBoxes';
 import { useGetNextPage } from '../../src/components/Navigator';
 import { NavigationButtons } from '../../src/components/ui';

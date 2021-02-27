@@ -1,5 +1,5 @@
 import MapContainer from '../../src/components/bodyMaps/MapContainer';
-import { leftArm } from '../../src/components/bodyMaps/mapData';
+import leftArmMap from '../../src/components/bodyMaps/mapData/leftArmMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { usePossiblyGenderedParamSelector } from '../../src/store/selectors';
 import { surveyParams } from '../../src/utils/constants';
@@ -10,7 +10,7 @@ export default function LeftArm() {
   ) as string;
   return (
     <main className="container">
-      <MapContainer followUp={true} map={leftArm} />
+      <MapContainer followUp={true} map={leftArmMap} />
       <EmbeddedForm formId={formId} />
     </main>
   );

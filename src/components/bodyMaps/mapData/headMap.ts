@@ -1,5 +1,5 @@
 import { MapParts } from './mapType';
-import { headJawMouthRes } from './responsive';
+import headJawMouthRes from './responsive/headJawMouthResMap';
 
 const headMapParts: MapParts = {
   'right-back-head': {
