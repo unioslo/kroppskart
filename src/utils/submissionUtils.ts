@@ -1,5 +1,6 @@
 import { BodyMapState } from '../store/bodyMapReducer';
 import {
+  codebook,
   getCodebookKeyForMap,
   getCodebookKeyForRegion,
   mapNamesForSex,
@@ -40,6 +41,23 @@ const appendSubmapToFormData = (
   });
 };
 
+const appendMissingSubmapToFormData = (
+  mapName: string,
+  sex: string,
+  formData: FormData
+) => {
+  let codebookMapName = mapName;
+  if (mapName === 'genitals' || mapName === 'chest') {
+    codebookMapName = mapNamesForSex[mapName][sex];
+  }
+  Object.entries(codebook[codebookMapName].areas).forEach(([key]) => {
+    formData.append(
+      textAnswer(getCodebookKeyForRegion(mapName, codebookMapName, key)),
+      '0'
+    );
+  });
+};
+
 export const submissionFromAnswerState = (
   body: BodyMapState,
   sex: string,
@@ -60,13 +78,12 @@ export const submissionFromAnswerState = (
   Object.entries(wholeBody).forEach(([key, value]) => {
     if (!redundantKeys.includes(key)) {
       const mapName = routingMap[key];
-      formData.append(
-        textAnswer(getCodebookKeyForMap(mapName)),
-        value ? '1' : '0'
-      );
+      formData.append(textAnswer(getCodebookKeyForMap(key)), value ? '1' : '0');
       const submap = body[mapName];
       if (value && submap) {
-        appendSubmapToFormData(body[mapName], mapName, value, sex, formData);
+        appendSubmapToFormData(submap, mapName, value, sex, formData);
+      } else {
+        appendMissingSubmapToFormData(mapName, sex, formData);
       }
     }
   });
