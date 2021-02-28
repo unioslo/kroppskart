@@ -6,7 +6,7 @@ export type BodyMapState = Record<string, Record<string, boolean>>;
 const bodyMapReducer = (state = {} as BodyMapState, action: BodyMapActions) => {
   switch (action.type) {
     case HYDRATE:
-      return action.payload;
+      return state;
     case ActionTypes.RESET_BODY_MAPS: {
       return {};
     }

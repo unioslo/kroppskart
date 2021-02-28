@@ -1,4 +1,4 @@
-import { default as wholeBody } from './wholeBody';
+//import { default as wholeBody } from './wholeBody';
 import { default as head } from './headMap';
 import { default as back } from './backMap';
 import { default as leftArm } from './leftArmMap';
@@ -15,8 +15,7 @@ import { default as chestMale } from './chestMaleMap';
 const chest = { male: chestMale, female: chestFemale };
 const genitals = { male: genitalsMale, female: genitalsFemale };
 
-export {
-  wholeBody,
+export default {
   head,
   back,
   leftArm,
