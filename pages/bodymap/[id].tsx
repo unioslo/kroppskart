@@ -1,7 +1,7 @@
 import MapContainer from '../../src/components/MapContainer';
 import { MessageBoxBodyMap } from '../../src/components/messageBoxes';
 import Navigator from '../../src/components/Navigator';
-import { rootState, wrapper } from '../../src/store/store';
+import { rootState } from '../../src/store/store';
 import mapData from '../../src/components/MapContainer/mapData';
 import { useSelector } from 'react-redux';
 import { GetStaticPaths } from 'next';
@@ -18,7 +18,7 @@ export default function BodyMapPage({ map, mapName }) {
   );
 }
 
-export const getStaticProps = wrapper.getStaticProps(async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
   const map = mapData[id];
   return {
@@ -27,7 +27,7 @@ export const getStaticProps = wrapper.getStaticProps(async ({ params }) => {
       mapName: id,
     },
   };
-});
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
