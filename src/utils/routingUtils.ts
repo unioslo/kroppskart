@@ -27,9 +27,13 @@ export const getFollowupRoutingOrder = (relevantRoutes: string[]) => [
 
 export const filterFollowUpPages = (
   allAnswers: Record<string, Record<string, boolean>>,
-  relevantRoutes: string[]
+  relevantRoutes: string[],
+  urlParameters: Record<string, unknown>
 ) =>
-  relevantRoutes.filter((route: string) => !allAnswersFalse(allAnswers[route]));
+  relevantRoutes.filter(
+    (route: string) =>
+      !allAnswersFalse(allAnswers[route]) && urlParameters[route]
+  );
 
 const getNextPageFromRouting = (
   pathname: string,

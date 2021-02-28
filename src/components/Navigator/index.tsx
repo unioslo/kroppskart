@@ -35,11 +35,18 @@ const useFilteredBodyMapValues = (mapName: string) => {
 export const useGetNextPage = (section: string) => {
   const router = useRouter();
   const wholeBodyAnswers = useFilteredBodyMapValues('wholeBody');
+  const urlParameters = useSelector(
+    (state: rootState) => state.app.urlParameters
+  );
   const allAnswers = useSelector((state: rootState) => state.body);
   let relevantRoutes = getRelevantRoutes(wholeBodyAnswers);
   if (section === 'followup') {
     // TODO Filter missing URL param followup
-    relevantRoutes = filterFollowUpPages(allAnswers, relevantRoutes);
+    relevantRoutes = filterFollowUpPages(
+      allAnswers,
+      relevantRoutes,
+      urlParameters
+    );
   }
   const nextPage = getNextPage(relevantRoutes, router.pathname);
   return nextPage;

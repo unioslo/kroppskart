@@ -7,13 +7,13 @@ export const redundantBodyMapKeys = {
     'head-back',
   ],
   genitals: ['vulva-1', 'vulva-2', 'urethra-2', 'vagina-right'],
-  leftLeg: [
+  leftFoot: [
     'left-shin-left-back',
     'left-shin-right-back',
     'left-thigh-back-left',
     'left-thigh-back-right',
   ],
-  rightLeg: [
+  rightFoot: [
     'right-thigh-back-left',
     'right-thigh-back-right',
     'right-shin-left-back',

@@ -1,14 +1,14 @@
 const wholeBodyAreas = {
-  head: 'HEAD',
+  headJawMouth: 'HEAD',
   neck: 'NECK',
   back: 'BACK',
-  chest: 'CHEST',
+  upperBody: 'CHEST',
   abdomen: 'ABDOM',
   genitals: 'GENIT',
-  'left-arm': 'LARM',
-  'right-arm': 'RARM',
-  'left-leg': 'LLEG',
-  'right-leg': 'RLEG',
+  leftArm: 'LARM',
+  rightArm: 'RARM',
+  leftFoot: 'LLEG',
+  rightFoot: 'RLEG',
 };
 
 const chestCommonAreas = {
@@ -144,7 +144,7 @@ export const codebook = {
     areas: wholeBodyAreas,
   },
   headJawMouth: {
-    name: wholeBodyAreas.head,
+    name: wholeBodyAreas.headJawMouth,
     areas: {
       'right-back-head': '01',
       'left-back-head': '02',
@@ -195,19 +195,18 @@ export const codebook = {
     },
   },
   chestMale: {
-    name: wholeBodyAreas.chest,
+    name: wholeBodyAreas.upperBody,
     areas: chestCommonAreas,
   },
   chestFemale: {
-    name: wholeBodyAreas.chest,
+    name: wholeBodyAreas.upperBody,
     areas: {
       ...chestCommonAreas,
       'right-breast': '09W',
       'left-breast': '10W',
     },
   },
-  abdomenFemale: abdomenCodes,
-  abdomenMale: abdomenCodes,
+  abdomen: abdomenCodes,
   genitalsFemale: {
     name: 'GENIT',
     areas: {
@@ -231,10 +230,8 @@ export const codebook = {
       penis: '07M',
     },
   },
-  leftArmFemale: leftArmCodes,
-  rightArmFemale: rightArmCodes,
-  leftArmMale: leftArmCodes,
-  rightArmMale: rightArmCodes,
+  leftArm: leftArmCodes,
+  rightArm: rightArmCodes,
   leftFoot: {
     name: wholeBodyAreas['left-leg'],
     areas: {
@@ -267,3 +264,17 @@ export const codebook = {
   },
   rightFoot: rightFootCodes,
 };
+
+export const mapNamesForSex = {
+  genitals: { female: 'genitalsFemale', male: 'genitalsMale' },
+  upperBody: { female: 'chestFemale', male: 'chestMale' },
+};
+
+export const getCodebookKeyForRegion = (
+  mapName: string,
+  submapName: string,
+  region: string
+) => `HBMP_${wholeBodyAreas[mapName]}_A${codebook[submapName].areas[region]}`;
+
+export const getCodebookKeyForMap = (mapName: string) =>
+  `HBMP_${wholeBodyAreas[mapName]}`;

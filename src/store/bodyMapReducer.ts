@@ -1,9 +1,7 @@
 import { HYDRATE } from 'next-redux-wrapper';
 import { HydrateAction } from './hydrate';
 
-export type BodyMapState = {
-  [key: string]: Record<string, Record<string, boolean>>;
-};
+export type BodyMapState = Record<string, Record<string, boolean>>;
 
 const bodyMapReducer = (state = {} as BodyMapState, action: BodyMapActions) => {
   switch (action.type) {
