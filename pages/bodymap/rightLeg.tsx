@@ -1,13 +1,13 @@
 import MapContainer from '../../src/components/MapContainer';
-import rightFootMap from '../../src/components/MapContainer/mapData/rightFootMap';
+import rightLegMap from '../../src/components/MapContainer/mapData/rightLegMap';
 import { MessageBoxBodyMap } from '../../src/components/messageBoxes';
 import Navigator from '../../src/components/Navigator';
 
-export default function RightFoot() {
+export default function RightLeg() {
   return (
     <main className="container">
       <MessageBoxBodyMap />
-      <MapContainer map={rightFootMap} />
+      <MapContainer map={rightLegMap} />
       <Navigator />
     </main>
   );

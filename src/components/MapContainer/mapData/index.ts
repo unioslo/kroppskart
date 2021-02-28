@@ -5,14 +5,14 @@ import { default as leftArm } from './leftArmMap';
 import { default as rightArm } from './rightArmMap';
 import { default as neck } from './neckMap';
 import { default as abdomen } from './abdomenMap';
-import { default as leftFoot } from './leftFootMap';
-import { default as rightFoot } from './rightFootMap';
+import { default as leftLeg } from './leftLegMap';
+import { default as rightLeg } from './rightLegMap';
 import { default as genitalsMale } from './genitalsMaleMap';
 import { default as genitalsFemale } from './genitalsFemaleMap';
-import { default as upperBodyFemale } from './upperBodyFemaleMap';
-import { default as upperBodyMale } from './upperBodyMaleMap';
+import { default as chestFemale } from './chestFemaleMap';
+import { default as chestMale } from './chestMaleMap';
 
-const upperBody = { male: upperBodyMale, female: upperBodyFemale };
+const chest = { male: chestMale, female: chestFemale };
 const genitals = { male: genitalsMale, female: genitalsFemale };
 
 export {
@@ -23,8 +23,8 @@ export {
   rightArm,
   neck,
   abdomen,
-  rightFoot,
-  leftFoot,
-  upperBody,
+  rightLeg,
+  leftLeg,
+  chest,
   genitals,
 };

@@ -21,7 +21,7 @@ const appendSubmapToFormData = (
   formData: FormData
 ) => {
   let codebookMapName = mapName;
-  if (mapName === 'genitals' || mapName === 'upperBody') {
+  if (mapName === 'genitals' || mapName === 'chest') {
     codebookMapName = mapNamesForSex[mapName][sex];
   }
   const redundantKeys = redundantBodyMapKeys[mapName];

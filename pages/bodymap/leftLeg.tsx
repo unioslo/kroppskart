@@ -1,13 +1,13 @@
 import MapContainer from '../../src/components/MapContainer';
+import leftLeg from '../../src/components/MapContainer/mapData/leftLegMap';
 import { MessageBoxBodyMap } from '../../src/components/messageBoxes';
 import Navigator from '../../src/components/Navigator';
-import headMap from '../../src/components/MapContainer/mapData/headMap';
 
-export default function HeadJawMouth() {
+export default function LeftLeg() {
   return (
     <main className="container">
       <MessageBoxBodyMap />
-      <MapContainer map={headMap} />
+      <MapContainer map={leftLeg} />
       <Navigator />
     </main>
   );

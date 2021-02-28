@@ -1,14 +1,14 @@
 import MapContainer from '../../src/components/MapContainer';
-import rightFootMap from '../../src/components/MapContainer/mapData/rightFootMap';
+import headMap from '../../src/components/MapContainer/mapData/headMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { useParamSelector } from '../../src/store/selectors';
 import { surveyParams } from '../../src/utils/constants';
 
-export default function RightFoot() {
-  const formId = useParamSelector(surveyParams.rightFoot);
+export default function Head() {
+  const formId = useParamSelector(surveyParams.head);
   return (
     <main className="container">
-      <MapContainer followUp={true} map={rightFootMap} />
+      <MapContainer followUp={true} map={headMap} />
       <EmbeddedForm formId={formId} />
     </main>
   );

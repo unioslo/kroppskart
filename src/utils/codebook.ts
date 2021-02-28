@@ -1,14 +1,14 @@
 const wholeBodyAreas = {
-  headJawMouth: 'HEAD',
+  head: 'HEAD',
   neck: 'NECK',
   back: 'BACK',
-  upperBody: 'CHEST',
+  chest: 'CHEST',
   abdomen: 'ABDOM',
   genitals: 'GENIT',
   leftArm: 'LARM',
   rightArm: 'RARM',
-  leftFoot: 'LLEG',
-  rightFoot: 'RLEG',
+  leftLeg: 'LLEG',
+  rightLeg: 'RLEG',
 };
 
 const chestCommonAreas = {
@@ -106,7 +106,7 @@ const abdomenCodes = {
   },
 };
 
-const rightFootCodes = {
+const rightLegCodes = {
   name: wholeBodyAreas['right-leg'],
   areas: {
     'right-groin': '01',
@@ -143,8 +143,8 @@ export const codebook = {
   wholeBodyFemale: {
     areas: wholeBodyAreas,
   },
-  headJawMouth: {
-    name: wholeBodyAreas.headJawMouth,
+  head: {
+    name: wholeBodyAreas.head,
     areas: {
       'right-back-head': '01',
       'left-back-head': '02',
@@ -195,11 +195,11 @@ export const codebook = {
     },
   },
   chestMale: {
-    name: wholeBodyAreas.upperBody,
+    name: wholeBodyAreas.chest,
     areas: chestCommonAreas,
   },
   chestFemale: {
-    name: wholeBodyAreas.upperBody,
+    name: wholeBodyAreas.chest,
     areas: {
       ...chestCommonAreas,
       'right-breast': '09W',
@@ -232,7 +232,7 @@ export const codebook = {
   },
   leftArm: leftArmCodes,
   rightArm: rightArmCodes,
-  leftFoot: {
+  leftLeg: {
     name: wholeBodyAreas['left-leg'],
     areas: {
       'left-groin': '01',
@@ -262,12 +262,12 @@ export const codebook = {
       'left-foot-wrist-joints': '25',
     },
   },
-  rightFoot: rightFootCodes,
+  rightLeg: rightLegCodes,
 };
 
 export const mapNamesForSex = {
   genitals: { female: 'genitalsFemale', male: 'genitalsMale' },
-  upperBody: { female: 'chestFemale', male: 'chestMale' },
+  chest: { female: 'chestFemale', male: 'chestMale' },
 };
 
 export const getCodebookKeyForRegion = (

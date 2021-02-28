@@ -1,6 +1,6 @@
-import leftFootRes from './responsive/leftFootResMap';
+import leftLegRes from './responsive/leftLegResMap';
 
-const leftFootMapParts = {
+const leftLegMapParts = {
   'left-groin': {
     shape: 'poly',
     points:
@@ -275,14 +275,14 @@ const leftFootMapParts = {
   },
 };
 
-const leftFootMapKeys = Object.keys(leftFootMapParts);
+const leftLegMapKeys = Object.keys(leftLegMapParts);
 
 export default {
-  name: 'leftFoot',
-  image: '/kroppskart/images/leftFoot.png',
+  name: 'leftLeg',
+  image: '/kroppskart/images/leftLeg.png',
   width: 612,
   height: 502,
-  keys: leftFootMapKeys,
-  parts: leftFootMapParts,
-  responsive: leftFootRes,
+  keys: leftLegMapKeys,
+  parts: leftLegMapParts,
+  responsive: leftLegRes,
 };

@@ -1,4 +1,4 @@
-const upperBodyFemaleMapParts = {
+const chestFemaleMapParts = {
   'right-throat': {
     shape: 'poly',
     points:
@@ -75,13 +75,13 @@ const upperBodyFemaleMapParts = {
   },
 };
 
-const upperBodyFemaleMapKeys = Object.keys(upperBodyFemaleMapParts);
+const chestFemaleMapKeys = Object.keys(chestFemaleMapParts);
 
 export default {
-  image: '/kroppskart/images/upperBodyFemale.png',
-  name: 'upperBody',
+  image: '/kroppskart/images/chestFemale.png',
+  name: 'chest',
   width: 550,
   height: 291,
-  keys: upperBodyFemaleMapKeys,
-  parts: upperBodyFemaleMapParts,
+  keys: chestFemaleMapKeys,
+  parts: chestFemaleMapParts,
 };

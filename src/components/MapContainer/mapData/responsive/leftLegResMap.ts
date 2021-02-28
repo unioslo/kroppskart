@@ -1,4 +1,4 @@
-const leftFootResMapParts = {
+const leftLegResMapParts = {
   'left-toe-5-medial': {
     shape: 'poly',
     points:
@@ -211,13 +211,13 @@ const leftFootResMapParts = {
   },
 };
 
-const leftFootResMapKeys = Object.keys(leftFootResMapParts);
+const leftLegResMapKeys = Object.keys(leftLegResMapParts);
 
 export default {
-  image: '/kroppskart/images/responsive/leftFootRes.png',
+  image: '/kroppskart/images/responsive/leftLegRes.png',
   width: 385,
   height: 986,
-  name: 'leftFoot',
-  keys: leftFootResMapKeys,
-  parts: leftFootResMapParts,
+  name: 'leftLeg',
+  keys: leftLegResMapKeys,
+  parts: leftLegResMapParts,
 };

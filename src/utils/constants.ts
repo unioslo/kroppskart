@@ -7,19 +7,19 @@ export const redundantBodyMapKeys = {
     'head-back',
   ],
   genitals: ['vulva-1', 'vulva-2', 'urethra-2', 'vagina-right'],
-  leftFoot: [
+  leftLeg: [
     'left-shin-left-back',
     'left-shin-right-back',
     'left-thigh-back-left',
     'left-thigh-back-right',
   ],
-  rightFoot: [
+  rightLeg: [
     'right-thigh-back-left',
     'right-thigh-back-right',
     'right-shin-left-back',
     'right-shin-right-back',
   ],
-  headJawMouth: ['lips2'],
+  head: ['lips2'],
 };
 
 export const mainPaths = {
@@ -32,7 +32,7 @@ export const surveyParams = {
   abdomen: 'abdom',
   back: 'back',
   genitals: 'genit',
-  headJawMouth: 'head',
+  head: 'head',
   leftArm: {
     female: 'leftArmFemale',
     male: 'leftArmMale',
@@ -43,24 +43,24 @@ export const surveyParams = {
     male: 'rightArmMale',
     general: 'rightArm',
   },
-  leftFoot: 'leftFoot',
-  rightFoot: 'leftFoot',
+  leftLeg: 'leftLeg',
+  rightLeg: 'leftLeg',
   neck: 'neck',
-  upperBody: 'chest',
+  chest: 'chest',
   followup: 'FollowUpSurvey',
   dataTarget: 'dataTarget',
 };
 
 export const bodymapOrder = [
-  'headJawMouth',
-  'upperBody',
+  'head',
+  'chest',
   'back',
   'abdomen',
   'leftArm',
   'rightArm',
   'neck',
-  'rightFoot',
-  'leftFoot',
+  'rightLeg',
+  'leftLeg',
   'genitals',
 ];
 
@@ -69,10 +69,10 @@ export const routingMap = {
   'right-arm': 'rightArm',
   abdomen: 'abdomen',
   neck: 'neck',
-  head: 'headJawMouth',
+  head: 'head',
   back: 'back',
-  'right-leg': 'rightFoot',
-  'left-leg': 'leftFoot',
-  chest: 'upperBody',
+  'right-leg': 'rightLeg',
+  'left-leg': 'leftLeg',
+  chest: 'chest',
   genitals: 'genitals',
 };

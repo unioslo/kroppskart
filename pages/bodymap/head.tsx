@@ -1,13 +1,13 @@
 import MapContainer from '../../src/components/MapContainer';
-import leftFoot from '../../src/components/MapContainer/mapData/leftFootMap';
 import { MessageBoxBodyMap } from '../../src/components/messageBoxes';
 import Navigator from '../../src/components/Navigator';
+import headMap from '../../src/components/MapContainer/mapData/headMap';
 
-export default function LeftFoot() {
+export default function Head() {
   return (
     <main className="container">
       <MessageBoxBodyMap />
-      <MapContainer map={leftFoot} />
+      <MapContainer map={headMap} />
       <Navigator />
     </main>
   );

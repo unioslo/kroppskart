@@ -1,14 +1,14 @@
 import MapContainer from '../../src/components/MapContainer';
-import headMap from '../../src/components/MapContainer/mapData/headMap';
+import rightLegMap from '../../src/components/MapContainer/mapData/rightLegMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { useParamSelector } from '../../src/store/selectors';
 import { surveyParams } from '../../src/utils/constants';
 
-export default function HeadJawMouth() {
-  const formId = useParamSelector(surveyParams.headJawMouth);
+export default function RightLeg() {
+  const formId = useParamSelector(surveyParams.rightLeg);
   return (
     <main className="container">
-      <MapContainer followUp={true} map={headMap} />
+      <MapContainer followUp={true} map={rightLegMap} />
       <EmbeddedForm formId={formId} />
     </main>
   );

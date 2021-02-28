@@ -1,4 +1,4 @@
-const headJawMouthResMapParts = {
+const headResMapParts = {
   'right-jaw': {
     shape: 'poly',
     points:
@@ -192,13 +192,13 @@ const headJawMouthResMapParts = {
   },
 };
 
-const headJawMouthResMapKeys = Object.keys(headJawMouthResMapParts);
+const headResMapKeys = Object.keys(headResMapParts);
 
 export default {
-  image: '/kroppskart/images/responsive/headJawMouthRes.png',
+  image: '/kroppskart/images/responsive/headRes.png',
   width: 529,
   height: 842,
-  name: 'headJawMouth',
-  keys: headJawMouthResMapKeys,
-  parts: headJawMouthResMapParts,
+  name: 'head',
+  keys: headResMapKeys,
+  parts: headResMapParts,
 };

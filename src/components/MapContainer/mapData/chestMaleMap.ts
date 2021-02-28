@@ -1,4 +1,4 @@
-const upperBodyMaleMapParts = {
+const chestMaleMapParts = {
   'right-throat': {
     shape: 'poly',
     points:
@@ -57,13 +57,13 @@ const upperBodyMaleMapParts = {
   },
 };
 
-const upperBodyMaleMapKeys = Object.keys(upperBodyMaleMapParts);
+const chestMaleMapKeys = Object.keys(chestMaleMapParts);
 
 export default {
-  image: '/kroppskart/images/upperBodyMale.png',
-  name: 'upperBody',
+  image: '/kroppskart/images/chestMale.png',
+  name: 'chest',
   width: 500,
   height: 469,
-  keys: upperBodyMaleMapKeys,
-  parts: upperBodyMaleMapParts,
+  keys: chestMaleMapKeys,
+  parts: chestMaleMapParts,
 };

@@ -1,14 +1,14 @@
 import MapContainer from '../../src/components/MapContainer';
-import leftFootMap from '../../src/components/MapContainer/mapData/leftFootMap';
+import leftLegMap from '../../src/components/MapContainer/mapData/leftLegMap';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
 import { useParamSelector } from '../../src/store/selectors';
 import { surveyParams } from '../../src/utils/constants';
 
-export default function LeftFoot() {
-  const formId = useParamSelector(surveyParams.leftFoot);
+export default function LeftLeg() {
+  const formId = useParamSelector(surveyParams.leftLeg);
   return (
     <main className="container">
-      <MapContainer followUp={true} map={leftFootMap} />
+      <MapContainer followUp={true} map={leftLegMap} />
       <EmbeddedForm formId={formId} />
     </main>
   );

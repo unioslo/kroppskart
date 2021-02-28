@@ -1,5 +1,5 @@
 import { MapParts } from './mapType';
-import headJawMouthRes from './responsive/headJawMouthResMap';
+import headRes from './responsive/headResMap';
 
 const headMapParts: MapParts = {
   'right-back-head': {
@@ -485,8 +485,8 @@ export default {
   parts: headMapParts,
   width: 702,
   height: 605,
-  image: '/kroppskart/images/headJawMouth.png',
-  name: 'headJawMouth',
+  image: '/kroppskart/images/head.png',
+  name: 'head',
   keys: headMapKeys,
-  responsive: headJawMouthRes,
+  responsive: headRes,
 };
