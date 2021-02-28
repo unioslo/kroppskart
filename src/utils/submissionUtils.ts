@@ -68,7 +68,7 @@ export const submissionFromAnswerState = (
   const userAgent =
     typeof window !== 'undefined' ? window?.navigator?.userAgent : 'unknown';
   formData.append(textAnswer('HBMP_BROWSER'), userAgent);
-  const date = new Date().toLocaleString();
+  const date = new Date().toISOString();
   formData.append(textAnswer('HBMP_DATE'), date);
   formData.append(textAnswer('HBMP_VERSION'), 'Kroppskart 2 Next.js');
 
