@@ -48,7 +48,11 @@ const getNextPageFromRouting = (
   }
 };
 
-export const getNextPage = (relevantRoutes: string[], pathname: string) => {
+export const getNextPage = (
+  relevantRoutes: string[],
+  pathname: string,
+  mapName?: string
+) => {
   let routingOrder: string[];
   if (pathname === '/') {
     return '/bodymap';
@@ -58,6 +62,6 @@ export const getNextPage = (relevantRoutes: string[], pathname: string) => {
   } else {
     routingOrder = getFollowupRoutingOrder(relevantRoutes);
   }
-  const currentPage = getCurrentPage(pathname);
+  const currentPage = mapName ?? getCurrentPage(pathname);
   return getNextPageFromRouting(pathname, currentPage, routingOrder);
 };

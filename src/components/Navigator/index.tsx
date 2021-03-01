@@ -32,7 +32,7 @@ const useFilteredBodyMapValues = (mapName: string) => {
   return filteredMap;
 };
 
-export const useGetNextPage = (section: string) => {
+export const useGetNextPage = (section: string, mapName?: string) => {
   const router = useRouter();
   const wholeBodyAnswers = useFilteredBodyMapValues('wholeBody');
   const urlParameters = useSelector(
@@ -48,7 +48,7 @@ export const useGetNextPage = (section: string) => {
       urlParameters
     );
   }
-  const nextPage = getNextPage(relevantRoutes, router.pathname);
+  const nextPage = getNextPage(relevantRoutes, router.pathname, mapName);
   return nextPage;
 };
 
@@ -57,17 +57,20 @@ export const useGetNextPage = (section: string) => {
 const Navigator = React.memo(
   ({
     section = 'bodymap',
+    mapName,
   }: {
+    mapName?: string;
     section?: 'start' | 'bodymap' | 'followup' | 'end';
   }) => {
     const router = useRouter();
     const dispatch = useDispatch();
-    const currentPage = getCurrentPage(router.pathname);
+    const currentPage = mapName ?? getCurrentPage(router.pathname);
     const bodyMapForPage = useSelector(
       (state: rootState) =>
         state.body[currentPage !== 'bodymap' ? currentPage : 'wholeBody']
     );
-    const nextPage = useGetNextPage(section);
+    const nextPage = useGetNextPage(section, mapName);
+
     if (currentPage === 'bodymap') {
       const onNext = () =>
         allAnswersFalse(bodyMapForPage)

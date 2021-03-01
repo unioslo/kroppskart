@@ -20,7 +20,8 @@ const appStateReducer = (
 ): AppState => {
   switch (action.type) {
     case HYDRATE:
-      return { ...action.payload.app };
+      return state;
+    //return { ...action.payload.app };
     case ActionTypes.ADD_PARAMETERS:
       return { ...state, urlParameters: action.payload };
     case ActionTypes.SET_SEX:
