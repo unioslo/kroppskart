@@ -18,8 +18,8 @@ Foreløpig struktur:
   - MapContainer (rendrer bilde og SVG-lag basert på mapData)
   - SVGContainer (lager SVG-lag basert på innsendt mapData)
   - mapData (mapping for kroppskart, transformert fra gammel app)
-- Navigator (inneholder logikk for ruting, bruk av modaler, og navigasjonsknapper)
-- EmbeddedForm (logikk for embedding av skjema + ruting etter leveranse)
+  - Navigator (inneholder logikk for ruting, bruk av modaler, og navigasjonsknapper)
+  - EmbeddedForm (logikk for embedding av skjema + ruting etter leveranse)
 
 ## Overføring av kroppskart fra gammel kode:
 
