@@ -3,7 +3,7 @@
 appName = 'nettskjema-inn-kroppskart'
 branch = env.BRANCH_NAME
 
-currentBuild.displayName = "Nettskejma Inn: Kroppskart"
+currentBuild.displayName = "Nettskjema Inn: Kroppskart"
 echo "Jenkinsfile for ${appName}"
 
 node('wapp') {
