@@ -13,7 +13,7 @@ export default function FollowupPage({ map, mapName }) {
   return (
     <div className="container">
       <MapContainer followUp={true} map={map[sex] ?? map} />
-      <EmbeddedForm formId={formId} />
+      <EmbeddedForm formId={formId} pageName={mapName} />
     </div>
   );
 }

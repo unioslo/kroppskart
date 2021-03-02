@@ -29,9 +29,15 @@ const useMessageListener = (deliverForm?: () => void) => {
   return height;
 };
 
-const EmbeddedForm = ({ formId }: { formId: string }) => {
+const EmbeddedForm = ({
+  formId,
+  pageName,
+}: {
+  formId: string;
+  pageName: string;
+}) => {
   const [toggle, setToggle] = React.useState(true);
-  const nextPage = useGetNextPage('followup');
+  const nextPage = useGetNextPage('followup', pageName);
   const router = useRouter();
   const onSubmit = React.useCallback(() => {
     router.push(nextPage);
