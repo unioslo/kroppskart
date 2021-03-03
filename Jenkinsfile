@@ -7,5 +7,5 @@ currentBuild.displayName = "Nettskjema Inn: Kroppskart"
 echo "Jenkinsfile for ${appName}"
 
 node('wapp') {
-  processFrontend(branch, jobName, "application", "nettskjema-inn")
+  deployNodeApp(appName, branch, "application", "nettskjema-inn")
 }
