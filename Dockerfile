@@ -13,7 +13,7 @@ RUN chown -R user.user /usr/src/app
 COPY package.json /usr/src/app
 COPY package-lock.json /usr/src/app
 
-RUN npm ci --no-optional
+RUN npm ci
 
 COPY . .
 
