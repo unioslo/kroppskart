@@ -23,7 +23,7 @@ USER user
 ENV HTTP_PROXY=
 ENV HTTPS_PROXY=
 
-EXPOSE 3000
+EXPOSE 8080
 
 ENV NODE_OPTIONS='--max_old_space_size=200'
 CMD ["npm", "start"]
