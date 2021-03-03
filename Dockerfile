@@ -15,6 +15,8 @@ COPY package-lock.json /usr/src/app
 
 RUN npm ci --no-optional
 
+RUN npm i sharp
+
 COPY . .
 
 RUN npm run build
