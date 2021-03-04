@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { MessageBoxDelivering } from '../src/components/messageBoxes';
@@ -15,12 +16,14 @@ const getUrlParam = (param?: string | string[]) => {
 };
 
 const Done = () => {
+  const router = useRouter();
   const { urlParameters, sex, initialized } = useSelector(
     (state: rootState) => state.app
   );
   const maps = useSelector((state: rootState) => state.body);
   const submissionId = getUrlParam(urlParameters.submissionId);
   const dataTarget = getUrlParam(urlParameters.dataTarget);
+  const followUpSurvey = getUrlParam(urlParameters.followUpSurvey);
 
   const [delivering, setDelivering] = React.useState(false);
   const [failed, setFailed] = React.useState(false);
@@ -30,7 +33,6 @@ const Done = () => {
   if (initialized) {
     submission = submissionFromAnswerState(maps, sex, submissionId);
   }
-  const disable = false;
 
   // for (const [key, value] of submission.entries()) {
   //   console.log(key, value);
@@ -38,14 +40,7 @@ const Done = () => {
 
   React.useEffect(() => {
     // TODO: Reenable to deliver data
-    if (
-      disable &&
-      submission &&
-      dataTarget &&
-      !failed &&
-      !delivering &&
-      !delivered
-    ) {
+    if (submission && dataTarget && !failed && !delivering && !delivered) {
       try {
         postSubmission(dataTarget, submission, submissionId)
           .then((res) => res.json())
@@ -66,6 +61,11 @@ const Done = () => {
     }
   }, [delivering, failed, delivered, setDelivering, setFailed, setDelivered]);
 
+  React.useEffect(() => {
+    if (delivered && followUpSurvey) {
+      router.push(`https://nettskjema.no/a/${followUpSurvey}`);
+    }
+  }, [delivered, followUpSurvey]);
   return (
     <main className="container">
       <MessageBoxDelivering />
