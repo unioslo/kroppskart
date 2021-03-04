@@ -4,15 +4,25 @@ import './global.css';
 
 import React from 'react';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
+import { useSelector, useStore } from 'react-redux';
 
 import { rootState, wrapper } from '../src/store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
+  const store = useStore();
   const initialized = useSelector((state: rootState) => state.app.initialized);
+  const rehydrated = useSelector(
+    (state: rootState) => state._persist?.rehydrated
+  );
   React.useEffect(() => {
-    if (router.pathname.includes('bodymap') && !initialized) {
+    if (
+      (router.pathname.includes('bodymap') ||
+        router.pathname.includes('followup')) &&
+      !initialized &&
+      rehydrated
+    ) {
       router.replace('/');
     }
   });
@@ -30,7 +40,12 @@ const App = ({ Component, pageProps }) => {
         />
         <link rel="icon" href={'/kroppskart/favicon.ico'} />
       </Head>
-      <Component {...pageProps} />
+      <PersistGate
+        persistor={(store as any).__persistor}
+        loading={() => <div>Laster inn</div>}
+      >
+        <Component {...pageProps} />
+      </PersistGate>
     </>
   );
 };

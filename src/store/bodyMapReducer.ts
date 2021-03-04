@@ -1,5 +1,5 @@
 import { HYDRATE } from 'next-redux-wrapper';
-import { HydrateAction } from './hydrate';
+import { HydrateAction, SetClientState, SET_CLIENT_STATE } from './hydrate';
 
 export type BodyMapState = Record<string, Record<string, boolean>>;
 
@@ -7,6 +7,8 @@ const bodyMapReducer = (state = {} as BodyMapState, action: BodyMapActions) => {
   switch (action.type) {
     case HYDRATE:
       return state;
+    case SET_CLIENT_STATE:
+      return { ...action.payload?.body };
     case ActionTypes.RESET_BODY_MAPS: {
       return {};
     }
@@ -55,7 +57,6 @@ enum ActionTypes {
   SELECT_ALL_AREAS = 'SELECT_ALL_AREAS',
   UNSELECT_ALL_AREAS = 'UNSELECT_ALL_AREAS',
   RESET_BODY_MAPS = 'RESET_BODY_MAPS',
-  HYDRATE = '',
 }
 
 type BodyMapActions =
@@ -64,6 +65,7 @@ type BodyMapActions =
   | SelectAllAreas
   | UnselectAllAreas
   | ResetBodyMaps
+  | SetClientState
   | HydrateAction<BodyMapState>;
 
 export const resetBodyMaps = () =>

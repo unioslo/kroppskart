@@ -1,6 +1,6 @@
 import { HYDRATE } from 'next-redux-wrapper';
 import { ParsedUrlQuery } from 'querystring';
-import { HydrateAction } from './hydrate';
+import { HydrateAction, SetClientState, SET_CLIENT_STATE } from './hydrate';
 
 export type AppState = {
   urlParameters: ParsedUrlQuery;
@@ -22,6 +22,8 @@ const appStateReducer = (
     case HYDRATE:
       return state;
     //return { ...action.payload.app };
+    case SET_CLIENT_STATE:
+      return { ...action.payload?.app, rehydrated: true };
     case ActionTypes.ADD_PARAMETERS:
       return { ...state, urlParameters: action.payload };
     case ActionTypes.SET_SEX:
@@ -30,6 +32,8 @@ const appStateReducer = (
       return { ...state, openModal: action.payload };
     case ActionTypes.CLOSE_MODAL:
       return { ...state, openModal: '' };
+    case ActionTypes.RESET_APP_STATE:
+      return { ...state, initialized: false, urlParameters: {} };
     default:
       return state;
   }
@@ -40,6 +44,7 @@ enum ActionTypes {
   SET_SEX = 'SET_SEX',
   OPEN_MODAL = 'OPEN_MODAL',
   CLOSE_MODAL = 'CLOSE_MODAL',
+  RESET_APP_STATE = 'RESET_APP_STATE',
 }
 
 export type AppStateActions =
@@ -47,6 +52,8 @@ export type AppStateActions =
   | SetSex
   | OpenModal
   | CloseModal
+  | SetClientState
+  | ResetAppState
   | HydrateAction<AppState>;
 
 export const setSex = (sex: 'male' | 'female') =>
@@ -66,5 +73,9 @@ type OpenModal = ReturnType<typeof openModal>;
 
 export const closeModal = () => ({ type: ActionTypes.CLOSE_MODAL } as const);
 type CloseModal = ReturnType<typeof closeModal>;
+
+export const resetAppState = () =>
+  ({ type: ActionTypes.RESET_APP_STATE } as const);
+type ResetAppState = ReturnType<typeof resetAppState>;
 
 export default appStateReducer;
