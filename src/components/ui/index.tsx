@@ -61,6 +61,9 @@ export const NavigationButtons = ({
   nextPage?: string;
 }) => {
   const router = useRouter();
+  React.useEffect(() => {
+    router.prefetch(nextPage);
+  }, [nextPage]);
   return (
     <div className={style.navigationButtons}>
       <Button

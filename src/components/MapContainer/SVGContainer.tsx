@@ -44,7 +44,7 @@ const createMouseLeaveHandler = (
   setBlank: (b: boolean) => void
 ) => () => {
   const removeHover = (id: string) =>
-    document.getElementById(id).parentElement.classList.remove(style.hover);
+    document.getElementById(id)?.parentElement?.classList.remove(style.hover);
   setBlank(false);
 
   if (typeof linkedWith === 'string') {
