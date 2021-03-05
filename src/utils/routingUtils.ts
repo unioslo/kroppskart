@@ -65,3 +65,10 @@ export const getNextPage = (
   const currentPage = mapName ?? getCurrentPage(pathname);
   return getNextPageFromRouting(pathname, currentPage, routingOrder);
 };
+
+export const getUrlParam = (param?: string | string[]) => {
+  if (Array.isArray(param)) {
+    return param[0];
+  }
+  return param;
+};

@@ -42,7 +42,7 @@ const App = ({ Component, pageProps }) => {
       </Head>
       <PersistGate
         persistor={(store as any).__persistor}
-        loading={() => <div>Laster inn</div>}
+        loading={<div>Laster inn</div>}
       >
         <Component {...pageProps} />
       </PersistGate>
