@@ -77,7 +77,8 @@ export const submissionFromAnswerState = (
   Object.entries(wholeBody).forEach(([key, value]) => {
     if (!redundantKeys.includes(key)) {
       const mapName = routingMap[key];
-      formData.append(textAnswer(getCodebookKeyForMap(key)), value ? '1' : '0');
+      const codebookKey = getCodebookKeyForMap(key);
+      formData.append(textAnswer(codebookMap[codebookKey]), value ? '1' : '0');
       const submap = body[mapName];
       if (value && submap) {
         appendSubmapToFormData(
