@@ -19,7 +19,8 @@ const appendSubmapToFormData = (
   mapName: string,
   mapSelected: boolean,
   sex: string,
-  formData: FormData
+  formData: FormData,
+  codebookMap: Record<string, string>
 ) => {
   let codebookMapName = mapName;
   if (mapName === 'genitals' || mapName === 'chest') {
@@ -27,16 +28,11 @@ const appendSubmapToFormData = (
   }
   const redundantKeys = redundantBodyMapKeys[mapName];
   Object.entries(map).forEach(([key, value]) => {
+    const codebookKey = getCodebookKeyForRegion(mapName, codebookMapName, key);
     if (mapSelected && value && !redundantKeys?.includes(key)) {
-      formData.append(
-        textAnswer(getCodebookKeyForRegion(mapName, codebookMapName, key)),
-        '1'
-      );
+      formData.append(textAnswer(codebookMap[codebookKey]), '1');
     } else if ((!mapSelected || !value) && !redundantKeys?.includes(key)) {
-      formData.append(
-        textAnswer(getCodebookKeyForRegion(mapName, codebookMapName, key)),
-        '0'
-      );
+      formData.append(textAnswer(codebookMap[codebookKey]), '0');
     }
   });
 };
@@ -44,33 +40,36 @@ const appendSubmapToFormData = (
 const appendMissingSubmapToFormData = (
   mapName: string,
   sex: string,
-  formData: FormData
+  formData: FormData,
+  codebookMap: Record<string, string>
 ) => {
   let codebookMapName = mapName;
   if (mapName === 'genitals' || mapName === 'chest') {
     codebookMapName = mapNamesForSex[mapName][sex];
   }
   Object.entries(codebook[codebookMapName].areas).forEach(([key]) => {
-    formData.append(
-      textAnswer(getCodebookKeyForRegion(mapName, codebookMapName, key)),
-      '0'
-    );
+    const codebookKey = getCodebookKeyForRegion(mapName, codebookMapName, key);
+    formData.append(textAnswer(codebookMap[codebookKey]), '0');
   });
 };
 
 export const submissionFromAnswerState = (
   body: BodyMapState,
   sex: string,
-  submissionId?: string
+  submissionId?: string,
+  codebookMap?: Record<string, string>
 ) => {
   const formData = new FormData();
-  formData.append(textAnswer('SUBMISSION_REFERENCE'), submissionId ?? '');
+  formData.append(
+    textAnswer(codebookMap.SUBMISSION_REFERENCE),
+    submissionId ?? ''
+  );
   const userAgent =
     typeof window !== 'undefined' ? window?.navigator?.userAgent : 'unknown';
-  formData.append(textAnswer('HBMP_BROWSER'), userAgent);
+  formData.append(textAnswer(codebookMap.HBMP_BROWSER), userAgent);
   const date = new Date().toISOString();
-  formData.append(textAnswer('HBMP_DATE'), date);
-  formData.append(textAnswer('HBMP_VERSION'), 'Kroppskart 2 Next.js');
+  formData.append(textAnswer(codebookMap.HBMP_DATE), date);
+  formData.append(textAnswer(codebookMap.HBMP_VERSION), 'Kroppskart 2 Next.js');
 
   const redundantKeys = redundantBodyMapKeys.wholeBody;
 
@@ -81,9 +80,16 @@ export const submissionFromAnswerState = (
       formData.append(textAnswer(getCodebookKeyForMap(key)), value ? '1' : '0');
       const submap = body[mapName];
       if (value && submap) {
-        appendSubmapToFormData(submap, mapName, value, sex, formData);
+        appendSubmapToFormData(
+          submap,
+          mapName,
+          value,
+          sex,
+          formData,
+          codebookMap
+        );
       } else {
-        appendMissingSubmapToFormData(mapName, sex, formData);
+        appendMissingSubmapToFormData(mapName, sex, formData, codebookMap);
       }
     }
   });

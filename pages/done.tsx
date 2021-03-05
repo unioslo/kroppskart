@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import useSWR from 'swr';
 import { MessageBoxDelivering } from '../src/components/messageBoxes';
 import { rootState } from '../src/store/store';
 import {
@@ -9,12 +10,22 @@ import {
 } from '../src/utils/submissionUtils';
 import { resetAppState } from '../src/store/appStateReducer';
 import { resetBodyMaps } from '../src/store/bodyMapReducer';
+import { getUrlParam } from '../src/utils/routingUtils';
 
-const getUrlParam = (param?: string | string[]) => {
-  if (Array.isArray(param)) {
-    return param[0];
-  }
-  return param;
+const useGetForm = (formId?: string) => {
+  const { data, error } = useSWR(
+    formId ? `/kroppskart/api/codebook?formId=${formId}` : null,
+    (url: string) =>
+      fetch(url)
+        .then((r) => r.json())
+        .then((j) => j.codebook)
+  );
+
+  return {
+    codebookMap: data,
+    isLoading: !data && !error,
+    error,
+  };
 };
 
 const Done = () => {
@@ -32,9 +43,16 @@ const Done = () => {
   const [failed, setFailed] = React.useState(false);
   const [delivered, setDelivered] = React.useState(false);
 
+  const { codebookMap } = useGetForm(dataTarget);
+
   let submission;
-  if (initialized) {
-    submission = submissionFromAnswerState(maps, sex, submissionId);
+  if (initialized && codebookMap) {
+    submission = submissionFromAnswerState(
+      maps,
+      sex,
+      submissionId,
+      codebookMap
+    );
   }
 
   // for (const [key, value] of submission.entries()) {
@@ -43,7 +61,10 @@ const Done = () => {
 
   React.useEffect(() => {
     // TODO: Reenable to deliver data
-    if (submission && dataTarget && !failed && !delivering && !delivered) {
+    const hasSufficientData = !!(codebookMap && submission && dataTarget);
+    const shouldDeliver = !failed && !delivering && !delivered;
+
+    if (hasSufficientData && shouldDeliver) {
       try {
         postSubmission(dataTarget, submission, submissionId)
           .then((res) => res.json())
@@ -62,7 +83,15 @@ const Done = () => {
         setDelivering(false);
       }
     }
-  }, [delivering, failed, delivered, setDelivering, setFailed, setDelivered]);
+  }, [
+    codebookMap,
+    delivering,
+    failed,
+    delivered,
+    setDelivering,
+    setFailed,
+    setDelivered,
+  ]);
 
   React.useEffect(() => {
     if (delivered && followUpSurvey) {

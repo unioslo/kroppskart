@@ -78,7 +78,7 @@ export const EmptyBodyMapModal = () => {
         Det stemmer, jeg har ikke hatt smerter
       </Button>
       <Button type="modalAnswer" onClick={close}>
-        Nei ta meg tilbake til bildet
+        Nei, ta meg tilbake til bildet
       </Button>
       <Button
         type="modalAnswer"
