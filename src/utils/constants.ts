@@ -33,16 +33,8 @@ export const surveyParams = {
   back: 'back',
   genitals: 'genit',
   head: 'head',
-  leftArm: {
-    female: 'leftArmFemale',
-    male: 'leftArmMale',
-    general: 'leftArm',
-  },
-  rightArm: {
-    female: 'rightArmFemale',
-    male: 'rightArmMale',
-    general: 'rightArm',
-  },
+  leftArm: 'leftArm',
+  rightArm: 'rightArm',
   leftLeg: 'leftLeg',
   rightLeg: 'leftLeg',
   neck: 'neck',
