@@ -4,12 +4,24 @@ import mapData from '../../src/components/MapContainer/mapData';
 import { useSelector } from 'react-redux';
 import { GetStaticPaths } from 'next';
 import EmbeddedForm from '../../src/components/EmbeddedForm';
-import { useParamSelector } from '../../src/store/selectors';
-import { surveyParams } from '../../src/utils/constants';
+import { useGetBodyMap } from '../../src/store/selectors';
+import { lowerBackKeys, surveyParams } from '../../src/utils/constants';
+import { someAnswersInList } from '../../src/utils/mapUtils';
+import { getUrlParam } from '../../src/utils/routingUtils';
 
 export default function FollowupPage({ map, mapName }) {
   const sex = useSelector((state: rootState) => state.app.sex);
-  const formId = useParamSelector(surveyParams[mapName]);
+  const params = useSelector((state: rootState) => state.app.urlParameters);
+  const selectedAreas = useGetBodyMap(mapName);
+  let paramName = surveyParams[mapName];
+  if (
+    mapName === 'back' &&
+    params[surveyParams.lowerBack] &&
+    someAnswersInList(selectedAreas, lowerBackKeys)
+  ) {
+    paramName = surveyParams.lowerBack;
+  }
+  const formId = getUrlParam(params[paramName]);
   return (
     <div className="container">
       <MapContainer followUp={true} map={map[sex] ?? map} />

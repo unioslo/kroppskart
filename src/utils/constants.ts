@@ -22,6 +22,13 @@ export const redundantBodyMapKeys = {
   head: ['lips2'],
 };
 
+export const lowerBackKeys = [
+  'bottom-end',
+  'right-lower-back',
+  'left-lower-back',
+  'mid-lower-back',
+];
+
 export const mainPaths = {
   bodymap: '/bodymap',
   followup: '/followup',
@@ -31,6 +38,7 @@ export const mainPaths = {
 export const surveyParams = {
   abdomen: 'abdom',
   back: 'back',
+  lowerBack: 'lowerBack',
   genitals: 'genit',
   head: 'head',
   leftArm: 'leftArm',
