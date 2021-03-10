@@ -49,6 +49,12 @@ export const surveyParams = {
   chest: 'chest',
   followup: 'FollowUpSurvey',
   dataTarget: 'dataTarget',
+  submissionId: 'submissionId',
+} as const;
+
+type ValueOf<T> = T[keyof T];
+export type SurveyParams = {
+  [Param in ValueOf<typeof surveyParams>]?: string | string[];
 };
 
 export const bodymapOrder = [
