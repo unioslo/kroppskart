@@ -54,6 +54,7 @@ const MapContainer = ({
       dispatch(initBodyMapValues(map.name, map.keys));
     }
   }, [map.name, map.keys, followUp, dispatch, initBodyMapValues]);
+  const imageUrl = typeof image === 'string' ? image : image[sex];
   return (
     <>
       <div
@@ -78,12 +79,12 @@ const MapContainer = ({
           ))}
         </SVGContainer>
         <Image
-          src={typeof image === 'string' ? image : image[sex]}
+          key={imageUrl}
+          src={imageUrl}
           width={width}
           height={height}
           id={map.name}
           alt=""
-          loading="eager"
           className={style.image}
         />
       </div>
