@@ -37,7 +37,7 @@ const Done = () => {
   const maps = useSelector((state: rootState) => state.body);
   const submissionId = getUrlParam(urlParameters.submissionId);
   const dataTarget = getUrlParam(urlParameters.dataTarget);
-  const followUpSurvey = getUrlParam(urlParameters.followUpSurvey);
+  const followUpSurvey = getUrlParam(urlParameters.FollowUpSurvey);
 
   const [delivering, setDelivering] = React.useState(false);
   const [failed, setFailed] = React.useState(false);

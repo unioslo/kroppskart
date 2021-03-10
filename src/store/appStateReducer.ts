@@ -1,9 +1,9 @@
 import { HYDRATE } from 'next-redux-wrapper';
-import { ParsedUrlQuery } from 'querystring';
+import { SurveyParams } from '../utils/constants';
 import { HydrateAction, SetClientState, SET_CLIENT_STATE } from './hydrate';
 
 export type AppState = {
-  urlParameters: ParsedUrlQuery;
+  urlParameters: SurveyParams;
   sex: 'male' | 'female';
   initialized: boolean;
   openModal: string;
@@ -60,7 +60,7 @@ export const setSex = (sex: 'male' | 'female') =>
   ({ type: ActionTypes.SET_SEX, payload: sex } as const);
 type SetSex = ReturnType<typeof setSex>;
 
-export const addParameters = (parameters: ParsedUrlQuery) =>
+export const addParameters = (parameters: SurveyParams) =>
   ({
     type: ActionTypes.ADD_PARAMETERS,
     payload: parameters,
