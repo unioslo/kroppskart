@@ -11,6 +11,7 @@ import {
 import { resetAppState } from '../src/store/appStateReducer';
 import { resetBodyMaps } from '../src/store/bodyMapReducer';
 import { getUrlParam } from '../src/utils/routingUtils';
+import { Alert, Button } from '../src/components/ui';
 
 const useGetForm = (formId?: string) => {
   const { data, error } = useSWR(
@@ -103,7 +104,30 @@ const Done = () => {
 
   return (
     <main className="container">
-      <MessageBoxDelivering />
+      {(delivering || (!delivering && !failed && !delivered && dataTarget)) && (
+        <MessageBoxDelivering />
+      )}
+      {failed && (
+        <Alert type="warning">
+          <p>Levering mislykket.</p>
+          <Button type="retryButton" onClick={() => setFailed(false)}>
+            Trykk her for å prøve å levere på nytt.
+          </Button>
+        </Alert>
+      )}
+      {(!dataTarget || (delivered && !followUpSurvey)) && (
+        <Alert>
+          <p>
+            Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren.
+          </p>
+        </Alert>
+      )}
+      {delivered && followUpSurvey && (
+        <Alert>
+          Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en
+          oppfølgning.
+        </Alert>
+      )}
     </main>
   );
 };

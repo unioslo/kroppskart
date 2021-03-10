@@ -15,5 +15,5 @@ export type MapType = {
   height: number;
   name: string;
   keys: string[];
-  responsive?: MapType;
+  responsive?: Omit<MapType, 'responsive'>;
 };
