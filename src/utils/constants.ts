@@ -44,7 +44,7 @@ export const surveyParams = {
   leftArm: 'leftArm',
   rightArm: 'rightArm',
   leftLeg: 'leftLeg',
-  rightLeg: 'leftLeg',
+  rightLeg: 'rightLeg',
   neck: 'neck',
   chest: 'chest',
   followup: 'FollowUpSurvey',
