@@ -71,3 +71,9 @@ export const MessageBoxDelivering = () => (
     </p>
   </Alert>
 );
+
+export const MessageBoxPointOfNoReturn = () => (
+  <Alert>
+    <p>Din besvarelse leveres når du går til neste side.</p>
+  </Alert>
+);

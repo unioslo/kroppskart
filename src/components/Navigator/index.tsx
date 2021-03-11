@@ -49,7 +49,7 @@ export const useGetNextPage = (section: string, mapName?: string) => {
     );
   }
   const nextPage = getNextPage(relevantRoutes, router.pathname, mapName);
-  return nextPage;
+  return { nextPage, relevantRoutes };
 };
 
 /* eslint-disable no-console */
@@ -69,7 +69,7 @@ const Navigator = React.memo(
       (state: rootState) =>
         state.body[currentPage !== 'bodymap' ? currentPage : 'wholeBody']
     );
-    const nextPage = useGetNextPage(section, mapName);
+    const { nextPage } = useGetNextPage(section, mapName);
 
     if (currentPage === 'bodymap') {
       const onNext = () =>

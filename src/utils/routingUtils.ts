@@ -1,4 +1,4 @@
-import { bodymapOrder, routingMap, mainPaths } from './constants';
+import { bodymapOrder, routingMap, mainPaths, surveyParams } from './constants';
 import { allAnswersFalse } from './mapUtils';
 
 // Get current page from router.pathname
@@ -32,7 +32,7 @@ export const filterFollowUpPages = (
 ) =>
   relevantRoutes.filter(
     (route: string) =>
-      !allAnswersFalse(allAnswers[route]) && urlParameters[route]
+      !allAnswersFalse(allAnswers[route]) && urlParameters[surveyParams[route]]
   );
 
 const getNextPageFromRouting = (
