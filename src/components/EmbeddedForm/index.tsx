@@ -37,7 +37,7 @@ const EmbeddedForm = ({
   pageName: string;
 }) => {
   const [toggle, setToggle] = React.useState(true);
-  const nextPage = useGetNextPage('followup', pageName);
+  const { nextPage } = useGetNextPage('followup', pageName);
   const router = useRouter();
   const onSubmit = React.useCallback(() => {
     router.push(nextPage);
