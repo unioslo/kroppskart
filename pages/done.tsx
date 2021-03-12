@@ -41,7 +41,7 @@ const Done = () => {
   const dataTarget = getUrlParam(urlParameters.dataTarget);
   const followUpSurvey = getUrlParam(urlParameters.FollowUpSurvey);
   const noPain = getUrlParam(urlParameters.NoPain);
-  const noAreasSelected = allAnswersFalse(maps.wholeBody);
+  const noAreasSelected = !maps?.wholeBody || allAnswersFalse(maps.wholeBody);
 
   const [delivering, setDelivering] = React.useState(false);
   const [failed, setFailed] = React.useState(false);
@@ -102,8 +102,7 @@ const Done = () => {
       dispatch(resetBodyMaps());
       dispatch(resetAppState());
       router.push(`https://nettskjema.no/a/${noPain}`);
-    }
-    if (delivered && followUpSurvey) {
+    } else if (delivered && followUpSurvey) {
       dispatch(resetBodyMaps());
       dispatch(resetAppState());
       router.push(`https://nettskjema.no/a/${followUpSurvey}`);
