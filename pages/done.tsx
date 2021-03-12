@@ -12,6 +12,7 @@ import { resetAppState } from '../src/store/appStateReducer';
 import { resetBodyMaps } from '../src/store/bodyMapReducer';
 import { getUrlParam } from '../src/utils/routingUtils';
 import { Alert, Button } from '../src/components/ui';
+import { allAnswersFalse } from '../src/utils/mapUtils';
 
 const useGetForm = (formId?: string) => {
   const { data, error } = useSWR(
@@ -39,6 +40,8 @@ const Done = () => {
   const submissionId = getUrlParam(urlParameters.submissionId);
   const dataTarget = getUrlParam(urlParameters.dataTarget);
   const followUpSurvey = getUrlParam(urlParameters.FollowUpSurvey);
+  const noPain = getUrlParam(urlParameters.NoPain);
+  const noAreasSelected = allAnswersFalse(maps.wholeBody);
 
   const [delivering, setDelivering] = React.useState(false);
   const [failed, setFailed] = React.useState(false);
@@ -95,12 +98,17 @@ const Done = () => {
   ]);
 
   React.useEffect(() => {
+    if (delivered && noPain && noAreasSelected) {
+      dispatch(resetBodyMaps());
+      dispatch(resetAppState());
+      router.push(`https://nettskjema.no/a/${noPain}`);
+    }
     if (delivered && followUpSurvey) {
       dispatch(resetBodyMaps());
       dispatch(resetAppState());
       router.push(`https://nettskjema.no/a/${followUpSurvey}`);
     }
-  }, [delivered, followUpSurvey]);
+  }, [delivered, followUpSurvey, noPain, noAreasSelected]);
 
   return (
     <main className="container">
@@ -122,7 +130,7 @@ const Done = () => {
           </p>
         </Alert>
       )}
-      {delivered && followUpSurvey && (
+      {delivered && (followUpSurvey || (noPain && noAreasSelected)) && (
         <Alert>
           Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en
           oppfølgning.

@@ -50,6 +50,7 @@ export const surveyParams = {
   followup: 'FollowUpSurvey',
   dataTarget: 'dataTarget',
   submissionId: 'submissionId',
+  noPain: 'NoPain',
 } as const;
 
 type ValueOf<T> = T[keyof T];
