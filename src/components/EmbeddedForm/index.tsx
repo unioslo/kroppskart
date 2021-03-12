@@ -8,10 +8,10 @@ import { Button, NavigationButtons } from '../ui';
 
 import style from './style.module.scss';
 
-const getUrl = (formId: string, submissionId?: string) =>
-  formId &&
-  `https://nettskjema.no/a/${formId}?embed=1${'&referenceId=' + submissionId}`;
-
+const getUrl = (formId: string, submissionId?: string) => {
+  const referenceId = submissionId ? `&referenceId=${submissionId}` : '';
+  return formId && `https://nettskjema.no/a/${formId}?embed=1${referenceId}`;
+};
 const useMessageListener = (deliverForm?: () => void) => {
   const [height, setHeight] = React.useState(1000);
   React.useEffect(() => {
