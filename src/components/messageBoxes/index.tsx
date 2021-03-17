@@ -47,7 +47,7 @@ export const MessageBoxIntro = () => (
         magen, huden, muskler og ledd, kjønnsorganer, urinveier, med flere).
       </p>
       <p>Ikke ta med forbigående, kortvarige smerter.</p>
-      <p>Kvinner skal ikke ta med menstruasjonssmerter.</p>
+      <p>Kvinner skal ikke ta med menstruasjonssmerter her.</p>
     </Alert>
     <Alert>
       <p>Har du kvinnekropp eller mannekropp? (Trykk for å velge)</p>
