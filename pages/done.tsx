@@ -98,16 +98,17 @@ const Done = () => {
   ]);
 
   React.useEffect(() => {
+    const referenceId = submissionId ? `&referenceId=${submissionId}` : '';
     if (delivered && noPain && noAreasSelected) {
       dispatch(resetBodyMaps());
       dispatch(resetAppState());
-      router.push(`https://nettskjema.no/a/${noPain}`);
+      router.push(`https://nettskjema.no/a/${noPain}${referenceId}`);
     } else if (delivered && followUpSurvey) {
       dispatch(resetBodyMaps());
       dispatch(resetAppState());
-      router.push(`https://nettskjema.no/a/${followUpSurvey}`);
+      router.push(`https://nettskjema.no/a/${followUpSurvey}${referenceId}`);
     }
-  }, [delivered, followUpSurvey, noPain, noAreasSelected]);
+  }, [delivered, followUpSurvey, noPain, noAreasSelected, submissionId]);
 
   return (
     <main className="container">
