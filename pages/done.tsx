@@ -98,7 +98,7 @@ const Done = () => {
   ]);
 
   React.useEffect(() => {
-    const referenceId = submissionId ? `&referenceId=${submissionId}` : '';
+    const referenceId = submissionId ? `?referenceId=${submissionId}` : '';
     if (delivered && noPain && noAreasSelected) {
       dispatch(resetBodyMaps());
       dispatch(resetAppState());
