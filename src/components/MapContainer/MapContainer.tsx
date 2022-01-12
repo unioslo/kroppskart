@@ -86,6 +86,7 @@ const MapContainer = ({
           id={map.name}
           alt=""
           className={style.image}
+          unoptimized
         />
       </div>
       {!followUp && (
