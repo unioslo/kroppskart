@@ -167,7 +167,7 @@ const wholeBodyMapParts: MapParts = {
 
 const wholeBodyMapKeys = Object.keys(wholeBodyMapParts);
 
-export default {
+const mapInfo = {
   parts: wholeBodyMapParts,
   width: 576,
   height: 526,
@@ -178,3 +178,5 @@ export default {
   name: 'wholeBody',
   keys: wholeBodyMapKeys,
 };
+
+export default mapInfo;

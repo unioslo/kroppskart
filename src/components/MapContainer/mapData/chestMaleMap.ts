@@ -59,7 +59,7 @@ const chestMaleMapParts = {
 
 const chestMaleMapKeys = Object.keys(chestMaleMapParts);
 
-export default {
+const mapInfo = {
   image: '/kroppskart/images/chestMale.png',
   name: 'chest',
   width: 500,
@@ -67,3 +67,5 @@ export default {
   keys: chestMaleMapKeys,
   parts: chestMaleMapParts,
 };
+
+export default mapInfo;

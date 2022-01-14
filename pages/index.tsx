@@ -13,17 +13,17 @@ export default function Introduction() {
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(resetBodyMaps());
-  }, []);
+  }, [dispatch]);
   return (
     <main className="container">
       <MessageBoxIntro />
       <div>
-        <Link href={'/bodymap'}>
+        <Link passHref href={'/bodymap'}>
           <Button onClick={() => dispatch(setSex('female'))} type="female">
             Kvinnekropp
           </Button>
         </Link>
-        <Link href={'/bodymap'}>
+        <Link passHref href={'/bodymap'}>
           <Button onClick={() => dispatch(setSex('male'))} type="male">
             Mannekropp
           </Button>

@@ -80,7 +80,7 @@ const genitalsFemaleMapParts = {
 
 const genitalsFemaleMapKeys = Object.keys(genitalsFemaleMapParts);
 
-export default {
+const mapInfo = {
   width: 493,
   height: 402,
   image: '/kroppskart/images/genitalsFemale.png',
@@ -88,3 +88,5 @@ export default {
   parts: genitalsFemaleMapParts,
   keys: genitalsFemaleMapKeys,
 };
+
+export default mapInfo;

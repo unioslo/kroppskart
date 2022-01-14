@@ -215,7 +215,7 @@ const leftArmMapParts = {
 
 const leftArmMapKeys = Object.keys(leftArmMapParts);
 
-export default {
+const mapInfo = {
   width: 952,
   height: 324,
   image: {
@@ -227,3 +227,5 @@ export default {
   keys: leftArmMapKeys,
   responsive: leftArmRes,
 };
+
+export default mapInfo;

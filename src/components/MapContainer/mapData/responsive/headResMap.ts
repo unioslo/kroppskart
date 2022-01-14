@@ -194,7 +194,7 @@ const headResMapParts = {
 
 const headResMapKeys = Object.keys(headResMapParts);
 
-export default {
+const mapInfo = {
   image: '/kroppskart/images/responsive/headRes.png',
   width: 529,
   height: 842,
@@ -202,3 +202,5 @@ export default {
   keys: headResMapKeys,
   parts: headResMapParts,
 };
+
+export default mapInfo;

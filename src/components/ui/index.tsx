@@ -65,7 +65,7 @@ export const NavigationButtons = ({
     if (!nextPage) return;
 
     router.prefetch(nextPage);
-  }, [nextPage]);
+  }, [nextPage, router]);
   return (
     <div className={style.navigationButtons}>
       <Button

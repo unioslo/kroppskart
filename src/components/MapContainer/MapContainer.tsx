@@ -53,7 +53,7 @@ const MapContainer = ({
     if (!followUp) {
       dispatch(initBodyMapValues(map.name, map.keys));
     }
-  }, [map.name, map.keys, followUp, dispatch, initBodyMapValues]);
+  }, [map.name, map.keys, followUp, dispatch]);
   const imageUrl = typeof image === 'string' ? image : image[sex];
   return (
     <>

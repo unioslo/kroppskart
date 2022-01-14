@@ -56,7 +56,7 @@ const neckMapParts = {
 
 const neckMapKeys = Object.keys(neckMapParts);
 
-export default {
+const mapInfo = {
   parts: neckMapParts,
   keys: neckMapKeys,
   image: '/kroppskart/images/neck.png',
@@ -64,3 +64,5 @@ export default {
   width: 452,
   height: 502,
 };
+
+export default mapInfo;

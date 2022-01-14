@@ -39,37 +39,32 @@ const createMouseEnterHandler = (linkedWith: string | string[]) => () => {
   }
 };
 
-const createMouseLeaveHandler = (
-  linkedWith: string | string[],
-  setBlank: (b: boolean) => void
-) => () => {
-  const removeHover = (id: string) =>
-    document.getElementById(id)?.parentElement?.classList.remove(style.hover);
-  setBlank(false);
+const createMouseLeaveHandler =
+  (linkedWith: string | string[], setBlank: (b: boolean) => void) => () => {
+    const removeHover = (id: string) =>
+      document.getElementById(id)?.parentElement?.classList.remove(style.hover);
+    setBlank(false);
 
-  if (typeof linkedWith === 'string') {
-    removeHover(linkedWith);
-  } else if (linkedWith) {
-    linkedWith.map((id) => removeHover(id));
-  }
-};
+    if (typeof linkedWith === 'string') {
+      removeHover(linkedWith);
+    } else if (linkedWith) {
+      linkedWith.map((id) => removeHover(id));
+    }
+  };
 
-const createMouseDownHandler = (
-  linkedWith: string | string[],
-  ref,
-  setBlank
-) => () => {
-  const hideEffect = (id: string) =>
-    document.getElementById(id)?.parentElement?.classList.add(style.blank);
-  if (ref?.current) {
-    setBlank(true);
-  }
-  if (typeof linkedWith === 'string') {
-    hideEffect(linkedWith);
-  } else if (linkedWith) {
-    linkedWith.map((id) => hideEffect(id));
-  }
-};
+const createMouseDownHandler =
+  (linkedWith: string | string[], ref, setBlank) => () => {
+    const hideEffect = (id: string) =>
+      document.getElementById(id)?.parentElement?.classList.add(style.blank);
+    if (ref?.current) {
+      setBlank(true);
+    }
+    if (typeof linkedWith === 'string') {
+      hideEffect(linkedWith);
+    } else if (linkedWith) {
+      linkedWith.map((id) => hideEffect(id));
+    }
+  };
 
 export const ClickablePolygon = ({
   id,

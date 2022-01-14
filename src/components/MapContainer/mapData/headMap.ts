@@ -481,7 +481,7 @@ const headMapParts: MapParts = {
 
 const headMapKeys = Object.keys(headMapParts);
 
-export default {
+const mapInfo = {
   parts: headMapParts,
   width: 702,
   height: 605,
@@ -490,3 +490,5 @@ export default {
   keys: headMapKeys,
   responsive: headRes,
 };
+
+export default mapInfo;

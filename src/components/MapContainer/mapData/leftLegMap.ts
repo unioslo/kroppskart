@@ -277,7 +277,7 @@ const leftLegMapParts = {
 
 const leftLegMapKeys = Object.keys(leftLegMapParts);
 
-export default {
+const mapInfo = {
   name: 'leftLeg',
   image: '/kroppskart/images/leftLeg.png',
   width: 612,
@@ -286,3 +286,5 @@ export default {
   parts: leftLegMapParts,
   responsive: leftLegRes,
 };
+
+export default mapInfo;
