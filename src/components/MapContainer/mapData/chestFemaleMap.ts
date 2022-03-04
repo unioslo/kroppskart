@@ -77,7 +77,7 @@ const chestFemaleMapParts = {
 
 const chestFemaleMapKeys = Object.keys(chestFemaleMapParts);
 
-export default {
+const mapInfo = {
   image: '/kroppskart/images/chestFemale.png',
   name: 'chest',
   width: 550,
@@ -85,3 +85,5 @@ export default {
   keys: chestFemaleMapKeys,
   parts: chestFemaleMapParts,
 };
+
+export default mapInfo;

@@ -104,7 +104,7 @@ const backMapParts = {
 
 const backMapKeys = Object.keys(backMapParts);
 
-export default {
+const mapInfo = {
   parts: backMapParts,
   width: 275,
   height: 418,
@@ -112,3 +112,5 @@ export default {
   name: 'back',
   keys: backMapKeys,
 };
+
+export default mapInfo;

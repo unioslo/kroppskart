@@ -45,7 +45,7 @@ const abdomenMapParts = {
 
 const abdomenMapKeys = Object.keys(abdomenMapParts);
 
-export default {
+const mapInfo = {
   keys: abdomenMapKeys,
   parts: abdomenMapParts,
   image: {
@@ -56,3 +56,5 @@ export default {
   width: 404,
   height: 502,
 };
+
+export default mapInfo;

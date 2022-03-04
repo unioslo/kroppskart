@@ -95,6 +95,9 @@ const Done = () => {
     setDelivering,
     setFailed,
     setDelivered,
+    submissionId,
+    submission,
+    dataTarget,
   ]);
 
   React.useEffect(() => {
@@ -108,7 +111,15 @@ const Done = () => {
       dispatch(resetAppState());
       router.push(`https://nettskjema.no/a/${followUpSurvey}${referenceId}`);
     }
-  }, [delivered, followUpSurvey, noPain, noAreasSelected, submissionId]);
+  }, [
+    delivered,
+    followUpSurvey,
+    noPain,
+    noAreasSelected,
+    submissionId,
+    dispatch,
+    router,
+  ]);
 
   return (
     <main className="container">

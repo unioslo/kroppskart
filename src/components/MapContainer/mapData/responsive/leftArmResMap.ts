@@ -213,7 +213,7 @@ const leftArmResMapParts = {
 
 const leftArmResMapKeys = Object.keys(leftArmResMapParts);
 
-export default {
+const mapInfo = {
   image: {
     male: '/kroppskart/images/responsive/leftArmMaleRes.png',
     female: '/kroppskart/images/responsive/leftArmFemaleRes.png',
@@ -224,3 +224,5 @@ export default {
   keys: leftArmResMapKeys,
   parts: leftArmResMapParts,
 };
+
+export default mapInfo;
