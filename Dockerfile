@@ -1,5 +1,5 @@
 FROM harbor.uio.no/library/docker.io-node:12-alpine
-LABEL no.uio.contact="bnt-web-wapp@usit.uio.no"
+LABEL no.uio.contact="mobilapper-dev@usit.uio.no"
 
 ENV HTTP_PROXY http://software-proxy.uio.no:3128/
 ENV HTTPS_PROXY http://software-proxy.uio.no:3128/
