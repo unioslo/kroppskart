@@ -1,4 +1,4 @@
-FROM harbor.uio.no/library/docker.io-node:12-alpine
+FROM harbor.uio.no/library/docker.io-node:14-alpine
 LABEL no.uio.contact="mobilapper-dev@usit.uio.no"
 
 ENV HTTP_PROXY http://software-proxy.uio.no:3128/
