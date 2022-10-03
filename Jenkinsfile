@@ -166,7 +166,7 @@ pipeline {
                             string(name: 'openshiftUrl', value: 'https://api.okd-green.uio.no:6443/'),
                             string(name: 'project', value: "${projectName}-prod"),
                             string(name: 'imageTag', value: "prod-${uniqueTagName}"),
-                            string(name: 'application', value: "")
+                            string(name: 'application', value: "${appName}-prod")
                         ]
                 }
                 script {
