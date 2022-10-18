@@ -169,16 +169,6 @@ pipeline {
                             string(name: 'application', value: "${appName}-prod")
                         ]
                 }
-                script {
-                    build job: 'wapp-ops/deploy-openshift-config-test-prod',
-                        parameters: [
-                            string(name: 'branch', value: "${openshiftTemplatesBranch}"),
-                            string(name: 'openshiftUrl', value: "https://okd-blue-master.uio.no:8443/"),
-                            string(name: 'project', value: "${projectName}-prod"),
-                            string(name: 'imageTag', value: "prod-${uniqueTagName}"),
-                            string(name: 'application', value: "${appName}-prod")
-                        ]
-                }
             }
         }
     }
