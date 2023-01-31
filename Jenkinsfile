@@ -18,7 +18,7 @@ pipeline {
         stage('Docker-node steps:') {
             agent {
                 docker {
-                    image 'library/docker.io-node:16-alpine'
+                    image 'mirrors/docker.io/library/node:16-alpine'
                     registryUrl 'https://harbor.uio.no/'
                     registryCredentialsId 'harbor-wapp-systembruker'
                     reuseNode true
