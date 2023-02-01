@@ -1,0 +1,61 @@
+.bodyMapContainer {
+  position: relative;
+  max-width: 100%;
+
+  svg > a {
+    & > polygon {
+      fill: url(#test);
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    &.selected > polygon {
+      opacity: 0.5;
+    }
+
+    &.hover > polygon {
+      opacity: 1;
+      stroke-width: 2.5;
+      stroke: #5e9ed6;
+      stroke-opacity: 1;
+    }
+
+    &:focus,
+    &:hover {
+      outline: 0;
+
+      & > polygon,
+      &.selected > polygon {
+        opacity: 1;
+        stroke: #5e9ed6;
+        stroke-width: 2.5;
+      }
+
+      &:focus:not(.selected):not(:hover) {
+        fill-opacity: 0;
+      }
+
+      &.hoverBlank:hover,
+      &.hoverBlank:focus {
+        opacity: 0;
+      }
+    }
+    &.blank {
+      opacity: 0;
+    }
+  }
+}
+
+.SVGContainer {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.disableInteraction {
+  pointer-events: none;
+}
