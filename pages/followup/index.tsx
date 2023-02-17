@@ -12,7 +12,7 @@ const Survey = () => {
   return (
     <main className="container flex">
       <MapContainer followUp={true} map={wholeBody} />
-      {relevantRoutes.length > 2 ? (
+      {relevantRoutes.length > 0 ? (
         <FollowUpIntro />
       ) : (
         <MessageBoxPointOfNoReturn />
