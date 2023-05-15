@@ -14,21 +14,6 @@ export default function Introduction() {
   React.useEffect(() => {
     dispatch(resetBodyMaps());
   }, [dispatch]);
-  // React.useEffect(() => {
-  //   const json = {
-  //     metadata: { elapsedTime: 10755 },
-  //     answers: [{ type: 'TEXT', questionId: 1578117, text: 'test' }],
-  //   };
-
-  //   fetch('https://nettskjema-dev.uio.no/api/v3/form/1209967/submission', {
-  //     body: JSON.stringify(json),
-  //     method: 'post',
-  //   });
-  //   fetch('https://nettskjema-dev.uio.no/api/v3/private/deliver/form/1209967', {
-  //     body: JSON.stringify(json),
-  //     method: 'post',
-  //   });
-  // }, []);
   return (
     <main className="container">
       <MessageBoxIntro />
