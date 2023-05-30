@@ -15,7 +15,7 @@ export const useUrlParameters = () => {
     if (!parameters || (parameters && Object.values(parameters).length === 0)) {
       dispatch(addParameters(query));
     }
-  }, [query, parameters, dispatch, addParameters]);
+  }, [query, parameters, dispatch]);
 };
 
 export default useUrlParameters;
