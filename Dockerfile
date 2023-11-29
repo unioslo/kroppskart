@@ -21,10 +21,10 @@ COPY . .
 
 RUN npm run build
 
-FROM build as audit
+FROM base as audit
 RUN npm audit
 
-FROM build as deploy
+FROM base as deploy
 
 USER user
 
