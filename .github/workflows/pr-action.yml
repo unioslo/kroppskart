@@ -1,0 +1,61 @@
+name: Verify for PR
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+
+jobs:
+  setup:
+    if: ${{ !endsWith(github.head_ref, '-pilot') }}
+    runs-on: [self-hosted, mobileapps]
+    steps:
+      - name: docker login
+        env:
+          USER_FILE_NAME: DOCKER_USER_APPU
+          PASS_FILE_NAME: DOCKER_PASS_APPU
+          AUTH_FILE_NAME: appuAuth.json
+        run: podman-login
+  # test:
+  #   needs: [setup]
+  #   runs-on: [self-hosted, mobileapps]
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Build tests
+  #       run: >
+  #         buildah bud
+  #         -f Dockerfile
+  #         --isolation chroot
+  #         --pull
+  #         --layers
+  #         --target test
+  #         --tag harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pr-test
+  #     - name: Run tests
+  #       run: podman run -it --rm --name nettskjema-inn-kroppskart-test-${{ github.sha }} harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pr-test
+  #     - name: Delete test image
+  #       if: always()
+  #       run: podman image rm harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pr-test || true
+  #       continue-on-error: true
+  build:
+    runs-on: [self-hosted, mobileapps]
+    needs: [setup]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Docker build
+        run: >
+          buildah bud 
+          -f Dockerfile
+          --isolation chroot
+          --pull
+          --layers
+          --target deploy
+          --tag harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pr-test-build
+      - name: Delete test image
+        if: always()
+        run: podman image rm harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pr-test-build || true
+        continue-on-error: true

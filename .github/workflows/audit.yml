@@ -1,0 +1,47 @@
+name: Audit
+
+on:
+  schedule:
+    - cron: '0 3 * * 1,5'
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: [self-hosted, mobileapps]
+    steps:
+      - name: docker login
+        env:
+          USER_FILE_NAME: DOCKER_USER_APPU
+          PASS_FILE_NAME: DOCKER_PASS_APPU
+          AUTH_FILE_NAME: appuAuth.json
+        run: podman-login
+  audit:
+    needs: [setup]
+    runs-on: [self-hosted, mobileapps]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Prepare for audit
+        run: >
+          buildah bud
+          -f Dockerfile
+          --isolation chroot
+          --pull
+          --layers
+          --target audit
+          --tag harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-audit
+      - name: Run audit
+        run: podman run -it --rm --name nettskjema-inn-kroppskart-audit-${{ github.sha }} harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-audit
+        continue-on-error: ${{ github.event_name == 'pull_request' }}
+      - name: Delete audit image
+        if: always()
+        run: podman image rm harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-audit || true
+        continue-on-error: true

@@ -1,0 +1,81 @@
+name: Deploy to prod
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'master'
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: [self-hosted, mobileapps]
+    steps:
+      - name: docker login
+        env:
+          USER_FILE_NAME: DOCKER_USER_APPU
+          PASS_FILE_NAME: DOCKER_PASS_APPU
+          AUTH_FILE_NAME: appuAuth.json
+        run: podman-login
+  # test:
+  #   needs: [setup]
+  #   runs-on: [self-hosted, mobileapps]
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Build prods
+  #       run: >
+  #         buildah bud
+  #         -f Dockerfile
+  #         --isolation chroot
+  #         --pull
+  #         --layers
+  #         --tag harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-prod
+  #         --target prod
+  #     - name: Run prods
+  #       run: podman run -it --rm --name nettskjema-inn-kroppskart-prod-${{ github.sha }} harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-prod
+  #     - name: Delete prod image
+  #       run: podman image rm harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-prod || true
+  #       continue-on-error: true
+  build:
+    needs: [setup]
+    runs-on: [self-hosted, mobileapps]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Docker build
+        run: >
+          buildah bud 
+          -f Dockerfile
+          --isolation chroot
+          --pull
+          --layers
+          --tag harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-prod
+          --target deploy
+  deployTest:
+    needs: [build]
+    uses: ./.github/workflows/global-deploy-action.yml
+    secrets: inherit
+    with:
+      application: 'nettskjema-inn-kroppskart'
+      project: 'nettskjema-inn-test'
+      environment: 'test'
+      deleteAfterPush: false
+      verifyDeployment: true
+      image: harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-prod
+  deploy:
+    needs: [deployTest]
+    uses: ./.github/workflows/global-deploy-action.yml
+    secrets: inherit
+    with:
+      application: 'nettskjema-inn-kroppskart'
+      project: 'nettskjema-inn-prod'
+      environment: 'prod'
+      verifyDeployment: true
+      image: harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-prod
+      # dry-run: true

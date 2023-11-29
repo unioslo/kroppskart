@@ -1,4 +1,4 @@
-FROM harbor.uio.no/mirrors/docker.io/library/node:16-alpine
+FROM harbor.uio.no/mirrors/docker.io/library/node:16-alpine as base
 LABEL no.uio.contact="mobilapper-dev@usit.uio.no"
 
 ENV HTTP_PROXY http://software-proxy.uio.no:3128/
@@ -20,6 +20,12 @@ RUN npm ci
 COPY . .
 
 RUN npm run build
+
+FROM build as audit
+RUN npm audit
+
+FROM build as deploy
+
 USER user
 
 ENV HTTP_PROXY=

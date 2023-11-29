@@ -1,0 +1,69 @@
+name: Deploy to dev
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - '*-pilot'
+      - '*/*-pilot'
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: [self-hosted, mobileapps]
+    steps:
+      - name: docker login
+        env:
+          USER_FILE_NAME: DOCKER_USER_APPU
+          PASS_FILE_NAME: DOCKER_PASS_APPU
+          AUTH_FILE_NAME: appuAuth.json
+        run: podman-login
+  # test:
+  #   needs: [setup]
+  #   runs-on: [self-hosted, mobileapps]
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Build tests
+  #       run: >
+  #         buildah bud
+  #         -f Dockerfile
+  #         --isolation chroot
+  #         --pull
+  #         --layers
+  #         --tag harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pilot
+  #         --target test
+  #     - name: Run tests
+  #       run: podman run -it --rm --name nettskjema-inn-kroppskart-test-${{ github.sha }} harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pilot
+  #     - name: Delete test image
+  #       run: podman image rm harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pilot || true
+  #       continue-on-error: true
+  build:
+    needs: [setup]
+    runs-on: [self-hosted, mobileapps]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Docker build
+        run: >
+          buildah bud 
+          -f Dockerfile
+          --isolation chroot
+          --pull
+          --layers
+          --tag harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pilot
+          --target deploy
+  deploy:
+    needs: [build]
+    uses: ./.github/workflows/global-deploy-action.yml
+    secrets: inherit
+    with:
+      application: 'nettskjema-inn-kroppskart'
+      project: 'nettskjema-inn-dev'
+      environment: 'pilot'
+      image: harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart:${{ github.sha }}-pilot
+      # dry-run: true

@@ -1,0 +1,84 @@
+name: Build and deploy image
+#TODO: NOTE, THIS WILL BE MOVED TO A SEPARATE REPO!
+on:
+  workflow_call:
+    inputs:
+      project:
+        description: The name of the okd project. E.g minestudier-dev.
+        required: true
+        type: string
+      application:
+        description: The name of the application. E.g minestudier.
+        required: true
+        type: string
+      dry-run:
+        description: Dry run - Do not deploy, just run the helm template generation.
+        required: false
+        default: false
+        type: boolean
+      environment:
+        description: Is this pilot, test or prod?
+        required: true
+        default: 'pilot'
+        type: string
+      dockerfileLocation:
+        description: Dockerfile location
+        default: './Dockerfile'
+        type: string
+      image:
+        description: The image to deploy to openshift.
+        required: true
+        type: string
+      deleteAfterPush:
+        default: true
+        description: Delete image after pushing to Harbor
+        required: false
+        type: boolean
+      verifyDeployment:
+        default: false
+        description: 'Wait for up to 1 minute for deployment to be verified'
+        required: false
+        type: boolean
+
+env:
+  REGISTRY_AUTH_FILE: /home/actions-runner/.docker/appuAuth.json
+  AUTH_FILE_NAME: appuAuth.json
+  OPENSHIFT_USER: ::env::OPENSHIFT_USER_APPU
+  OPENSHIFT_PASS: ::env::OPENSHIFT_PASS_APPU
+  DOCKER_USER: ::env::DOCKER_USER_APPU
+  DOCKER_PASS: ::env::DOCKER_PASS_APPU
+  NGINX_REPOSITORY: harbor.uio.no/it-ffu-appu-drift/usit-wapp-nginx
+
+jobs:
+  docker-push:
+    runs-on: [self-hosted, mobileapps]
+    steps:
+      - name: Push to harbor
+        run: >
+          buildah push ${{ inputs.image  }}
+      - name: Cleanup
+        if: ${{ inputs.deleteAfterPush == 'true' }}
+        run: podman image rm ${{ inputs.image }} || true
+  openshift-deploy:
+    runs-on: [self-hosted, mobileapps]
+    needs: [docker-push]
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Deploy to openshift
+        run: >
+          oc-deploy-v3
+          --image=${{ inputs.image }} 
+          --application=${{ inputs.application  }}
+          --project=${{ inputs.project }}
+          --environment=${{ inputs.environment }}  
+          --dry-run=${{ inputs.dry-run }}
+          --nginx-app=nettskjema-inn-nginx
+      - name: Verify deployment
+        if: ${{ inputs.environment == inputs.verifyDeployment == true }}
+        run: >
+          oc rollout status 
+          dc/${{ inputs.application }} 
+          --namespace=${{ inputs.project }} 
+          --context=${{ inputs.environment }} 
+          --timeout=60s
+        shell: bash

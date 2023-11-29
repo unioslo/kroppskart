@@ -1,0 +1,30 @@
+name: nettskjema-inn-kroppskart
+replicaCount: 2
+image:
+  repository: harbor.uio.no/it-ffu-appu-drift/nettskjema-inn-kroppskart
+livenessProbe:
+  enabled: false
+  initialDelaySeconds: 10
+readinessProbe:
+  initialDelaySeconds: 10
+  path: /kroppskart/.well-known/ready
+monitorWithZabbix: 'true'
+httpTimeout: 180
+containers:
+  app:
+    useConfigmap: false
+    resources:
+      requests:
+        cpu: 50m
+        memory: 60M
+      limits:
+        cpu: 200m
+        memory: 200M
+elkLogowner: '["ffu-appu","usit-tsd","www-drift"]'
+
+useJettyDatabaseXml: false
+nginx: false
+port: 8080
+servicePort: 8080
+hasExternalRoute: false
+hasInternalRoute: false
