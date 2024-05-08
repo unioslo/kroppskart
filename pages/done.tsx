@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MessageBoxDelivering } from '../src/components/messageBoxes';
 import { rootState } from '../src/store/store';
@@ -18,11 +18,13 @@ const Done = () => {
     (state: rootState) => state.app
   );
   const maps = useSelector((state: rootState) => state.body);
-  const submissionId = getUrlParam(urlParameters.submissionId);
-  const dataTarget = getUrlParam(urlParameters.dataTarget);
-  const followUpSurvey = getUrlParam(urlParameters.FollowUpSurvey);
-  const noPain = getUrlParam(urlParameters.NoPain);
-  const noAreasSelected = !maps?.wholeBody || allAnswersFalse(maps.wholeBody);
+  const [submissionId] = useState(getUrlParam(urlParameters.submissionId));
+  const [dataTarget] = useState(getUrlParam(urlParameters.dataTarget));
+  const [followUpSurvey] = useState(getUrlParam(urlParameters.FollowUpSurvey));
+  const [noPain] = useState(getUrlParam(urlParameters.NoPain));
+  const [noAreasSelected] = useState(
+    !maps?.wholeBody || allAnswersFalse(maps.wholeBody)
+  );
 
   const [delivering, setDelivering] = React.useState(false);
   const [failed, setFailed] = React.useState(false);
@@ -76,14 +78,17 @@ const Done = () => {
   ]);
 
   React.useEffect(() => {
+    if (delivered) {
+      dispatch(resetBodyMaps());
+      dispatch(resetAppState());
+    }
+  }, [delivered, dispatch]);
+
+  React.useEffect(() => {
     const referenceId = submissionId ? `?referenceId=${submissionId}` : '';
-    if (delivered && noPain && noAreasSelected) {
-      dispatch(resetBodyMaps());
-      dispatch(resetAppState());
+    if (delivered && noPain && noAreasSelected && !initialized) {
       router.push(`https://nettskjema.no/a/${noPain}${referenceId}`);
-    } else if (delivered && followUpSurvey) {
-      dispatch(resetBodyMaps());
-      dispatch(resetAppState());
+    } else if (delivered && followUpSurvey && !initialized) {
       router.push(`https://nettskjema.no/a/${followUpSurvey}${referenceId}`);
     }
   }, [
@@ -94,6 +99,7 @@ const Done = () => {
     submissionId,
     dispatch,
     router,
+    initialized,
   ]);
 
   return (
