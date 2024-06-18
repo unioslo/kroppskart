@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { rootState } from '../../store/store';
 import { useGetNextPage } from '../Navigator';
 import { Button, NavigationButtons } from '../ui';
 
 import style from './style.module.scss';
+import { finishFollowup } from '../../store/appStateReducer';
 
 const getUrl = (formId: string, submissionId?: string) => {
   const referenceId = submissionId ? `&referenceId=${submissionId}` : '';
@@ -37,11 +38,13 @@ const EmbeddedForm = ({
   pageName: string;
 }) => {
   const [toggle, setToggle] = React.useState(true);
+  const dispatch = useDispatch();
   const { nextPage } = useGetNextPage('followup', pageName);
   const router = useRouter();
   const onSubmit = React.useCallback(() => {
-    router.push(nextPage);
-  }, [nextPage, router]);
+    dispatch(finishFollowup(pageName));
+    router.replace(nextPage);
+  }, [nextPage, router, dispatch, pageName]);
   const sumbissionId = useSelector(
     (state: rootState) => state.app.urlParameters?.submissionId
   ) as string;

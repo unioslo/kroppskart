@@ -7,6 +7,7 @@ export type AppState = {
   sex: 'male' | 'female';
   initialized: boolean;
   openModal: string;
+  followUpDone: Record<string, boolean>;
 };
 
 const appStateReducer = (
@@ -14,6 +15,7 @@ const appStateReducer = (
     sex: 'female',
     urlParameters: {},
     initialized: false,
+    followUpDone: {},
     openModal: '',
   } as AppState,
   action: AppStateActions
@@ -25,6 +27,9 @@ const appStateReducer = (
     case SET_CLIENT_STATE:
       return { ...action.payload?.app, rehydrated: true };
     case ActionTypes.ADD_PARAMETERS:
+      if (action.payload.submissionId !== state.urlParameters.submissionId) {
+        return { ...state, followUpDone: {}, urlParameters: action.payload };
+      }
       return { ...state, urlParameters: action.payload };
     case ActionTypes.SET_SEX:
       return { ...state, sex: action.payload, initialized: true };
@@ -33,7 +38,20 @@ const appStateReducer = (
     case ActionTypes.CLOSE_MODAL:
       return { ...state, openModal: '' };
     case ActionTypes.RESET_APP_STATE:
-      return { ...state, initialized: false, urlParameters: {} };
+      return {
+        ...state,
+        initialized: false,
+        urlParameters: {},
+        followUpDone: {},
+      };
+    case ActionTypes.FINISH_FOLLOWUP:
+      if (!state.followUpDone) {
+        return { ...state, followUpDone: { [action.payload]: true } };
+      }
+      return {
+        ...state,
+        followUpDone: { ...state.followUpDone, [action.payload]: true },
+      };
     default:
       return state;
   }
@@ -45,6 +63,7 @@ enum ActionTypes {
   OPEN_MODAL = 'OPEN_MODAL',
   CLOSE_MODAL = 'CLOSE_MODAL',
   RESET_APP_STATE = 'RESET_APP_STATE',
+  FINISH_FOLLOWUP = 'FINISH_FOLLOWUP',
 }
 
 export type AppStateActions =
@@ -54,7 +73,12 @@ export type AppStateActions =
   | CloseModal
   | SetClientState
   | ResetAppState
+  | FinishFollowup
   | HydrateAction<AppState>;
+
+export const finishFollowup = (area: string) =>
+  ({ type: ActionTypes.FINISH_FOLLOWUP, payload: area } as const);
+type FinishFollowup = ReturnType<typeof finishFollowup>;
 
 export const setSex = (sex: 'male' | 'female') =>
   ({ type: ActionTypes.SET_SEX, payload: sex } as const);

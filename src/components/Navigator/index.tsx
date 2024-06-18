@@ -38,6 +38,8 @@ export const useGetNextPage = (section: string, mapName?: string) => {
   const urlParameters = useSelector(
     (state: rootState) => state.app.urlParameters
   );
+  const doneFollowups =
+    useSelector((state: rootState) => state.app.followUpDone) ?? {};
   const allAnswers = useSelector((state: rootState) => state.body);
   let relevantRoutes = getRelevantRoutes(wholeBodyAnswers);
   if (section === 'followup') {
@@ -46,7 +48,7 @@ export const useGetNextPage = (section: string, mapName?: string) => {
       allAnswers,
       relevantRoutes,
       urlParameters
-    );
+    ).filter((w) => doneFollowups[w] !== true);
   }
   const nextPage = getNextPage(relevantRoutes, router.pathname, mapName);
   return { nextPage, relevantRoutes };

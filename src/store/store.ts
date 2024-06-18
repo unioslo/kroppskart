@@ -16,7 +16,7 @@ export type rootState = ReturnType<typeof rootReducer> & {
 };
 
 const makeConfiguredStore = (reducer) =>
-  createStore(reducer, undefined, devToolsEnhancer({}));
+  createStore(reducer, devToolsEnhancer({}));
 
 const makeStore = () => {
   if (typeof document === 'undefined') {
