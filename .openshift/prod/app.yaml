@@ -28,3 +28,4 @@ port: 8080
 servicePort: 8080
 hasExternalRoute: false
 hasInternalRoute: false
+LegacyDeploymentConfig: false
