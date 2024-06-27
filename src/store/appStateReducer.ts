@@ -27,7 +27,7 @@ const appStateReducer = (
     case SET_CLIENT_STATE:
       return { ...action.payload?.app, rehydrated: true };
     case ActionTypes.ADD_PARAMETERS:
-      if (action.payload.submissionId !== state.urlParameters.submissionId) {
+      if (action.payload.submissionId !== state.urlParameters?.submissionId) {
         return { ...state, followUpDone: {}, urlParameters: action.payload };
       }
       return { ...state, urlParameters: action.payload };
