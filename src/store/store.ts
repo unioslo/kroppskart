@@ -17,9 +17,10 @@ export type rootState = ReturnType<typeof rootReducer> & {
 const makeConfiguredStore = (reducer) =>
   createStore(
     reducer,
-    window &&
+    (typeof window !== 'undefined' &&
       (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-      (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__()) ||
+      undefined
   );
 
 const makeStore = () => {
@@ -29,10 +30,9 @@ const makeStore = () => {
   // we need it only on client side
   const { persistStore, persistReducer } = require('redux-persist');
   const storage = require('redux-persist/lib/storage').default;
-
   const persistConfig = {
     key: 'nextjs',
-    whitelist: ['app', 'body'], // make sure it does not clash with server keys
+    whitelist: ['app', 'body', 'fromClient'], // make sure it does not clash with server keys
     storage,
   };
 

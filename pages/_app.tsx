@@ -4,14 +4,39 @@ import './global.css';
 
 import React from 'react';
 import { useRouter } from 'next/router';
-import { useSelector, useStore } from 'react-redux';
-
-import { rootState, wrapper } from '../src/store/store';
+import { Provider, useSelector } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-const App = ({ Component, pageProps }) => {
+import { rootState, wrapper } from '../src/store/store';
+
+const App = ({ Component, ...rest }) => {
+  const { store, props } = wrapper.useWrappedStore(rest);
+  return (
+    <>
+      <Head>
+        <title>Kroppskart - smerteundersøkelse</title>
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <link rel="icon" href={'/kroppskart/favicon.ico'} />
+      </Head>
+      <PersistGate
+        persistor={(store as any).__persistor}
+        loading={<div>Laster inn</div>}
+      >
+        <Provider store={store}>
+          <StateComponent />
+          <Component {...props.pageProps} />
+        </Provider>
+      </PersistGate>
+    </>
+  );
+};
+
+const StateComponent = () => {
   const router = useRouter();
-  const store = useStore();
   const initialized = useSelector((state: rootState) => state.app.initialized);
   const rehydrated = useSelector(
     (state: rootState) => state._persist?.rehydrated
@@ -37,25 +62,7 @@ const App = ({ Component, pageProps }) => {
       document.documentElement.lang = 'nb';
     }
   }
-  return (
-    <>
-      <Head>
-        <title>Kroppskart - smerteundersøkelse</title>
-        <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <link rel="icon" href={'/kroppskart/favicon.ico'} />
-      </Head>
-      <PersistGate
-        persistor={(store as any).__persistor}
-        loading={<div>Laster inn</div>}
-      >
-        <Component {...pageProps} />
-      </PersistGate>
-    </>
-  );
+  return null;
 };
 
-export default wrapper.withRedux(App);
+export default App;
