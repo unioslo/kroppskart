@@ -14,6 +14,7 @@ RUN chown -R user.user /usr/src/app
 
 COPY package.json /usr/src/app
 COPY package-lock.json /usr/src/app
+COPY lingui.config.js /usr/src/app
 
 RUN npm ci
 
