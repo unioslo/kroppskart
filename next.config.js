@@ -11,10 +11,10 @@ module.exports = withBundleAnalyzer({
     ];
   },
   basePath: '/kroppskart',
-    experimental: {
+  experimental: {
     swcPlugins: [
       [
-        "@lingui/swc-plugin",
+        '@lingui/swc-plugin',
         {
           // the same options as in .swcrc
         },
