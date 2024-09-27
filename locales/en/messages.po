@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2024-09-27 17:38+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/components/MapContainer/SVGContainer.tsx:115
+msgid "Ikke valgt"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/MapContainer/SVGContainer.tsx:115
+msgid "Valgt"
+msgstr ""
+
+#: src/components/Modal/index.tsx:124
+msgid "Å gå tilbake herfra vil fjerne alle markeringer du har gjort."
+msgstr ""
+
+#: src/components/Modal/index.tsx:140
+msgid "Avbryt"
+msgstr ""
+
+#: src/components/Modal/index.tsx:87
+msgid "Det stemmer, jeg har ikke hatt smerter"
+msgstr ""
+
+#: src/components/Modal/index.tsx:46
+msgid "Det stemmer, jeg har ikke hatt smerter i noen av områdene"
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:117
+msgid "Din besvarelse leveres når du går til neste side."
+msgstr ""
+
+#: src/components/Modal/index.tsx:31
+msgid "Du har oppgitt at du ikke har hatt smerte i områdene på bildet."
+msgstr ""
+
+#: src/components/Modal/index.tsx:74
+msgid "Du har oppgitt at du ikke har hatt smerter de siste 4 ukene. Stemmer dette?"
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:25
+#: src/components/messageBoxes/index.tsx:56
+msgid "Du kan fjerne merking ved å klikke en gang til på området."
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:19
+#: src/components/messageBoxes/index.tsx:50
+msgid "Du skal angi hvor du har hatt smerte, ikke hvor du tror årsaken til smerten ligger."
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:95
+msgid "Du vil nå få noen oppfølgingsspørsmål om de kroppsområdene du har markert."
+msgstr ""
+
+#: src/components/ui/index.tsx:48
+msgid "Fjern alle"
+msgstr ""
+
+#: src/components/ui/index.tsx:94
+msgid "Fortsett"
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:28
+msgid "Har du ikke hatt smerte de siste 4 ukene, går du videre til neste side."
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:86
+msgid "Har du kvinnekropp eller mannekropp? (Trykk for å velge)"
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:13
+#: src/components/messageBoxes/index.tsx:44
+msgid "Hvis du bare har hatt smerter i en del av et område skal du likevel markere hele området."
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:78
+msgid "Ikke ta med forbigående, kortvarige smerter."
+msgstr ""
+
+#: src/components/EmbeddedForm/index.tsx:82
+msgid "Ingen spørsmål for disse valgene"
+msgstr ""
+
+#: src/components/Modal/index.tsx:99
+msgid "Jeg ønsker ikke å svare på spørsmål om smerter"
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:7
+#: src/components/messageBoxes/index.tsx:38
+msgid "Klikk på alle områder hvor du har hatt smerte i løpet av de siste 4 ukene."
+msgstr ""
+
+#: pages/index.tsx:24
+msgid "Kvinnekropp"
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:81
+msgid "Kvinner skal ikke ta med menstruasjonssmerter her."
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:106
+msgid "Leverer data. Dette skal normalt bare ta noen få sekunder. Vennligst ikke lukk nettleseren mens leveringen pågår."
+msgstr ""
+
+#: pages/done.tsx:114
+msgid "Levering mislykket."
+msgstr ""
+
+#: pages/index.tsx:29
+msgid "Mannekropp"
+msgstr ""
+
+#: src/components/Modal/index.tsx:49
+msgid "Nei, jeg vil gå tilbake og markere i bildet"
+msgstr ""
+
+#: src/components/Modal/index.tsx:90
+msgid "Nei, ta meg tilbake til bildet"
+msgstr ""
+
+#: src/components/Modal/index.tsx:137
+msgid "Ok"
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:66
+msgid "På de neste sidene spør vi om smerter du har hatt de siste 4 ukene."
+msgstr ""
+
+#: src/components/Modal/index.tsx:36
+msgid "Stemmer dette?"
+msgstr ""
+
+#: src/components/messageBoxes/index.tsx:71
+msgid "Ta med alle typer smerter, både overfladiske og dype (i brystet, munnen, magen, huden, muskler og ledd, kjønnsorganer, urinveier, med flere)."
+msgstr ""
+
+#: pages/done.tsx:124
+msgid "Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren."
+msgstr ""
+
+#: pages/done.tsx:132
+msgid "Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en oppfølgning."
+msgstr ""
+
+#: src/components/ui/index.tsx:82
+msgid "Tilbake"
+msgstr ""
+
+#: pages/done.tsx:117
+msgid "Trykk her for å prøve å levere på nytt."
+msgstr ""
+
+#: src/components/ui/index.tsx:45
+msgid "Velg alle"
+msgstr ""

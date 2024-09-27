@@ -8,6 +8,7 @@ import { Button, NavigationButtons } from '../ui';
 
 import style from './style.module.scss';
 import { finishFollowup } from '../../store/appStateReducer';
+import { Trans } from '@lingui/macro';
 
 const getUrl = (formId: string, submissionId?: string) => {
   const referenceId = submissionId ? `&referenceId=${submissionId}` : '';
@@ -77,7 +78,9 @@ const EmbeddedForm = ({
         </>
       ) : (
         <div>
-          <h2>Ingen spørsmål for disse valgene</h2>
+          <h2>
+            <Trans> Ingen spørsmål for disse valgene</Trans>
+          </h2>
           <NavigationButtons nextPage={nextPage} />
         </div>
       )}

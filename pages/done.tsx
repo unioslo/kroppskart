@@ -10,6 +10,7 @@ import { getUrlParam } from '../src/utils/routingUtils';
 import { Alert, Button } from '../src/components/ui';
 import { allAnswersFalse } from '../src/utils/mapUtils';
 import { createSubmissionAndPost } from '@uio-appu/nettskjema-utils';
+import { Trans } from '@lingui/macro';
 
 const Done = () => {
   const dispatch = useDispatch();
@@ -109,23 +110,29 @@ const Done = () => {
       )}
       {failed && (
         <Alert type="warning">
-          <p>Levering mislykket.</p>
+          <p>
+            <Trans>Levering mislykket.</Trans>
+          </p>
           <Button type="retryButton" onClick={() => setFailed(false)}>
-            Trykk her for å prøve å levere på nytt.
+            <Trans>Trykk her for å prøve å levere på nytt.</Trans>
           </Button>
         </Alert>
       )}
       {(!dataTarget || (delivered && !followUpSurvey)) && (
         <Alert>
           <p>
-            Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren.
+            <Trans>
+              Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren.
+            </Trans>
           </p>
         </Alert>
       )}
       {delivered && (followUpSurvey || (noPain && noAreasSelected)) && (
         <Alert>
-          Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en
-          oppfølgning.
+          <Trans>
+            Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en
+            oppfølgning.
+          </Trans>
         </Alert>
       )}
     </main>

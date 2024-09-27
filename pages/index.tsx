@@ -7,6 +7,7 @@ import { Button } from '../src/components/ui';
 import useUrlParameters from '../src/utils/urlParameters';
 import { MessageBoxIntro } from '../src/components/messageBoxes';
 import { resetBodyMaps } from '../src/store/bodyMapReducer';
+import { Trans } from '@lingui/macro';
 
 export default function Introduction() {
   useUrlParameters();
@@ -20,12 +21,12 @@ export default function Introduction() {
       <div>
         <Link passHref href={'/bodymap'}>
           <Button onClick={() => dispatch(setSex('female'))} type="female">
-            Kvinnekropp
+            <Trans>Kvinnekropp</Trans>
           </Button>
         </Link>
         <Link passHref href={'/bodymap'}>
           <Button onClick={() => dispatch(setSex('male'))} type="male">
-            Mannekropp
+            <Trans>Mannekropp</Trans>
           </Button>
         </Link>
       </div>

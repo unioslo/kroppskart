@@ -8,6 +8,16 @@ import { Provider, useSelector } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { rootState, wrapper } from '../src/store/store';
+import { I18nProvider } from '@lingui/react';
+import { i18n } from '@lingui/core';
+import { messages as messagesEn } from '../locales/en/messages.js';
+import { messages as messagesNb } from '../locales/nb/messages.js';
+
+i18n.load({
+  en: messagesEn,
+  nb: messagesNb,
+});
+i18n.activate('nb');
 
 const App = ({ Component, ...rest }) => {
   const { store, props } = wrapper.useWrappedStore(rest);
@@ -28,7 +38,9 @@ const App = ({ Component, ...rest }) => {
       >
         <Provider store={store}>
           <StateComponent />
-          <Component {...props.pageProps} />
+          <I18nProvider i18n={i18n}>
+            <Component {...props.pageProps} />
+          </I18nProvider>
         </Provider>
       </PersistGate>
     </>

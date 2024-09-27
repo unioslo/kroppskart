@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 
 import style from './style.module.scss';
+import { Trans } from '@lingui/macro';
 
 export const Alert = ({ children, type = 'info' }) => (
   <div
@@ -41,10 +42,10 @@ export const SelectionButtons = ({ onSelectAll, onUnselectAll }) => {
     <div className={style.selectionContainer}>
       <div className={style.selectionButtons}>
         <Button type="selectAll" onClick={onSelectAll}>
-          Velg alle
+          <Trans>Velg alle</Trans>
         </Button>
         <Button type="selectNone" onClick={onUnselectAll}>
-          Fjern alle
+          <Trans>Fjern alle</Trans>
         </Button>
       </div>
     </div>
@@ -78,7 +79,7 @@ export const NavigationButtons = ({
           }
         }}
       >
-        Tilbake
+        <Trans>Tilbake</Trans>
       </Button>
       <Button
         onClick={() => {
@@ -90,7 +91,7 @@ export const NavigationButtons = ({
         }}
         type="nextButton"
       >
-        Fortsett
+        <Trans>Fortsett</Trans>
       </Button>
     </div>
   );

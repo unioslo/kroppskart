@@ -6,6 +6,7 @@ import { changeBodyMapValue } from '../../store/bodyMapReducer';
 import { rootState } from '../../store/store';
 
 import style from './bodyMap.module.scss';
+import { useLingui } from '@lingui/react';
 
 const SVGContainer = ({ width, height, children }) => (
   <div className={style.SVGContainer}>
@@ -90,6 +91,7 @@ export const ClickablePolygon = ({
     }
     dispatch(changeBodyMapValue(bodyMap, id, !selected));
   };
+  const { i18n } = useLingui();
   return (
     <a
       onClick={onClick}
@@ -109,7 +111,9 @@ export const ClickablePolygon = ({
         hoverBlank && !selected && style.hoverBlank
       )}
     >
-      <title>{alt + `. ${!selected ? 'Ikke valgt' : 'Valgt'}`}</title>
+      <title>
+        {alt + `. ${!selected ? i18n.t('Ikke valgt') : i18n.t('Valgt')}`}
+      </title>
       <polygon id={id} points={points} />
     </a>
   );

@@ -8,6 +8,7 @@ import { closeModal } from '../../store/appStateReducer';
 
 import style from './modal.module.scss';
 import { useRouter } from 'next/router';
+import { Trans } from '@lingui/macro';
 
 Modal.setAppElement('#__next');
 
@@ -26,8 +27,14 @@ export const EmptySubmapModal = ({ nextPage }: { nextPage: string }) => {
       overlayClassName={cn(style.modalOverlay, style.overlayDefault)}
     >
       <Alert type="warning">
-        <p>Du har oppgitt at du ikke har hatt smerte i områdene på bildet.</p>
-        <p>Stemmer dette?</p>
+        <p>
+          <Trans>
+            Du har oppgitt at du ikke har hatt smerte i områdene på bildet.
+          </Trans>
+        </p>
+        <p>
+          <Trans>Stemmer dette?</Trans>
+        </p>
       </Alert>
       <Button
         type="modalAnswer"
@@ -36,10 +43,10 @@ export const EmptySubmapModal = ({ nextPage }: { nextPage: string }) => {
           onAccept();
         }}
       >
-        Det stemmer, jeg har ikke hatt smerter i noen av områdene
+        <Trans>Det stemmer, jeg har ikke hatt smerter i noen av områdene</Trans>
       </Button>
       <Button type="modalAnswer" onClick={close}>
-        Nei, jeg vil gå tilbake og markere i bildet
+        <Trans>Nei, jeg vil gå tilbake og markere i bildet</Trans>
       </Button>
     </Modal>
   );
@@ -64,8 +71,10 @@ export const EmptyBodyMapModal = () => {
     >
       <Alert type="warning">
         <p>
-          Du har oppgitt at du ikke har hatt smerter de siste 4 ukene. Stemmer
-          dette?
+          <Trans>
+            Du har oppgitt at du ikke har hatt smerter de siste 4 ukene. Stemmer
+            dette?
+          </Trans>
         </p>
       </Alert>
       <Button
@@ -75,10 +84,10 @@ export const EmptyBodyMapModal = () => {
           onNoPain();
         }}
       >
-        Det stemmer, jeg har ikke hatt smerter
+        <Trans>Det stemmer, jeg har ikke hatt smerter</Trans>
       </Button>
       <Button type="modalAnswer" onClick={close}>
-        Nei, ta meg tilbake til bildet
+        <Trans>Nei, ta meg tilbake til bildet</Trans>
       </Button>
       <Button
         type="modalAnswer"
@@ -87,7 +96,7 @@ export const EmptyBodyMapModal = () => {
           onIgnore();
         }}
       >
-        Jeg ønsker ikke å svare på spørsmål om smerter
+        <Trans>Jeg ønsker ikke å svare på spørsmål om smerter</Trans>
       </Button>
     </Modal>
   );
@@ -111,7 +120,11 @@ export const ResetStateModal = () => {
       overlayClassName={cn(style.modalOverlay, style.overlayDefault)}
     >
       <Alert type="warning">
-        <p>Å gå tilbake herfra vil fjerne alle markeringer du har gjort.</p>
+        <p>
+          <Trans>
+            Å gå tilbake herfra vil fjerne alle markeringer du har gjort.
+          </Trans>
+        </p>
       </Alert>
       <div>
         <Button
@@ -121,10 +134,10 @@ export const ResetStateModal = () => {
             onAccept();
           }}
         >
-          Ok
+          <Trans>Ok</Trans>
         </Button>
         <Button type="whiteButton" onClick={close}>
-          Avbryt
+          <Trans>Avbryt</Trans>
         </Button>
       </div>
     </Modal>
