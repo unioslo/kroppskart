@@ -39,6 +39,7 @@ const makeStore = () => {
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   const store = makeConfiguredStore(persistedReducer);
 
+  // @ts-expect-error This is a hack recommended by next-redux-wrapper
   store.__persistor = persistStore(store); // Nasty hack
 
   return store;
