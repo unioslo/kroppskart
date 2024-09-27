@@ -15,7 +15,7 @@ const Done = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { urlParameters, sex, initialized } = useSelector(
-    (state: rootState) => state.app,
+    (state: rootState) => state.app
   );
   const maps = useSelector((state: rootState) => state.body);
   const [submissionId] = useState(getUrlParam(urlParameters.submissionId));
@@ -23,7 +23,7 @@ const Done = () => {
   const [followUpSurvey] = useState(getUrlParam(urlParameters.FollowUpSurvey));
   const [noPain] = useState(getUrlParam(urlParameters.NoPain));
   const [noAreasSelected] = useState(
-    !maps?.wholeBody || allAnswersFalse(maps.wholeBody),
+    !maps?.wholeBody || allAnswersFalse(maps.wholeBody)
   );
 
   const [delivering, setDelivering] = React.useState(false);

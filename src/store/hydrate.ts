@@ -10,5 +10,5 @@ export const setClientState = (clientState: any) =>
   ({
     type: SET_CLIENT_STATE,
     payload: clientState,
-  } as const);
+  }) as const;
 export type SetClientState = ReturnType<typeof setClientState>;

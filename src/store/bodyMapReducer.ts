@@ -71,14 +71,14 @@ type BodyMapActions =
 export const resetBodyMaps = () =>
   ({
     type: ActionTypes.RESET_BODY_MAPS,
-  } as const);
+  }) as const;
 type ResetBodyMaps = ReturnType<typeof resetBodyMaps>;
 
 export const initBodyMapValues = (bodyMap: string, keys: string[]) =>
   ({
     type: ActionTypes.INIT_BODY_MAP_VALUES,
     payload: { bodyMap, keys },
-  } as const);
+  }) as const;
 type InitBodyMapValues = ReturnType<typeof initBodyMapValues>;
 
 export const changeBodyMapValue = (
@@ -89,15 +89,15 @@ export const changeBodyMapValue = (
   ({
     type: ActionTypes.CHANGE_BODY_MAP_VALUE,
     payload: { bodyMap, id, value },
-  } as const);
+  }) as const;
 type ChangeBodyMapValues = ReturnType<typeof changeBodyMapValue>;
 
 export const selectAllAreas = (bodyMap: string) =>
-  ({ type: ActionTypes.SELECT_ALL_AREAS, payload: bodyMap } as const);
+  ({ type: ActionTypes.SELECT_ALL_AREAS, payload: bodyMap }) as const;
 type SelectAllAreas = ReturnType<typeof selectAllAreas>;
 
 export const unselectAllAreas = (bodyMap: string) =>
-  ({ type: ActionTypes.UNSELECT_ALL_AREAS, payload: bodyMap } as const);
+  ({ type: ActionTypes.UNSELECT_ALL_AREAS, payload: bodyMap }) as const;
 type UnselectAllAreas = ReturnType<typeof unselectAllAreas>;
 
 export default bodyMapReducer;

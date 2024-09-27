@@ -77,29 +77,29 @@ export type AppStateActions =
   | HydrateAction<AppState>;
 
 export const finishFollowup = (area: string) =>
-  ({ type: ActionTypes.FINISH_FOLLOWUP, payload: area } as const);
+  ({ type: ActionTypes.FINISH_FOLLOWUP, payload: area }) as const;
 type FinishFollowup = ReturnType<typeof finishFollowup>;
 
 export const setSex = (sex: 'male' | 'female') =>
-  ({ type: ActionTypes.SET_SEX, payload: sex } as const);
+  ({ type: ActionTypes.SET_SEX, payload: sex }) as const;
 type SetSex = ReturnType<typeof setSex>;
 
 export const addParameters = (parameters: SurveyParams) =>
   ({
     type: ActionTypes.ADD_PARAMETERS,
     payload: parameters,
-  } as const);
+  }) as const;
 type AddParameters = ReturnType<typeof addParameters>;
 
 export const openModal = (type: string) =>
-  ({ type: ActionTypes.OPEN_MODAL, payload: type } as const);
+  ({ type: ActionTypes.OPEN_MODAL, payload: type }) as const;
 type OpenModal = ReturnType<typeof openModal>;
 
-export const closeModal = () => ({ type: ActionTypes.CLOSE_MODAL } as const);
+export const closeModal = () => ({ type: ActionTypes.CLOSE_MODAL }) as const;
 type CloseModal = ReturnType<typeof closeModal>;
 
 export const resetAppState = () =>
-  ({ type: ActionTypes.RESET_APP_STATE } as const);
+  ({ type: ActionTypes.RESET_APP_STATE }) as const;
 type ResetAppState = ReturnType<typeof resetAppState>;
 
 export default appStateReducer;
