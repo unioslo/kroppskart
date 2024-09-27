@@ -16,6 +16,10 @@ const App = ({ Component, pageProps }) => {
   const rehydrated = useSelector(
     (state: rootState) => state._persist?.rehydrated
   );
+  const language = useSelector(
+    (state: rootState) => state.app.urlParameters.language
+  );
+
   React.useEffect(() => {
     if (
       (router.pathname.includes('bodymap') ||
@@ -27,7 +31,11 @@ const App = ({ Component, pageProps }) => {
     }
   });
   if (typeof document !== 'undefined' && !document?.documentElement?.lang) {
-    document.documentElement.lang = 'nb';
+    if (language === 'en') {
+      document.documentElement.lang = 'en';
+    } else {
+      document.documentElement.lang = 'nb';
+    }
   }
   return (
     <>

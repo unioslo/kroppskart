@@ -51,6 +51,7 @@ export const surveyParams = {
   dataTarget: 'dataTarget',
   submissionId: 'submissionId',
   noPain: 'NoPain',
+  language: 'language',
 } as const;
 
 type ValueOf<T> = T[keyof T];
