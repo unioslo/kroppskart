@@ -33,3 +33,6 @@ yarn-error.log*
 # vercel
 .vercel
 tsconfig.tsbuildinfo
+
+# lingui
+locales/**/messages.js
