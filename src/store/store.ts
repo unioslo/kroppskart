@@ -1,6 +1,5 @@
 import { createWrapper } from 'next-redux-wrapper';
 import { combineReducers, createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
 import { PersistState } from 'redux-persist';
 
 import appStateReducer from './appStateReducer';
@@ -16,7 +15,12 @@ export type rootState = ReturnType<typeof rootReducer> & {
 };
 
 const makeConfiguredStore = (reducer) =>
-  createStore(reducer, devToolsEnhancer({}));
+  createStore(
+    reducer,
+    window &&
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
+  );
 
 const makeStore = () => {
   if (typeof document === 'undefined') {
