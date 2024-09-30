@@ -21,7 +21,7 @@ RUN npm run build
 FROM base as audit
 ENV HTTP_PROXY=http://software-proxy.uio.no:3128/
 ENV HTTPS_PROXY=http://software-proxy.uio.no:3128/
-RUN npm audit
+CMD ["npm", "audit"]
 
 FROM base as deploy
 
