@@ -25,7 +25,7 @@ msgstr "Selected"
 
 #: src/components/Modal/index.tsx:124
 msgid "Å gå tilbake herfra vil fjerne alle markeringer du har gjort."
-msgstr ""
+msgstr "If you go back from here, you will delete all markings you have made."
 
 #: src/components/MapContainer/SVGComponents/GenitalsFemale.tsx:685
 #: src/components/MapContainer/SVGComponents/GenitalsMale.tsx:613
@@ -53,11 +53,11 @@ msgstr "back"
 
 #: src/components/Modal/index.tsx:87
 msgid "Det stemmer, jeg har ikke hatt smerter"
-msgstr ""
+msgstr "It is correct, I have not had pain"
 
 #: src/components/Modal/index.tsx:46
 msgid "Det stemmer, jeg har ikke hatt smerter i noen av områdene"
-msgstr ""
+msgstr "It is correct, I have not felt pain in any of these areas"
 
 #: src/components/messageBoxes/index.tsx:117
 msgid "Din besvarelse leveres når du går til neste side."
@@ -65,25 +65,25 @@ msgstr ""
 
 #: src/components/Modal/index.tsx:31
 msgid "Du har oppgitt at du ikke har hatt smerte i områdene på bildet."
-msgstr ""
+msgstr "You have indicated that you have not had pain in any of the areas in the picture."
 
 #: src/components/Modal/index.tsx:74
 msgid "Du har oppgitt at du ikke har hatt smerter de siste 4 ukene. Stemmer dette?"
-msgstr ""
+msgstr "You have indicated that you have not had any pain during the last 4 weeks. Is this correct?"
 
 #: src/components/messageBoxes/index.tsx:25
 #: src/components/messageBoxes/index.tsx:56
 msgid "Du kan fjerne merking ved å klikke en gang til på området."
-msgstr ""
+msgstr "You can unmark an area by clicking on it again."
 
 #: src/components/messageBoxes/index.tsx:19
 #: src/components/messageBoxes/index.tsx:50
 msgid "Du skal angi hvor du har hatt smerte, ikke hvor du tror årsaken til smerten ligger."
-msgstr ""
+msgstr "You must indicate where you have had pain, not where you think the cause of the pain lies."
 
 #: src/components/messageBoxes/index.tsx:95
 msgid "Du vil nå få noen oppfølgingsspørsmål om de kroppsområdene du har markert."
-msgstr ""
+msgstr "You will now be given some follow-up questions about the areas of the body you have marked."
 
 #: src/components/ui/index.tsx:48
 msgid "Fjern alle"
@@ -111,15 +111,15 @@ msgstr "Continue"
 #: src/components/MapContainer/SVGComponents/Head.tsx:3372
 #: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:941
 msgid "gane/munnhule"
-msgstr ""
+msgstr "palate/oral cavity"
 
 #: src/components/messageBoxes/index.tsx:28
 msgid "Har du ikke hatt smerte de siste 4 ukene, går du videre til neste side."
-msgstr ""
+msgstr "If you have not had pain during the last 4 weeks, continue to the next page. "
 
 #: src/components/messageBoxes/index.tsx:86
 msgid "Har du kvinnekropp eller mannekropp? (Trykk for å velge)"
-msgstr ""
+msgstr "Do you have a woman's or a man's body? (Click to choose.)"
 
 #: src/components/MapContainer/SVGComponents/AbdomenFemale.tsx:185
 #: src/components/MapContainer/SVGComponents/AbdomenMale.tsx:853
@@ -166,32 +166,32 @@ msgstr "Right side"
 #: src/components/messageBoxes/index.tsx:13
 #: src/components/messageBoxes/index.tsx:44
 msgid "Hvis du bare har hatt smerter i en del av et område skal du likevel markere hele området."
-msgstr ""
+msgstr "Even if you have only had pain in part of an area, you must still mark the area as a whole."
 
 #: src/components/messageBoxes/index.tsx:78
 msgid "Ikke ta med forbigående, kortvarige smerter."
-msgstr ""
+msgstr "Do not include transient, brief pain."
 
 #: src/components/EmbeddedForm/index.tsx:82
 msgid "Ingen spørsmål for disse valgene"
-msgstr ""
+msgstr "No questions for these areas"
 
 #: src/components/Modal/index.tsx:99
 msgid "Jeg ønsker ikke å svare på spørsmål om smerter"
-msgstr ""
+msgstr "I do not want to answer questions about pain"
 
 #: src/components/messageBoxes/index.tsx:7
 #: src/components/messageBoxes/index.tsx:38
 msgid "Klikk på alle områder hvor du har hatt smerte i løpet av de siste 4 ukene."
-msgstr ""
+msgstr "Click on all areas where you have had pain during the last 4 weeks."
 
 #: pages/index.tsx:24
 msgid "Kvinnekropp"
-msgstr ""
+msgstr "Woman's body"
 
 #: src/components/messageBoxes/index.tsx:81
 msgid "Kvinner skal ikke ta med menstruasjonssmerter her."
-msgstr ""
+msgstr "Women should not include menstrual pain."
 
 #: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3728
 #: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3728
@@ -200,25 +200,25 @@ msgstr ""
 #: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2485
 #: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2865
 msgid "Ledd i"
-msgstr "Joints in"
+msgstr "Joints of the"
 
 #: src/components/MapContainer/SVGComponents/RightLeg.tsx:576
 msgid "Ledd i høyre fot"
-msgstr "Joints in right foot"
+msgstr "Joints of the right foot"
 
 #: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3725
 #: src/components/MapContainer/SVGComponents/RightArmMale.tsx:2518
 msgid "Ledd i høyre hånd"
-msgstr "Joints in right hand"
+msgstr "Joints of the right hand"
 
 #: src/components/MapContainer/SVGComponents/LeftLeg.tsx:576
 msgid "Ledd i venstre fot"
-msgstr "Joints in left foot"
+msgstr "Joints of the left foot"
 
 #: src/components/MapContainer/SVGComponents/LeftArmFemale.tsx:907
 #: src/components/MapContainer/SVGComponents/LeftArmMale.tsx:3737
 msgid "Ledd i venstre hånd"
-msgstr "Joints in left hand"
+msgstr "Joints of the left hand"
 
 #: src/components/MapContainer/SVGComponents/Head.tsx:3369
 #: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:938
@@ -235,15 +235,15 @@ msgstr ""
 
 #: pages/index.tsx:29
 msgid "Mannekropp"
-msgstr ""
+msgstr "Man's body"
 
 #: src/components/Modal/index.tsx:49
 msgid "Nei, jeg vil gå tilbake og markere i bildet"
-msgstr ""
+msgstr "No, I want to go back and mark the picture"
 
 #: src/components/Modal/index.tsx:90
 msgid "Nei, ta meg tilbake til bildet"
-msgstr ""
+msgstr "No, take me back to the picture"
 
 #: src/components/Modal/index.tsx:137
 msgid "Ok"
@@ -251,19 +251,19 @@ msgstr "Ok"
 
 #: src/components/messageBoxes/index.tsx:66
 msgid "På de neste sidene spør vi om smerter du har hatt de siste 4 ukene."
-msgstr ""
+msgstr "On the next pages we ask you about pain you have had during the last 4 weeks."
 
 #: src/components/MapContainer/SVGComponents/GenitalsFemale.tsx:710
 msgid "Skjede"
-msgstr ""
+msgstr "Vagina"
 
 #: src/components/Modal/index.tsx:36
 msgid "Stemmer dette?"
-msgstr ""
+msgstr "Is this correct?"
 
 #: src/components/messageBoxes/index.tsx:71
 msgid "Ta med alle typer smerter, både overfladiske og dype (i brystet, munnen, magen, huden, muskler og ledd, kjønnsorganer, urinveier, med flere)."
-msgstr ""
+msgstr "Include all types of pain, both superficial and deep (in the chest, mouth, abdomen, skin, muscles and joints, genitals, urethra, etc.)."
 
 #: pages/done.tsx:124
 msgid "Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren."
@@ -275,7 +275,7 @@ msgstr ""
 
 #: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:3958
 msgid "tannkjøtt og kjeveledd"
-msgstr "gums and jaw"
+msgstr "gums and jaw joint"
 
 #: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:3940
 msgid "Tenner"
@@ -296,7 +296,7 @@ msgstr ""
 #: src/components/MapContainer/SVGComponents/Head.tsx:3375
 #: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:944
 msgid "tunge og svelg"
-msgstr ""
+msgstr "tongue and throat"
 
 #: src/components/MapContainer/SVGComponents/GenitalsFemale.tsx:735
 #: src/components/MapContainer/SVGComponents/GenitalsMale.tsx:638
