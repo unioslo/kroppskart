@@ -3721,7 +3721,7 @@ const SvgRightArmFemale = (props: SVGProps<SVGSVGElement>) => (
       }}
       transform="matrix(.26458 0 0 .26458 598.556 0)"
     >
-      <tspan x={-1461.307} y={318.666}>
+      <tspan x={-1500.307} y={318.666}>
         <Trans>Ledd i høyre hånd</Trans>
       </tspan>
     </text>

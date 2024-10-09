@@ -2514,7 +2514,7 @@ const SvgRightArmMale = (props: SVGProps<SVGSVGElement>) => (
       }}
       transform="matrix(.26458 0 0 .26458 267.175 0)"
     >
-      <tspan x={-208.211} y={318.737}>
+      <tspan x={-250.211} y={318.737}>
         <Trans>Ledd i høyre hånd</Trans>
       </tspan>
     </text>
