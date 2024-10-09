@@ -54,7 +54,8 @@ const StateComponent = () => {
     (state: rootState) => state._persist?.rehydrated
   );
   const language =
-    useSelector((state: rootState) => state.app.urlParameters.language) ?? 'nb';
+    useSelector((state: rootState) => state.app.urlParameters?.language) ??
+    'nb';
 
   React.useEffect(() => {
     i18n.activate(language as string);
