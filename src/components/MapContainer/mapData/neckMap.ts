@@ -1,3 +1,5 @@
+import { Neck } from '../SVGComponents';
+
 const neckMapParts = {
   'left-neck': {
     shape: 'poly',
@@ -59,7 +61,7 @@ const neckMapKeys = Object.keys(neckMapParts);
 const mapInfo = {
   parts: neckMapParts,
   keys: neckMapKeys,
-  image: '/kroppskart/images/neck.png',
+  image: Neck,
   name: 'neck',
   width: 452,
   height: 502,

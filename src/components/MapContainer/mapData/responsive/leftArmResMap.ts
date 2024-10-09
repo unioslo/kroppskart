@@ -1,3 +1,6 @@
+import { LeftArmFemale } from '../../SVGComponents';
+import { LeftArmMaleRes } from '../../SVGComponents/res';
+
 const leftArmResMapParts = {
   'upper-left-arm-back': {
     shape: 'poly',
@@ -215,8 +218,8 @@ const leftArmResMapKeys = Object.keys(leftArmResMapParts);
 
 const mapInfo = {
   image: {
-    male: '/kroppskart/images/responsive/leftArmMaleRes.png',
-    female: '/kroppskart/images/responsive/leftArmFemaleRes.png',
+    male: LeftArmMaleRes,
+    female: LeftArmFemale,
   },
   width: 390,
   height: 970,

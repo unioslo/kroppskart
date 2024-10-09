@@ -1,4 +1,5 @@
 import leftLegRes from './responsive/leftLegResMap';
+import { LeftLeg } from '../SVGComponents';
 
 const leftLegMapParts = {
   'left-groin': {
@@ -279,7 +280,7 @@ const leftLegMapKeys = Object.keys(leftLegMapParts);
 
 const mapInfo = {
   name: 'leftLeg',
-  image: '/kroppskart/images/leftLeg.png',
+  image: LeftLeg,
   width: 612,
   height: 502,
   keys: leftLegMapKeys,

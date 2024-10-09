@@ -27,9 +27,29 @@ msgstr "Valgt"
 msgid "Å gå tilbake herfra vil fjerne alle markeringer du har gjort."
 msgstr "Å gå tilbake herfra vil fjerne alle markeringer du har gjort."
 
+#: src/components/MapContainer/SVGComponents/GenitalsFemale.tsx:685
+#: src/components/MapContainer/SVGComponents/GenitalsMale.tsx:613
+msgid "Anus"
+msgstr "Anus"
+
 #: src/components/Modal/index.tsx:140
 msgid "Avbryt"
 msgstr "Avbryt"
+
+#: src/components/MapContainer/SVGComponents/LeftArmFemale.tsx:884
+#: src/components/MapContainer/SVGComponents/LeftArmMale.tsx:3720
+#: src/components/MapContainer/SVGComponents/LeftLeg.tsx:553
+#: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3689
+#: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3710
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2945
+#: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3710
+#: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2832
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2895
+#: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3708
+#: src/components/MapContainer/SVGComponents/RightArmMale.tsx:2501
+#: src/components/MapContainer/SVGComponents/RightLeg.tsx:553
+msgid "bak"
+msgstr "bak"
 
 #: src/components/Modal/index.tsx:87
 msgid "Det stemmer, jeg har ikke hatt smerter"
@@ -69,9 +89,29 @@ msgstr "Du vil nå få noen oppfølgingsspørsmål om de kroppsområdene du har 
 msgid "Fjern alle"
 msgstr "Fjern alle"
 
+#: src/components/MapContainer/SVGComponents/LeftArmFemale.tsx:859
+#: src/components/MapContainer/SVGComponents/LeftArmMale.tsx:3701
+#: src/components/MapContainer/SVGComponents/LeftLeg.tsx:521
+#: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3710
+#: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3689
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2924
+#: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3689
+#: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2799
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2916
+#: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3688
+#: src/components/MapContainer/SVGComponents/RightArmMale.tsx:2481
+#: src/components/MapContainer/SVGComponents/RightLeg.tsx:521
+msgid "foran"
+msgstr "foran"
+
 #: src/components/ui/index.tsx:94
 msgid "Fortsett"
 msgstr "Fortsett"
+
+#: src/components/MapContainer/SVGComponents/Head.tsx:3372
+#: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:941
+msgid "gane/munnhule"
+msgstr "gane/munnhule"
 
 #: src/components/messageBoxes/index.tsx:28
 msgid "Har du ikke hatt smerte de siste 4 ukene, går du videre til neste side."
@@ -80,6 +120,48 @@ msgstr "Har du ikke hatt smerte de siste 4 ukene, går du videre til neste side.
 #: src/components/messageBoxes/index.tsx:86
 msgid "Har du kvinnekropp eller mannekropp? (Trykk for å velge)"
 msgstr "Har du kvinnekropp eller mannekropp? (Trykk for å velge)"
+
+#: src/components/MapContainer/SVGComponents/AbdomenFemale.tsx:185
+#: src/components/MapContainer/SVGComponents/AbdomenMale.tsx:853
+#: src/components/MapContainer/SVGComponents/Back.tsx:763
+#: src/components/MapContainer/SVGComponents/ChestFemale.tsx:245
+#: src/components/MapContainer/SVGComponents/ChestFemale.tsx:314
+#: src/components/MapContainer/SVGComponents/ChestMale.tsx:188
+#: src/components/MapContainer/SVGComponents/GenitalsFemale.tsx:635
+#: src/components/MapContainer/SVGComponents/GenitalsMale.tsx:560
+#: src/components/MapContainer/SVGComponents/Neck.tsx:311
+#: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3686
+#: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3707
+#: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2790
+#: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2823
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2892
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2913
+#: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3685
+#: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3705
+#: src/components/MapContainer/SVGComponents/RightArmMale.tsx:2478
+#: src/components/MapContainer/SVGComponents/RightArmMale.tsx:2498
+#: src/components/MapContainer/SVGComponents/RightLeg.tsx:512
+#: src/components/MapContainer/SVGComponents/RightLeg.tsx:544
+#: src/components/MapContainer/SVGComponents/WholeBodyFemale.tsx:4311
+#: src/components/MapContainer/SVGComponents/WholeBodyFemale.tsx:4330
+#: src/components/MapContainer/SVGComponents/WholeBodyMale.tsx:4659
+#: src/components/MapContainer/SVGComponents/WholeBodyMale.tsx:4677
+msgid "Høyre"
+msgstr "Høyre"
+
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2874
+msgid "høyre fot"
+msgstr "høyre fot"
+
+#: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3731
+#: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2494
+msgid "høyre hånd"
+msgstr "høyre hånd"
+
+#: src/components/MapContainer/SVGComponents/Head.tsx:3321
+#: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:1371
+msgid "Høyre side"
+msgstr "Høyre side"
 
 #: src/components/messageBoxes/index.tsx:13
 #: src/components/messageBoxes/index.tsx:44
@@ -111,6 +193,38 @@ msgstr "Kvinnekropp"
 msgid "Kvinner skal ikke ta med menstruasjonssmerter her."
 msgstr "Kvinner skal ikke ta med menstruasjonssmerter her."
 
+#: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3728
+#: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3728
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2900
+#: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3728
+#: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2485
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2865
+msgid "Ledd i"
+msgstr "Ledd i"
+
+#: src/components/MapContainer/SVGComponents/RightLeg.tsx:576
+msgid "Ledd i høyre fot"
+msgstr "Ledd i høyre fot"
+
+#: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3725
+#: src/components/MapContainer/SVGComponents/RightArmMale.tsx:2518
+msgid "Ledd i høyre hånd"
+msgstr "Ledd i høyre hånd"
+
+#: src/components/MapContainer/SVGComponents/LeftLeg.tsx:576
+msgid "Ledd i venstre fot"
+msgstr "Ledd i venstre fot"
+
+#: src/components/MapContainer/SVGComponents/LeftArmFemale.tsx:907
+#: src/components/MapContainer/SVGComponents/LeftArmMale.tsx:3737
+msgid "Ledd i venstre hånd"
+msgstr "Ledd i venstre hånd"
+
+#: src/components/MapContainer/SVGComponents/Head.tsx:3369
+#: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:938
+msgid "Lepper"
+msgstr "Lepper"
+
 #: src/components/messageBoxes/index.tsx:106
 msgid "Leverer data. Dette skal normalt bare ta noen få sekunder. Vennligst ikke lukk nettleseren mens leveringen pågår."
 msgstr "Leverer data. Dette skal normalt bare ta noen få sekunder. Vennligst ikke lukk nettleseren mens leveringen pågår."
@@ -139,6 +253,10 @@ msgstr "Ok"
 msgid "På de neste sidene spør vi om smerter du har hatt de siste 4 ukene."
 msgstr "På de neste sidene spør vi om smerter du har hatt de siste 4 ukene."
 
+#: src/components/MapContainer/SVGComponents/GenitalsFemale.tsx:710
+msgid "Skjede"
+msgstr "Skjede"
+
 #: src/components/Modal/index.tsx:36
 msgid "Stemmer dette?"
 msgstr "Stemmer dette?"
@@ -155,6 +273,18 @@ msgstr "Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren."
 msgid "Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en oppfølgning."
 msgstr "Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en oppfølgning."
 
+#: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:3958
+msgid "tannkjøtt og kjeveledd"
+msgstr "tannkjøtt og kjeveledd"
+
+#: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:3940
+msgid "Tenner"
+msgstr "Tenner"
+
+#: src/components/MapContainer/SVGComponents/Head.tsx:3353
+msgid "Tenner, tannkjøtt og kjeveledd"
+msgstr "Tenner, tannkjøtt og kjeveledd"
+
 #: src/components/ui/index.tsx:82
 msgid "Tilbake"
 msgstr "Tilbake"
@@ -163,6 +293,58 @@ msgstr "Tilbake"
 msgid "Trykk her for å prøve å levere på nytt."
 msgstr "Trykk her for å prøve å levere på nytt."
 
+#: src/components/MapContainer/SVGComponents/Head.tsx:3375
+#: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:944
+msgid "tunge og svelg"
+msgstr "tunge og svelg"
+
+#: src/components/MapContainer/SVGComponents/GenitalsFemale.tsx:735
+#: src/components/MapContainer/SVGComponents/GenitalsMale.tsx:638
+msgid "Urinrør"
+msgstr "Urinrør"
+
 #: src/components/ui/index.tsx:45
 msgid "Velg alle"
 msgstr "Velg alle"
+
+#: src/components/MapContainer/SVGComponents/AbdomenFemale.tsx:208
+#: src/components/MapContainer/SVGComponents/AbdomenMale.tsx:870
+#: src/components/MapContainer/SVGComponents/Back.tsx:780
+#: src/components/MapContainer/SVGComponents/ChestFemale.tsx:268
+#: src/components/MapContainer/SVGComponents/ChestFemale.tsx:291
+#: src/components/MapContainer/SVGComponents/ChestMale.tsx:211
+#: src/components/MapContainer/SVGComponents/GenitalsFemale.tsx:660
+#: src/components/MapContainer/SVGComponents/GenitalsMale.tsx:588
+#: src/components/MapContainer/SVGComponents/LeftArmFemale.tsx:857
+#: src/components/MapContainer/SVGComponents/LeftArmFemale.tsx:882
+#: src/components/MapContainer/SVGComponents/LeftArmMale.tsx:3699
+#: src/components/MapContainer/SVGComponents/LeftArmMale.tsx:3718
+#: src/components/MapContainer/SVGComponents/LeftLeg.tsx:512
+#: src/components/MapContainer/SVGComponents/LeftLeg.tsx:544
+#: src/components/MapContainer/SVGComponents/Neck.tsx:289
+#: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3686
+#: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3707
+#: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3686
+#: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3707
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2921
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2942
+#: src/components/MapContainer/SVGComponents/WholeBodyFemale.tsx:4349
+#: src/components/MapContainer/SVGComponents/WholeBodyFemale.tsx:4368
+#: src/components/MapContainer/SVGComponents/WholeBodyMale.tsx:4695
+#: src/components/MapContainer/SVGComponents/WholeBodyMale.tsx:4713
+msgid "Venstre"
+msgstr "Venstre"
+
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2903
+msgid "venstre fot"
+msgstr "venstre fot"
+
+#: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3731
+#: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3731
+msgid "venstre hånd"
+msgstr "venstre hånd"
+
+#: src/components/MapContainer/SVGComponents/Head.tsx:3337
+#: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:1388
+msgid "Venstre side"
+msgstr "Venstre side"

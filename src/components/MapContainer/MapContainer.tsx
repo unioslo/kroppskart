@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import cn from 'classnames';
 
 import style from './bodyMap.module.scss';
@@ -54,7 +53,7 @@ const MapContainer = ({
       dispatch(initBodyMapValues(map.name, map.keys));
     }
   }, [map.name, map.keys, followUp, dispatch]);
-  const imageUrl = typeof image === 'string' ? image : image[sex];
+  const MapImage = Object.keys(image).includes(sex) ? image[sex] : image;
   return (
     <>
       <div
@@ -78,16 +77,14 @@ const MapContainer = ({
             />
           ))}
         </SVGContainer>
-        <Image
-          key={imageUrl}
-          src={imageUrl}
+        <image
           width={width}
           height={height}
           id={map.name}
-          alt=""
           className={style.image}
-          unoptimized
-        />
+        >
+          <MapImage />
+        </image>
       </div>
       {!followUp && (
         <SelectionButtons

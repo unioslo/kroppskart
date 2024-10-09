@@ -1,3 +1,5 @@
+import { GenitalsFemale } from '../SVGComponents';
+
 const genitalsFemaleMapParts = {
   'right-perineum': {
     shape: 'poly',
@@ -83,7 +85,7 @@ const genitalsFemaleMapKeys = Object.keys(genitalsFemaleMapParts);
 const mapInfo = {
   width: 493,
   height: 402,
-  image: '/kroppskart/images/genitalsFemale.png',
+  image: GenitalsFemale,
   name: 'genitals',
   parts: genitalsFemaleMapParts,
   keys: genitalsFemaleMapKeys,

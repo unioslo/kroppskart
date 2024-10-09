@@ -1,3 +1,5 @@
+import { ChestMale } from '../SVGComponents';
+
 const chestMaleMapParts = {
   'right-throat': {
     shape: 'poly',
@@ -60,7 +62,7 @@ const chestMaleMapParts = {
 const chestMaleMapKeys = Object.keys(chestMaleMapParts);
 
 const mapInfo = {
-  image: '/kroppskart/images/chestMale.png',
+  image: ChestMale,
   name: 'chest',
   width: 500,
   height: 469,

@@ -5,14 +5,17 @@ import { rootState } from '../../src/store/store';
 import mapData from '../../src/components/MapContainer/mapData';
 import { useSelector } from 'react-redux';
 import { GetStaticPaths } from 'next';
+import useGetMap from '../../src/utils/useGetMap';
 
-export default function BodyMapPage({ map, mapName }) {
+export default function BodyMapPage({ mapName }) {
   const sex = useSelector((state: rootState) => state.app.sex);
+
+  const map = useGetMap(mapName, sex);
 
   return (
     <div className="container">
       <MessageBoxBodyMap />
-      <MapContainer map={map[sex] ?? map} />
+      {map && <MapContainer map={map[sex] ?? map} />}
       <Navigator mapName={mapName} />
     </div>
   );
@@ -20,10 +23,8 @@ export default function BodyMapPage({ map, mapName }) {
 
 export const getStaticProps = async ({ params }) => {
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
-  const map = mapData[id];
   return {
     props: {
-      map,
       mapName: id,
     },
   };

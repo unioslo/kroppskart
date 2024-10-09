@@ -10,7 +10,9 @@ export type MapParts = {
 
 export type MapType = {
   parts: MapParts;
-  image: string | { male: string; female: string };
+  image:
+    | ((p: any) => JSX.Element)
+    | { male: (p: any) => JSX.Element; female: (p: any) => JSX.Element };
   width: number;
   height: number;
   name: string;

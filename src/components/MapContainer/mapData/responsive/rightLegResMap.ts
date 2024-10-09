@@ -1,3 +1,5 @@
+import { RightLegRes } from '../../SVGComponents/res';
+
 const rightLegResMapParts = {
   'right-foot-overside-left': {
     shape: 'poly',
@@ -214,7 +216,7 @@ const rightLegResMapParts = {
 const rightLegResMapKeys = Object.keys(rightLegResMapParts);
 
 const mapInfo = {
-  image: '/kroppskart/images/responsive/rightLegRes.png',
+  image: RightLegRes,
   width: 385,
   height: 986,
   name: 'rightLeg',

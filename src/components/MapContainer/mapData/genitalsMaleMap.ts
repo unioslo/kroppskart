@@ -1,3 +1,5 @@
+import { GenitalsMale } from '../SVGComponents';
+
 const genitalsMaleMapParts = {
   'urinary-tract': {
     shape: 'poly',
@@ -55,7 +57,7 @@ const genitalsMaleMapKeys = Object.keys(genitalsMaleMapParts);
 const mapInfo = {
   width: 412,
   height: 428,
-  image: '/kroppskart/images/genitalsMale.png',
+  image: GenitalsMale,
   name: 'genitals',
   parts: genitalsMaleMapParts,
   keys: genitalsMaleMapKeys,

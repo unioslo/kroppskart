@@ -1,3 +1,5 @@
+import { HeadRes } from '../../SVGComponents/res';
+
 const headResMapParts = {
   'right-jaw': {
     shape: 'poly',
@@ -195,7 +197,7 @@ const headResMapParts = {
 const headResMapKeys = Object.keys(headResMapParts);
 
 const mapInfo = {
-  image: '/kroppskart/images/responsive/headRes.png',
+  image: HeadRes,
   width: 529,
   height: 842,
   name: 'head',

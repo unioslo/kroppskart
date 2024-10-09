@@ -1,4 +1,5 @@
 import { MapParts } from './mapType';
+import { WholeBodyFemale, WholeBodyMale } from '../SVGComponents';
 
 const wholeBodyMapParts: MapParts = {
   head: {
@@ -172,8 +173,8 @@ const mapInfo = {
   width: 576,
   height: 526,
   image: {
-    male: '/kroppskart/images/wholeBodyMale.png',
-    female: '/kroppskart/images/wholeBodyFemale.png',
+    male: WholeBodyMale,
+    female: WholeBodyFemale,
   },
   name: 'wholeBody',
   keys: wholeBodyMapKeys,

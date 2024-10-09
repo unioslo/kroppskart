@@ -1,3 +1,4 @@
+import { Back } from '../SVGComponents';
 const backMapParts = {
   'left-upper-back': {
     shape: 'poly',
@@ -108,7 +109,7 @@ const mapInfo = {
   parts: backMapParts,
   width: 275,
   height: 418,
-  image: '/kroppskart/images/back.png',
+  image: Back,
   name: 'back',
   keys: backMapKeys,
 };

@@ -1,3 +1,5 @@
+import { AbdomenFemale, AbdomenMale } from '../SVGComponents';
+
 const abdomenMapParts = {
   'upper-abdomen': {
     shape: 'poly',
@@ -49,8 +51,8 @@ const mapInfo = {
   keys: abdomenMapKeys,
   parts: abdomenMapParts,
   image: {
-    male: '/kroppskart/images/abdomenMale.png',
-    female: '/kroppskart/images/abdomenFemale.png',
+    male: AbdomenMale,
+    female: AbdomenFemale,
   },
   name: 'abdomen',
   width: 404,

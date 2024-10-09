@@ -1,5 +1,6 @@
 import { MapParts } from './mapType';
 import headRes from './responsive/headResMap';
+import { Head } from '../SVGComponents';
 
 const headMapParts: MapParts = {
   'right-back-head': {
@@ -485,7 +486,7 @@ const mapInfo = {
   parts: headMapParts,
   width: 702,
   height: 605,
-  image: '/kroppskart/images/head.png',
+  image: Head,
   name: 'head',
   keys: headMapKeys,
   responsive: headRes,

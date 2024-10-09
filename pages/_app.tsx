@@ -58,6 +58,10 @@ const StateComponent = () => {
   );
 
   React.useEffect(() => {
+    i18n.activate(language as string);
+  }, [language]);
+
+  React.useEffect(() => {
     if (
       (router.pathname.includes('bodymap') ||
         router.pathname.includes('followup')) &&
@@ -67,7 +71,11 @@ const StateComponent = () => {
       router.replace('/');
     }
   });
-  if (typeof document !== 'undefined' && !document?.documentElement?.lang) {
+  if (
+    typeof document !== 'undefined' &&
+    document?.documentElement?.lang !== language
+  ) {
+    (document as any).i18n = i18n;
     if (language === 'en') {
       document.documentElement.lang = 'en';
     } else {

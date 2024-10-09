@@ -12,8 +12,8 @@ import { default as genitalsFemale } from './genitalsFemaleMap';
 import { default as chestFemale } from './chestFemaleMap';
 import { default as chestMale } from './chestMaleMap';
 
-const chest = { male: chestMale, female: chestFemale };
-const genitals = { male: genitalsMale, female: genitalsFemale };
+export const chest = { male: chestMale, female: chestFemale };
+export const genitals = { male: genitalsMale, female: genitalsFemale };
 
 const mapInfo = {
   head,

@@ -1,3 +1,5 @@
+import { LeftLegRes } from '../../SVGComponents/res';
+
 const leftLegResMapParts = {
   'left-toe-5-medial': {
     shape: 'poly',
@@ -214,7 +216,7 @@ const leftLegResMapParts = {
 const leftLegResMapKeys = Object.keys(leftLegResMapParts);
 
 const mapInfo = {
-  image: '/kroppskart/images/responsive/leftLegRes.png',
+  image: LeftLegRes,
   width: 385,
   height: 986,
   name: 'leftLeg',

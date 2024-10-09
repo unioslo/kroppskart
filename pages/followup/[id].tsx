@@ -8,10 +8,12 @@ import { useGetBodyMap } from '../../src/store/selectors';
 import { lowerBackKeys, surveyParams } from '../../src/utils/constants';
 import { someAnswersInList } from '../../src/utils/mapUtils';
 import { getUrlParam } from '../../src/utils/routingUtils';
+import useGetMap from '../../src/utils/useGetMap';
 
-export default function FollowupPage({ map, mapName }) {
+export default function FollowupPage({ mapName }) {
   const sex = useSelector((state: rootState) => state.app.sex);
   const params = useSelector((state: rootState) => state.app.urlParameters);
+  const map = useGetMap(mapName, sex);
   const selectedAreas = useGetBodyMap(mapName);
   let paramName = surveyParams[mapName];
   if (
@@ -24,7 +26,7 @@ export default function FollowupPage({ map, mapName }) {
   const formId = getUrlParam(params[paramName]);
   return (
     <div className="container">
-      <MapContainer followUp={true} map={map[sex] ?? map} />
+      {map && <MapContainer followUp={true} map={map[sex] ?? map} />}
       <EmbeddedForm formId={formId} pageName={mapName} />
     </div>
   );
@@ -32,10 +34,8 @@ export default function FollowupPage({ map, mapName }) {
 
 export const getStaticProps = async ({ params }) => {
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
-  const map = mapData[id];
   return {
     props: {
-      map,
       mapName: id,
     },
   };

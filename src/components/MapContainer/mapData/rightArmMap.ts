@@ -1,4 +1,5 @@
 import rightArmRes from './responsive/rightArmResMap';
+import { RightArmFemale, RightArmMale } from '../SVGComponents';
 
 const rightArmMapParts = {
   'upper-right-arm-front': {
@@ -218,8 +219,8 @@ const mapInfo = {
   width: 972,
   height: 324,
   image: {
-    male: '/kroppskart/images/rightArmMale.png',
-    female: '/kroppskart/images/rightArmFemale.png',
+    male: RightArmMale,
+    female: RightArmFemale,
   },
   name: 'rightArm',
   parts: rightArmMapParts,
