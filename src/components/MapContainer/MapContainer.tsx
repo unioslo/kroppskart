@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import style from './bodyMap.module.scss';
-import { MapType } from './mapData/mapType';
+import { BaseMap } from './mapData/mapType';
 import SVGContainer, { ClickablePolygon } from './SVGContainer';
 import { useSelector, useDispatch } from 'react-redux';
 import { rootState } from '../../store/store';
@@ -13,7 +13,7 @@ import {
 } from '../../store/bodyMapReducer';
 import { SelectionButtons } from '../ui';
 
-const getMap = (map: MapType, responsive: boolean) => {
+const getMap = (map: BaseMap, responsive: boolean) => {
   if (!responsive) {
     return map;
   }
@@ -41,7 +41,7 @@ const MapContainer = ({
   map,
   followUp,
 }: {
-  map: MapType;
+  map: BaseMap;
   followUp?: boolean;
 }) => {
   const sex = useSelector((state: rootState) => state.app.sex);
