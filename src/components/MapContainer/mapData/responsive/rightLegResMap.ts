@@ -1,4 +1,4 @@
-import { RightLegRes } from '../../SVGComponents/res';
+import RightLegRes from '../../SVGComponents/res/RightLegRes';
 
 const rightLegResMapParts = {
   'right-foot-overside-left': {

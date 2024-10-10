@@ -1,4 +1,5 @@
-import { AbdomenFemale, AbdomenMale } from '../SVGComponents';
+import AbdomenFemale from '../SVGComponents/AbdomenFemale';
+import AbdomenMale from '../SVGComponents/AbdomenMale';
 
 const abdomenMapParts = {
   'upper-abdomen': {

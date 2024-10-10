@@ -1,4 +1,4 @@
-import { HeadRes } from '../../SVGComponents/res';
+import HeadRes from '../../SVGComponents/res/HeadRes';
 
 const headResMapParts = {
   'right-jaw': {

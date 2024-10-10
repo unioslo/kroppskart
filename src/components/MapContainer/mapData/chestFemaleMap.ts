@@ -1,4 +1,4 @@
-import { ChestFemale } from '../SVGComponents';
+import ChestFemale from '../SVGComponents/ChestFemale';
 
 const chestFemaleMapParts = {
   'right-throat': {

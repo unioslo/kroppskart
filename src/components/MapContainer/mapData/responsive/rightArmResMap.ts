@@ -1,4 +1,5 @@
-import { RightArmFemaleRes, RightArmMaleRes } from '../../SVGComponents/res';
+import RightArmFemaleRes from '../../SVGComponents/res/RightArmFemaleRes';
+import RightArmMaleRes from '../../SVGComponents/res/RightArmMaleRes';
 
 const rightArmResMapParts = {
   'lower-right-arm-front': {

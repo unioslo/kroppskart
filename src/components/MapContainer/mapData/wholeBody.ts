@@ -1,5 +1,6 @@
 import { MapParts } from './mapType';
-import { WholeBodyFemale, WholeBodyMale } from '../SVGComponents';
+import WholeBodyFemale from '../SVGComponents/WholeBodyFemale';
+import WholeBodyMale from '../SVGComponents/WholeBodyMale';
 
 const wholeBodyMapParts: MapParts = {
   head: {

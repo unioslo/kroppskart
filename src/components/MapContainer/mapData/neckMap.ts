@@ -1,4 +1,4 @@
-import { Neck } from '../SVGComponents';
+import Neck from '../SVGComponents/Neck';
 
 const neckMapParts = {
   'left-neck': {

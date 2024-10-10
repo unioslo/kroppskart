@@ -1,5 +1,5 @@
 import rightLegRes from './responsive/rightLegResMap';
-import { RightLeg } from '../SVGComponents';
+import RightLeg from '../SVGComponents/RightLeg';
 
 const rightLegMapParts = {
   'right-groin': {

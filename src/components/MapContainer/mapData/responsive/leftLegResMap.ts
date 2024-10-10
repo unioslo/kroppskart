@@ -1,4 +1,4 @@
-import { LeftLegRes } from '../../SVGComponents/res';
+import LeftLegRes from '../../SVGComponents/res/LeftLegRes';
 
 const leftLegResMapParts = {
   'left-toe-5-medial': {

@@ -1,6 +1,6 @@
 import { MapParts } from './mapType';
 import headRes from './responsive/headResMap';
-import { Head } from '../SVGComponents';
+import Head from '../SVGComponents/Head';
 
 const headMapParts: MapParts = {
   'right-back-head': {

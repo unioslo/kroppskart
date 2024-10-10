@@ -1,4 +1,4 @@
-import { GenitalsFemale } from '../SVGComponents';
+import GenitalsFemale from '../SVGComponents/GenitalsFemale';
 
 const genitalsFemaleMapParts = {
   'right-perineum': {

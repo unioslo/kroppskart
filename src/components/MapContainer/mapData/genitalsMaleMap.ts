@@ -1,4 +1,4 @@
-import { GenitalsMale } from '../SVGComponents';
+import GenitalsMale from '../SVGComponents/GenitalsMale';
 
 const genitalsMaleMapParts = {
   'urinary-tract': {

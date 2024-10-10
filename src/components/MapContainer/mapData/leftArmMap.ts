@@ -1,5 +1,6 @@
 import leftArmRes from './responsive/leftArmResMap';
-import { LeftArmFemale, LeftArmMale } from '../SVGComponents';
+import LeftArmFemale from '../SVGComponents/LeftArmFemale';
+import LeftArmMale from '../SVGComponents/LeftArmMale';
 
 const leftArmMapParts = {
   'upper-left-arm-front': {

@@ -1,4 +1,4 @@
-import { Back } from '../SVGComponents';
+import Back from '../SVGComponents/Back';
 const backMapParts = {
   'left-upper-back': {
     shape: 'poly',
