@@ -8,7 +8,7 @@ export type MapParts = {
   };
 };
 
-export type MapType = {
+type BaseMap = {
   parts: MapParts;
   image:
     | ((p: any) => JSX.Element)
@@ -19,3 +19,5 @@ export type MapType = {
   keys: string[];
   responsive?: Omit<MapType, 'responsive'>;
 };
+
+export type MapType = BaseMap | { male: BaseMap; female: BaseMap };

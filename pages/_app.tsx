@@ -62,12 +62,7 @@ const StateComponent = () => {
   }, [language]);
 
   React.useEffect(() => {
-    if (
-      (router.pathname.includes('bodymap') ||
-        router.pathname.includes('followup')) &&
-      !initialized &&
-      rehydrated
-    ) {
+    if (router.pathname.includes('[mode]') && !initialized && rehydrated) {
       router.replace('/');
     }
   });

@@ -50,7 +50,11 @@ export const useGetNextPage = (section: string, mapName?: string) => {
       urlParameters
     ).filter((w) => doneFollowups[w] !== true);
   }
-  const nextPage = getNextPage(relevantRoutes, router.pathname, mapName);
+  const pathname = router.pathname.replace(
+    '[mode]',
+    router.query.mode as string
+  );
+  const nextPage = getNextPage(relevantRoutes, pathname, mapName);
   return { nextPage, relevantRoutes };
 };
 
@@ -66,7 +70,12 @@ const Navigator = React.memo(
   }) => {
     const router = useRouter();
     const dispatch = useDispatch();
-    const currentPage = mapName ?? getCurrentPage(router.pathname);
+    const currentPage =
+      mapName ??
+      getCurrentPage(router.pathname).replace(
+        '[mode]',
+        router.query.mode as string
+      );
     const bodyMapForPage = useSelector(
       (state: rootState) =>
         state.body[currentPage !== 'bodymap' ? currentPage : 'wholeBody']
