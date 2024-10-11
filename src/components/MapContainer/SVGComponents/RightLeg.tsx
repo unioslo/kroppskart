@@ -567,7 +567,7 @@ const SvgRightLeg = (props: SVGProps<SVGSVGElement>) => (
       transform="translate(-24.12 -82.09)"
     >
       <tspan
-        x={143.904}
+        x={130.904}
         y={213.32}
         style={{
           strokeWidth: 0.529,

@@ -2856,7 +2856,7 @@ const SvgRightLegRes = (props: SVGProps<SVGSVGElement>) => (
       transform="matrix(1 0 0 1 -56.038 -18.06)"
     >
       <tspan
-        x={132.783}
+        x={128.783}
         y={207.071}
         style={{
           strokeWidth: 0.262467,

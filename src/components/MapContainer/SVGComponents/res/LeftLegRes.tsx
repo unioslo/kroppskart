@@ -629,7 +629,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -641,7 +640,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -653,7 +651,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -665,7 +662,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -677,7 +673,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -689,7 +684,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -701,7 +695,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -713,7 +706,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -725,7 +717,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -737,7 +728,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -749,7 +739,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -761,7 +750,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -773,7 +761,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -785,7 +772,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -798,7 +784,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         fillRule: 'nonzero',
         stroke: 'none',
         strokeWidth: 0.265347,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
@@ -813,7 +798,6 @@ const SvgLeftLegRes = (props: SVGProps<SVGSVGElement>) => (
         strokeMiterlimit: 10,
         strokeDasharray: 'none',
         strokeOpacity: 1,
-        filter: 'url(#leftLegRes_svg__filter10338)',
       }}
       transform="translate(-30.869 -16.802)"
     />
