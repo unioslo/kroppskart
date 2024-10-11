@@ -5,9 +5,9 @@ import back from '../../src/components/MapContainer/mapData/backMap';
 export default function Page() {
   const mode = useRouter().query.mode as string;
 
-  if (mode === 'bodymap') {
-    return <BodyMapPage mapName="back" map={back} />;
+  if (mode === 'followup') {
+    return <FollowupPage mapName="back" map={back} />;
   }
 
-  return <FollowupPage mapName="back" map={back} />;
+  return <BodyMapPage mapName="back" map={back} />;
 }

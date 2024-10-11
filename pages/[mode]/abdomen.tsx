@@ -5,9 +5,9 @@ import abdomen from '../../src/components/MapContainer/mapData/abdomenMap';
 export default function Page() {
   const mode = useRouter().query.mode as string;
 
-  if (mode === 'bodymap') {
-    return <BodyMapPage mapName="abdomen" map={abdomen} />;
+  if (mode === 'followup') {
+    return <FollowupPage mapName="abdomen" map={abdomen} />;
   }
 
-  return <FollowupPage mapName="abdomen" map={abdomen} />;
+  return <BodyMapPage mapName="abdomen" map={abdomen} />;
 }

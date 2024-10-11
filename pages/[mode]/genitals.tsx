@@ -12,9 +12,9 @@ export const genitals = {
 export default function Page() {
   const mode = useRouter().query.mode as string;
 
-  if (mode === 'bodymap') {
-    return <BodyMapPage mapName="genitals" map={genitals} />;
+  if (mode === 'followup') {
+    return <FollowupPage mapName="genitals" map={genitals} />;
   }
 
-  return <FollowupPage mapName="genitals" map={genitals} />;
+  return <BodyMapPage mapName="genitals" map={genitals} />;
 }

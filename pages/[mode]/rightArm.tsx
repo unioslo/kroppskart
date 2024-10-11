@@ -5,9 +5,9 @@ import rightArm from '../../src/components/MapContainer/mapData/rightArmMap';
 export default function Page() {
   const mode = useRouter().query.mode as string;
 
-  if (mode === 'bodymap') {
-    return <BodyMapPage mapName="rightArm" map={rightArm} />;
+  if (mode === 'followup') {
+    return <FollowupPage mapName="rightArm" map={rightArm} />;
   }
 
-  return <FollowupPage mapName="rightArm" map={rightArm} />;
+  return <BodyMapPage mapName="rightArm" map={rightArm} />;
 }

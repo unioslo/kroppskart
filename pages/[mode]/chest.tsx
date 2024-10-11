@@ -8,9 +8,9 @@ export const chest = { male: chestMale, female: chestFemale };
 export default function Page() {
   const mode = useRouter().query.mode as string;
 
-  if (mode === 'bodymap') {
-    return <BodyMapPage mapName="chest" map={chest} />;
+  if (mode === 'followup') {
+    return <FollowupPage mapName="chest" map={chest} />;
   }
 
-  return <FollowupPage mapName="chest" map={chest} />;
+  return <BodyMapPage mapName="chest" map={chest} />;
 }

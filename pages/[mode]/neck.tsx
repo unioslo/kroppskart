@@ -5,9 +5,9 @@ import neck from '../../src/components/MapContainer/mapData/neckMap';
 export default function Page() {
   const mode = useRouter().query.mode as string;
 
-  if (mode === 'bodymap') {
-    return <BodyMapPage mapName="neck" map={neck} />;
+  if (mode === 'followup') {
+    return <FollowupPage mapName="neck" map={neck} />;
   }
 
-  return <FollowupPage mapName="neck" map={neck} />;
+  return <BodyMapPage mapName="neck" map={neck} />;
 }

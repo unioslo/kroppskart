@@ -77,14 +77,9 @@ const MapContainer = ({
             />
           ))}
         </SVGContainer>
-        <image
-          width={width}
-          height={height}
-          id={map.name}
-          className={style.image}
-        >
+        <div id={map.name} className={style.image}>
           <MapImage />
-        </image>
+        </div>
       </div>
       {!followUp && (
         <SelectionButtons
