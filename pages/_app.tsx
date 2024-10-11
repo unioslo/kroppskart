@@ -34,7 +34,22 @@ const App = ({ Component, ...rest }) => {
       </Head>
       <PersistGate
         persistor={(store as any).__persistor}
-        loading={<div>Laster inn</div>}
+        loading={
+          <div
+            style={{
+              display: 'flex',
+              height: '100vh',
+              justifyContent: 'center',
+              alignItems: 'center',
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+            }}
+          >
+            {i18n.t('Laster inn')}
+          </div>
+        }
       >
         <Provider store={store}>
           <StateComponent />

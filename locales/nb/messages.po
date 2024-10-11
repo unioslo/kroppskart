@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: pages/_app.tsx:48
+msgid "Laster inn"
+msgstr "Laster inn"
+
+#. js-lingui-explicit-id
 #: src/components/MapContainer/SVGContainer.tsx:115
 msgid "Ikke valgt"
 msgstr "Ikke valgt"

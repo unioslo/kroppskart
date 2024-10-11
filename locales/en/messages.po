@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: pages/_app.tsx:48
+msgid "Laster inn"
+msgstr "Loading"
+
+#. js-lingui-explicit-id
 #: src/components/MapContainer/SVGContainer.tsx:115
 msgid "Ikke valgt"
 msgstr "Not selected"
@@ -191,7 +196,7 @@ msgstr "Woman's body"
 
 #: src/components/messageBoxes/index.tsx:81
 msgid "Kvinner skal ikke ta med menstruasjonssmerter her."
-msgstr "Women should not include menstrual pain."
+msgstr "Women should not include menstrual pain here."
 
 #: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3728
 #: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3728
