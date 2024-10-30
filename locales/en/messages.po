@@ -66,7 +66,7 @@ msgstr "It is correct, I have not felt pain in any of these areas"
 
 #: src/components/messageBoxes/index.tsx:117
 msgid "Din besvarelse leveres når du går til neste side."
-msgstr ""
+msgstr "You answers will be delivered when you move to the next page."
 
 #: src/components/Modal/index.tsx:31
 msgid "Du har oppgitt at du ikke har hatt smerte i områdene på bildet."
@@ -232,11 +232,11 @@ msgstr "Lips"
 
 #: src/components/messageBoxes/index.tsx:106
 msgid "Leverer data. Dette skal normalt bare ta noen få sekunder. Vennligst ikke lukk nettleseren mens leveringen pågår."
-msgstr ""
+msgstr "Delivering data. Normally this takes a few seconds. Please do not close your web browser while your data is being delivered."
 
 #: pages/done.tsx:114
 msgid "Levering mislykket."
-msgstr ""
+msgstr "Data delivery failed."
 
 #: pages/index.tsx:29
 msgid "Mannekropp"
@@ -272,11 +272,11 @@ msgstr "Include all types of pain, both superficial and deep (in the chest, mout
 
 #: pages/done.tsx:124
 msgid "Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren."
-msgstr ""
+msgstr "Thank you for participating in the study! You can now close your web browser."
 
 #: pages/done.tsx:132
 msgid "Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en oppfølgning."
-msgstr ""
+msgstr "Thank you for participating in the study! You will be taken to a follow-up."
 
 #: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:3958
 msgid "tannkjøtt og kjeveledd"
@@ -296,7 +296,7 @@ msgstr "Back"
 
 #: pages/done.tsx:117
 msgid "Trykk her for å prøve å levere på nytt."
-msgstr ""
+msgstr "Press here to try to deliver your data again."
 
 #: src/components/MapContainer/SVGComponents/Head.tsx:3375
 #: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:944
