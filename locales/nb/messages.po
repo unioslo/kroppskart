@@ -275,8 +275,8 @@ msgid "Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren."
 msgstr "Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren."
 
 #: pages/done.tsx:132
-msgid "Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en oppfølgning."
-msgstr "Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en oppfølgning."
+msgid "Du vil bli tatt videre til en oppfølgning."
+msgstr "Du vil bli tatt videre til en oppfølgning."
 
 #: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:3958
 msgid "tannkjøtt og kjeveledd"

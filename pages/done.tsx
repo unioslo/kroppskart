@@ -129,10 +129,7 @@ const Done = () => {
       )}
       {delivered && (followUpSurvey || (noPain && noAreasSelected)) && (
         <Alert>
-          <Trans>
-            Takk for deltagelsen i undersøkelsen! Du vil bli tatt videre til en
-            oppfølgning.
-          </Trans>
+          <Trans>Du vil bli tatt videre til en oppfølgning.</Trans>
         </Alert>
       )}
     </main>
