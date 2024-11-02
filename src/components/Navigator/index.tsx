@@ -81,6 +81,9 @@ const Navigator = React.memo(
         state.body[currentPage !== 'bodymap' ? currentPage : 'wholeBody']
     );
     const { nextPage } = useGetNextPage(section, mapName);
+    React.useEffect(() => {
+      router.prefetch(nextPage);
+    }, [router, nextPage]);
 
     if (currentPage === 'bodymap') {
       const onNext = () =>

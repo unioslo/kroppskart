@@ -8,13 +8,19 @@ import useUrlParameters from '../src/utils/urlParameters';
 import { MessageBoxIntro } from '../src/components/messageBoxes';
 import { resetBodyMaps } from '../src/store/bodyMapReducer';
 import { Trans } from '@lingui/macro';
+import { useRouter } from 'next/router';
 
 export default function Introduction() {
   useUrlParameters();
+  const router = useRouter();
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(resetBodyMaps());
   }, [dispatch]);
+
+  React.useEffect(() => {
+    router.prefetch('/bodymap');
+  }, [router]);
   return (
     <main className="container">
       <MessageBoxIntro />
