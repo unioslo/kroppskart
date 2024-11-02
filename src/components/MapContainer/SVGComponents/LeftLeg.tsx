@@ -2771,7 +2771,6 @@ const SvgLeftLeg = (props: SVGProps<SVGSVGElement>) => (
     <g
       style={{
         opacity: 1,
-        filter: 'url(#leftLeg_svg__filter10338)',
       }}
       transform="matrix(.35278 0 0 -.35278 148.199 216)"
     >
