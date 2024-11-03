@@ -21,6 +21,7 @@
 }
 
 .button {
+  touch-action: none;
   color: black;
   font-size: 18px;
   display: inline-block;
