@@ -57,7 +57,7 @@ jobs:
         run: >
           buildah push ${{ inputs.image  }}
       - name: Cleanup
-        if: ${{ inputs.deleteAfterPush == 'true' }}
+        if: ${{ inputs.deleteAfterPush == true }}
         run: podman image rm ${{ inputs.image }} || true
   openshift-deploy:
     runs-on: [self-hosted, mobileapps]
