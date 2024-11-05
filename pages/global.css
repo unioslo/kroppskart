@@ -46,5 +46,5 @@ button::-moz-focus-inner {
 
 body {
   margin: 0;
-  margin-bottom: env(safe-area-inset-bottom);
+  margin-bottom: calc(env(safe-area-inset-bottom) + 20px);
 }
