@@ -173,10 +173,6 @@ msgstr "Right side"
 msgid "Hvis du bare har hatt smerter i en del av et område skal du likevel markere hele området."
 msgstr "Even if you have only had pain in part of an area, you must still mark the area as a whole."
 
-#: src/components/messageBoxes/index.tsx:78
-msgid "Ikke ta med forbigående, kortvarige smerter."
-msgstr "Do not include transient, brief pain."
-
 #: src/components/EmbeddedForm/index.tsx:82
 msgid "Ingen spørsmål for disse valgene"
 msgstr "No questions for these areas"

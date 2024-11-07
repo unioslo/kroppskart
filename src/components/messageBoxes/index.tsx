@@ -75,9 +75,6 @@ export const MessageBoxIntro = () => (
         </Trans>
       </p>
       <p>
-        <Trans>Ikke ta med forbigående, kortvarige smerter.</Trans>
-      </p>
-      <p>
         <Trans>Kvinner skal ikke ta med menstruasjonssmerter her.</Trans>
       </p>
     </Alert>

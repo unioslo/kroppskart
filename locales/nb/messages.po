@@ -173,10 +173,6 @@ msgstr "Høyre side"
 msgid "Hvis du bare har hatt smerter i en del av et område skal du likevel markere hele området."
 msgstr "Hvis du bare har hatt smerter i en del av et område skal du likevel markere hele området."
 
-#: src/components/messageBoxes/index.tsx:78
-msgid "Ikke ta med forbigående, kortvarige smerter."
-msgstr "Ikke ta med forbigående, kortvarige smerter."
-
 #: src/components/EmbeddedForm/index.tsx:82
 msgid "Ingen spørsmål for disse valgene"
 msgstr "Ingen spørsmål for disse valgene"
