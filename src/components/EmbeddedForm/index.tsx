@@ -65,9 +65,11 @@ const EmbeddedForm = ({
           </Button>
           {toggle && (
             <iframe
+              // Disables scroll on mobile Safari that causes interactivity to break
+              scrolling="no"
               className="nettskjema-iframe"
               id="embeddedSurvey"
-              style={{ height: height }}
+              style={{ height: height, overflow: 'hidden' }}
               src={url}
               title="Embedded survey"
               frameBorder="0"
