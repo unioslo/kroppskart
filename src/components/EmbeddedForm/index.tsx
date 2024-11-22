@@ -60,8 +60,12 @@ const EmbeddedForm = ({
     <div className={style.embedContainer}>
       {url ? (
         <>
-          <Button id="reload-iframe" onClick={() => setToggle(false)}>
-            Last inn skjema på nytt
+          <Button
+            id="reload-iframe"
+            onClick={() => setToggle(false)}
+            className={style.reloadButton}
+          >
+            <Trans>Last inn skjema på nytt</Trans>
           </Button>
           {toggle && (
             <iframe

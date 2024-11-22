@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: pages/_app.tsx:48
+#: pages/_app.tsx:50
 msgid "Laster inn"
 msgstr "Laster inn"
 
@@ -46,10 +46,10 @@ msgstr "Avbryt"
 #: src/components/MapContainer/SVGComponents/LeftLeg.tsx:553
 #: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3689
 #: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3710
-#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2945
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2929
 #: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3710
 #: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2832
-#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2895
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2890
 #: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3708
 #: src/components/MapContainer/SVGComponents/RightArmMale.tsx:2501
 #: src/components/MapContainer/SVGComponents/RightLeg.tsx:553
@@ -64,7 +64,7 @@ msgstr "Det stemmer, jeg har ikke hatt smerter"
 msgid "Det stemmer, jeg har ikke hatt smerter i noen av områdene"
 msgstr "Det stemmer, jeg har ikke hatt smerter i noen av områdene"
 
-#: src/components/messageBoxes/index.tsx:117
+#: src/components/messageBoxes/index.tsx:114
 msgid "Din besvarelse leveres når du går til neste side."
 msgstr "Din besvarelse leveres når du går til neste side."
 
@@ -86,7 +86,11 @@ msgstr "Du kan fjerne merking ved å klikke en gang til på området."
 msgid "Du skal angi hvor du har hatt smerte, ikke hvor du tror årsaken til smerten ligger."
 msgstr "Du skal angi hvor du har hatt smerte, ikke hvor du tror årsaken til smerten ligger."
 
-#: src/components/messageBoxes/index.tsx:95
+#: pages/done.tsx:132
+msgid "Du vil bli tatt videre til en oppfølgning."
+msgstr "Du vil bli tatt videre til en oppfølgning."
+
+#: src/components/messageBoxes/index.tsx:92
 msgid "Du vil nå få noen oppfølgingsspørsmål om de kroppsområdene du har markert."
 msgstr "Du vil nå få noen oppfølgingsspørsmål om de kroppsområdene du har markert."
 
@@ -99,10 +103,10 @@ msgstr "Fjern alle"
 #: src/components/MapContainer/SVGComponents/LeftLeg.tsx:521
 #: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3710
 #: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3689
-#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2924
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2908
 #: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3689
 #: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2799
-#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2916
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2911
 #: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3688
 #: src/components/MapContainer/SVGComponents/RightArmMale.tsx:2481
 #: src/components/MapContainer/SVGComponents/RightLeg.tsx:521
@@ -122,7 +126,7 @@ msgstr "gane/munnhule"
 msgid "Har du ikke hatt smerte de siste 4 ukene, går du videre til neste side."
 msgstr "Har du ikke hatt smerte de siste 4 ukene, går du videre til neste side."
 
-#: src/components/messageBoxes/index.tsx:86
+#: src/components/messageBoxes/index.tsx:83
 msgid "Har du kvinnekropp eller mannekropp? (Trykk for å velge)"
 msgstr "Har du kvinnekropp eller mannekropp? (Trykk for å velge)"
 
@@ -139,8 +143,8 @@ msgstr "Har du kvinnekropp eller mannekropp? (Trykk for å velge)"
 #: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3707
 #: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2790
 #: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2823
-#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2892
-#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2913
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2887
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2908
 #: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3685
 #: src/components/MapContainer/SVGComponents/RightArmFemale.tsx:3705
 #: src/components/MapContainer/SVGComponents/RightArmMale.tsx:2478
@@ -154,7 +158,7 @@ msgstr "Har du kvinnekropp eller mannekropp? (Trykk for å velge)"
 msgid "Høyre"
 msgstr "Høyre"
 
-#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2874
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2869
 msgid "høyre fot"
 msgstr "høyre fot"
 
@@ -173,7 +177,7 @@ msgstr "Høyre side"
 msgid "Hvis du bare har hatt smerter i en del av et område skal du likevel markere hele området."
 msgstr "Hvis du bare har hatt smerter i en del av et område skal du likevel markere hele området."
 
-#: src/components/EmbeddedForm/index.tsx:82
+#: src/components/EmbeddedForm/index.tsx:88
 msgid "Ingen spørsmål for disse valgene"
 msgstr "Ingen spørsmål for disse valgene"
 
@@ -186,20 +190,24 @@ msgstr "Jeg ønsker ikke å svare på spørsmål om smerter"
 msgid "Klikk på alle områder hvor du har hatt smerte i løpet av de siste 4 ukene."
 msgstr "Klikk på alle områder hvor du har hatt smerte i løpet av de siste 4 ukene."
 
-#: pages/index.tsx:24
+#: pages/index.tsx:30
 msgid "Kvinnekropp"
 msgstr "Kvinnekropp"
 
-#: src/components/messageBoxes/index.tsx:81
+#: src/components/messageBoxes/index.tsx:78
 msgid "Kvinner skal ikke ta med menstruasjonssmerter her."
 msgstr "Kvinner skal ikke ta med menstruasjonssmerter her."
 
+#: src/components/EmbeddedForm/index.tsx:68
+msgid "Last inn skjema på nytt"
+msgstr "Last inn skjema på nytt"
+
 #: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3728
 #: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3728
-#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2900
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2884
 #: src/components/MapContainer/SVGComponents/res/RightArmFemaleRes.tsx:3728
 #: src/components/MapContainer/SVGComponents/res/RightArmMaleRes.tsx:2485
-#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2865
+#: src/components/MapContainer/SVGComponents/res/RightLegRes.tsx:2860
 msgid "Ledd i"
 msgstr "Ledd i"
 
@@ -226,7 +234,7 @@ msgstr "Ledd i venstre hånd"
 msgid "Lepper"
 msgstr "Lepper"
 
-#: src/components/messageBoxes/index.tsx:106
+#: src/components/messageBoxes/index.tsx:103
 msgid "Leverer data. Dette skal normalt bare ta noen få sekunder. Vennligst ikke lukk nettleseren mens leveringen pågår."
 msgstr "Leverer data. Dette skal normalt bare ta noen få sekunder. Vennligst ikke lukk nettleseren mens leveringen pågår."
 
@@ -234,7 +242,7 @@ msgstr "Leverer data. Dette skal normalt bare ta noen få sekunder. Vennligst ik
 msgid "Levering mislykket."
 msgstr "Levering mislykket."
 
-#: pages/index.tsx:29
+#: pages/index.tsx:35
 msgid "Mannekropp"
 msgstr "Mannekropp"
 
@@ -269,10 +277,6 @@ msgstr "Ta med alle typer smerter, både overfladiske og dype (i brystet, munnen
 #: pages/done.tsx:124
 msgid "Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren."
 msgstr "Takk for deltagelsen i undersøkelsen! Du kan nå lukke nettleseren."
-
-#: pages/done.tsx:132
-msgid "Du vil bli tatt videre til en oppfølgning."
-msgstr "Du vil bli tatt videre til en oppfølgning."
 
 #: src/components/MapContainer/SVGComponents/res/HeadRes.tsx:3958
 msgid "tannkjøtt og kjeveledd"
@@ -327,8 +331,8 @@ msgstr "Velg alle"
 #: src/components/MapContainer/SVGComponents/res/LeftArmFemaleRes.tsx:3707
 #: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3686
 #: src/components/MapContainer/SVGComponents/res/LeftArmMaleRes.tsx:3707
-#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2921
-#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2942
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2905
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2926
 #: src/components/MapContainer/SVGComponents/WholeBodyFemale.tsx:4349
 #: src/components/MapContainer/SVGComponents/WholeBodyFemale.tsx:4368
 #: src/components/MapContainer/SVGComponents/WholeBodyMale.tsx:4695
@@ -336,7 +340,7 @@ msgstr "Velg alle"
 msgid "Venstre"
 msgstr "Venstre"
 
-#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2903
+#: src/components/MapContainer/SVGComponents/res/LeftLegRes.tsx:2887
 msgid "venstre fot"
 msgstr "venstre fot"
 

@@ -2,3 +2,5 @@
 **/out/*
 **/.next/*
 *.js
+*.yml
+*.yaml
