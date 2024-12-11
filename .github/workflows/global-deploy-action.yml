@@ -48,6 +48,7 @@ env:
   DOCKER_USER: ::env::DOCKER_USER_APPU
   DOCKER_PASS: ::env::DOCKER_PASS_APPU
   NGINX_REPOSITORY: harbor.uio.no/it-ffu-appu-drift/usit-wapp-nginx
+  NGINX_APPLICATION: nettskjema-inn
 
 jobs:
   docker-push:
