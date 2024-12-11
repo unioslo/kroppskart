@@ -47,8 +47,6 @@ env:
   OPENSHIFT_PASS: ::env::OPENSHIFT_PASS_APPU
   DOCKER_USER: ::env::DOCKER_USER_APPU
   DOCKER_PASS: ::env::DOCKER_PASS_APPU
-  NGINX_REPOSITORY: harbor.uio.no/it-ffu-appu-drift/usit-wapp-nginx
-  NGINX_APPLICATION: nettskjema-inn
 
 jobs:
   docker-push:
@@ -73,7 +71,7 @@ jobs:
           --project=${{ inputs.project }}
           --environment=${{ inputs.environment }}  
           --dry-run=${{ inputs.dry-run }}
-          --nginx-app=nettskjema-inn-nginx
+          --nginx-app=nettskjema-inn
       - name: Verify deployment
         if: ${{ inputs.environment == inputs.verifyDeployment == true }}
         run: >
